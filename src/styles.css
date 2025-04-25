@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: nord --default
+}
+@plugin "flyonui" {
+  themes: light --default;
+}
+@plugin "@iconify/tailwind4";
+@import "flyonui/variants.css";
+@source "../node_modules/flyonui/flyonui.js";
+
+.text-shadow {
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
