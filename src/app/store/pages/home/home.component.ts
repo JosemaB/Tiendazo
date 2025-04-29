@@ -19,38 +19,57 @@ export class HomeComponent implements OnInit {
   destroyRef = inject(DestroyRef);
 
 
-  // Cambia el tipo de 'products' a 'Product[]' ya que la respuesta es un array de productos
-  products: Products = {};
-  productsTechnology: Products = {};
 
+  products: Products = {};
+  productsPage2: Products = {};
+  productsLaptops: Products = {};
+  productsSport: Products = {};
 
   ngOnInit(): void {
-    // Usar forkJoin para hacer ambas solicitudes de forma paralela
+
     forkJoin([
       this.getAllProducts(),
-      this.getAllProductsTechnology()
+      this.getAllProducts(5),
+      this.getProductsLaptops(),
+      this.getProductsSports()
     ]).subscribe();
 
-    // Usamos setTimeout para ejecutar la función después de 3 segundos
+
     window.HSStaticMethods.autoInit()
   }
 
 
-  private getAllProducts(): Observable<any> {
-    return this.productsService.getAllProducts()
+  private getAllProducts(page = 1): Observable<any> {
+    return this.productsService.getAllProducts(page)
       .pipe(
         takeUntilDestroyed(this.destroyRef),
         distinctUntilChanged(),
-        tap((allProducts) => this.products = allProducts)
+        tap((allProducts) => {
+          if (page === 1) {
+            this.products = allProducts
+          } else {
+            this.productsPage2 = allProducts
+          }
+        })
       )
   }
 
-  private getAllProductsTechnology(): Observable<any> {
-    return this.productsService.getAllProductsTechnology()
+  private getProductsLaptops(): Observable<any> {
+    return this.productsService.getCategoryProducts('laptops')
       .pipe(
         takeUntilDestroyed(this.destroyRef),
         distinctUntilChanged(),
-        tap((techProducts) => this.productsTechnology = techProducts)
+        tap((laptopsProducts) => this.productsLaptops = laptopsProducts)
+      )
+  }
+
+  private getProductsSports(): Observable<any> {
+
+    return this.productsService.getCategoryProducts('sports-accessories')
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        distinctUntilChanged(),
+        tap((sportProducts) => this.productsSport = sportProducts)
       )
   }
 }

@@ -1,16 +1,18 @@
-<div class="container mx-auto px-4">
-  <carousel-main />
+<div class="container mx-auto">
   <h1
-    class="mb-4 text-3xl font-extrabold text-shadow-purple-700 md:text-xl lg:text-4xl text-center"
+    class="my-4 sm:text-xl font-extrabold lg:text-4xl text-center bg-gradient-to-r from-pink-400 to-purple-600 text-white rounded-2xl px-4 py-3 shadow-md"
   >
-    <span
-      class="text-transparent bg-clip-text bg-gradient-to-r to-purple-600 from-pink-400"
-      >¡Consigue las ofertas</span
-    >
-    <span class="text-purple-600"> más TOP del momento!</span>
+    <span class="text-white">¡Consigue las ofertas</span>
+    <span class="text-white"> más TOP del momento!</span>
   </h1>
 
-  <carousel-products [products]="productsTechnology" />
+  <carousel-main />
+
+  <h2
+    class="font-bold text-2xl text-center mt-2 mb-5 bg-purple-500 text-white rounded-2xl px-4 py-2"
+  >
+    Descubre los productos más vendidos
+  </h2>
 
   <div
     class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-items-center gap-x-4"
@@ -25,5 +27,44 @@
       [price]="product.price"
     />
     }
+  </div>
+
+  <div id="laptops">
+    <h2
+      class="font-bold text-2xl text-center my-3 bg-red-400 text-white rounded-2xl px-4 py-2"
+    >
+      ¡Tu Nuevo Portátil Está Esperando!
+    </h2>
+    <carousel-products [products]="productsLaptops" />
+  </div>
+
+  <h2
+    class="font-bold text-2xl text-center mt-2 mb-5 bg-purple-500 text-white rounded-2xl px-4 py-2"
+  >
+    Productos ideales para tu hogar
+  </h2>
+
+  <div
+    class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-items-center gap-x-4"
+  >
+    @for(product of productsPage2.products; track product.id){
+    <product-card
+      [urlProduct]="product.id"
+      [title]="product.title"
+      [img]="product.images[0]"
+      [alt_img]="product.title"
+      [rating]="product.rating"
+      [price]="product.price"
+    />
+    }
+  </div>
+
+  <div id="fragances">
+    <h2
+      class="font-bold text-2xl text-center my-5 bg-red-400 text-white rounded-2xl px-4 py-2"
+    >
+      Productos para tu vida deportiva
+    </h2>
+    <carousel-products [products]="productsSport" />
   </div>
 </div>

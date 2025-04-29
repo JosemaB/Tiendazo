@@ -8,10 +8,14 @@ import { Products } from '@store/interfaces/product.interface';
 export class ProductsService {
   private http = inject(HttpClient);
 
-  getAllProducts(): Observable<Products> {
-    return this.http.get<Products>(`${environment.productsApi}`);
+  getAllProducts(page = 1, limit = 12): Observable<Products> {
+    const skip = (page - 1) * limit;
+    return this.http.get<Products>(`${environment.productsApi}?limit=${limit}&skip=${skip}`);
   }
-  getAllProductsTechnology(): Observable<Products> {
-    return this.http.get<Products>(`${environment.productsCategoryApi}/laptops`);
+
+  getCategoryProducts(categorie: string): Observable<Products> {
+    categorie = categorie ? `/${categorie}` : '';
+    return this.http.get<Products>(`${environment.productsCategoryApi}${categorie}`);
   }
+
 }
