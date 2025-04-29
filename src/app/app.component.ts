@@ -14,14 +14,13 @@ export class AppComponent {
 
   router = inject(Router);
   ngOnInit() {
-
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         setTimeout(() => {
           if (typeof window !== 'undefined' && window.HSStaticMethods) {
             window.HSStaticMethods.autoInit();
           }
-        }, 100);
+        }, 500);
       }
     });
   }

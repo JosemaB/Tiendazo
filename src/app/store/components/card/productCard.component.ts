@@ -12,6 +12,8 @@ export class productCardComponent {
   @Input() urlProduct: number = 0;
   @Input() title: string = '';
   @Input() img: string = '';
+  @Input() alt_img: string = '';
+
   @Input() price: number = 0;
   @Input() rating: number = 0;
 

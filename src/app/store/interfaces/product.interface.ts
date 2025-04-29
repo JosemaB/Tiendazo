@@ -1,9 +1,9 @@
 
 export interface Products {
-  products: Product[];
-  total:    number;
-  skip:     number;
-  limit:    number;
+  products?: Product[];
+  total?:    number;
+  skip?:     number;
+  limit?:    number;
 }
 
 export interface Product {

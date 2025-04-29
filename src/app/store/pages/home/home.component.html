@@ -9,14 +9,18 @@
     >
     <span class="text-purple-600"> más TOP del momento!</span>
   </h1>
+
+  <carousel-products [products]="productsTechnology" />
+
   <div
-    class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-items-center"
+    class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-items-center gap-x-4"
   >
-    @for(product of products(); track product.id){
+    @for(product of products.products; track product.id){
     <product-card
       [urlProduct]="product.id"
       [title]="product.title"
       [img]="product.images[0]"
+      [alt_img]="product.title"
       [rating]="product.rating"
       [price]="product.price"
     />

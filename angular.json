@@ -98,7 +98,10 @@
               "@angular/material/prebuilt-themes/magenta-violet.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+                "node_modules/hs-static-methods/dist/hs-static-methods.min.js",
+                "node_modules/flyonui/flyonui.js"
+            ]
           }
         }
       }

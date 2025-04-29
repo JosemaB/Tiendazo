@@ -1,38 +1,57 @@
-import { Component, computed, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { Products } from '../../interfaces/product.interface';
-import { ProductsService } from '../../services/products.service';
-import { productCardComponent } from "../../components/card/productCard.component";
-import { CarouselMainComponent } from "../../components/carouselMain/carouselMain/carouselMain.component";
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+import { Products } from '@store/interfaces/product.interface';
+import { ProductsService } from '@store/services/products.service';
+import { productCardComponent } from "@store/components/card/productCard.component";
+import { CarouselMainComponent } from "@store/components/carouselMain/carouselMain/carouselMain.component";
+import { CarouselProductsComponent } from "@shared/components/CarouselProducts/CarouselProducts.component";
+import { distinctUntilChanged, forkJoin, Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-home',
-  imports: [productCardComponent, CarouselMainComponent],
+  imports: [productCardComponent, CarouselMainComponent, CarouselProductsComponent],
   templateUrl: './home.component.html'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   productsService = inject(ProductsService);
-  productsResponse = toSignal<Products>(this.productsService.getAllProducts());
-
-  products = computed(() => {
-    const response = this.productsResponse();
-    console.log('Productos:', response?.products); // Aquí logueamos los productos
-    return response ? response.products : [];
-  });
+  destroyRef = inject(DestroyRef);
 
 
-  // Añade esto a la clase ProductCarouselComponent
-  scrollCarousel(direction: 'left' | 'right') {
-    const container = document.getElementById('product-carousel');
-    if (container) {
-      const scrollAmount = 300; // Ajusta este valor según necesites
-      if (direction === 'left') {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }
-    }
+  // Cambia el tipo de 'products' a 'Product[]' ya que la respuesta es un array de productos
+  products: Products = {};
+  productsTechnology: Products = {};
+
+
+  ngOnInit(): void {
+    // Usar forkJoin para hacer ambas solicitudes de forma paralela
+    forkJoin([
+      this.getAllProducts(),
+      this.getAllProductsTechnology()
+    ]).subscribe();
+
+    // Usamos setTimeout para ejecutar la función después de 3 segundos
+    window.HSStaticMethods.autoInit()
+  }
+
+
+  private getAllProducts(): Observable<any> {
+    return this.productsService.getAllProducts()
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        distinctUntilChanged(),
+        tap((allProducts) => this.products = allProducts)
+      )
+  }
+
+  private getAllProductsTechnology(): Observable<any> {
+    return this.productsService.getAllProductsTechnology()
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        distinctUntilChanged(),
+        tap((techProducts) => this.productsTechnology = techProducts)
+      )
   }
 }
 
