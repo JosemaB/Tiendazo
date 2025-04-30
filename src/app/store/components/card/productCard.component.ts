@@ -9,13 +9,13 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 })
 export class productCardComponent {
 
-  @Input() urlProduct: number = 0;
-  @Input() title: string = '';
-  @Input() img: string = '';
-  @Input() alt_img: string = '';
+  @Input() urlProduct: number | undefined = 0;
+  @Input() title: string | undefined = '';
+  @Input() img: string[] | undefined = [];
+  @Input() alt_img: string | undefined = '';
 
-  @Input() price: number = 0;
-  @Input() rating: number = 0;
+  @Input() price: number | undefined = 0;
+  @Input() rating: number | undefined = 0;
 
   router = inject(Router);
   sanitizer = inject(DomSanitizer);

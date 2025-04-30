@@ -11,5 +11,4 @@ export class CarouselProductsComponent {
 
   @Input() products: Products = {};
 
-
 }

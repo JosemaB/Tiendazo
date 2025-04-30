@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '@environments/environment.development';
 import { Observable } from 'rxjs';
-import { Products } from '@store/interfaces/product.interface';
+import { Products, Product } from '@store/interfaces/product.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
@@ -18,4 +18,7 @@ export class ProductsService {
     return this.http.get<Products>(`${environment.productsCategoryApi}${categorie}`);
   }
 
+  getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(`${environment.productsApi}/${id}`);
+  }
 }

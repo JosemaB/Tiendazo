@@ -1,10 +1,7 @@
 <div class="container mx-auto">
-  <h1
-    class="my-4 sm:text-xl font-extrabold lg:text-4xl text-center bg-gradient-to-r from-pink-400 to-purple-600 text-white rounded-2xl px-4 py-3 shadow-md"
-  >
-    <span class="text-white">¡Consigue las ofertas</span>
-    <span class="text-white"> más TOP del momento!</span>
-  </h1>
+  <app-section-title>
+    ¡Consigue las ofertas más TOP del momento!
+  </app-section-title>
 
   <carousel-main />
 
@@ -21,7 +18,7 @@
     <product-card
       [urlProduct]="product.id"
       [title]="product.title"
-      [img]="product.images[0]"
+      [img]="product.images"
       [alt_img]="product.title"
       [rating]="product.rating"
       [price]="product.price"
@@ -51,7 +48,7 @@
     <product-card
       [urlProduct]="product.id"
       [title]="product.title"
-      [img]="product.images[0]"
+      [img]="product.images"
       [alt_img]="product.title"
       [rating]="product.rating"
       [price]="product.price"

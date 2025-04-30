@@ -7,10 +7,11 @@ import { productCardComponent } from "@store/components/card/productCard.compone
 import { CarouselMainComponent } from "@store/components/carouselMain/carouselMain/carouselMain.component";
 import { CarouselProductsComponent } from "@shared/components/CarouselProducts/CarouselProducts.component";
 import { distinctUntilChanged, forkJoin, Observable, tap } from 'rxjs';
+import { SectionTitleComponentComponent } from "@shared/components/SectionTitleComponent/SectionTitleComponent.component";
 
 @Component({
   selector: 'app-home',
-  imports: [productCardComponent, CarouselMainComponent, CarouselProductsComponent],
+  imports: [productCardComponent, CarouselMainComponent, CarouselProductsComponent, SectionTitleComponentComponent],
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {

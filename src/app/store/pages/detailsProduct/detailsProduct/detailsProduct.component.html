@@ -1,1 +1,11 @@
-<p>detailsProduct works!</p>,
+<div class="container mx-auto">
+  <app-section-title>
+    {{ product.title }}
+  </app-section-title>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 justify-center">
+    @if(product.images && product.images.length > 1){
+    <app-carousel-3-img [product]="product" />
+    }
+  </div>
+</div>

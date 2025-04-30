@@ -7,28 +7,28 @@ export interface Products {
 }
 
 export interface Product {
-  id:                   number;
-  title:                string;
-  description:          string;
-  category:             Category;
-  price:                number;
-  discountPercentage:   number;
-  rating:               number;
-  stock:                number;
-  tags:                 string[];
+  id?:                   number;
+  title?:                string;
+  description?:          string;
+  category?:             Category;
+  price?:                number;
+  discountPercentage?:   number;
+  rating?:               number;
+  stock?:                number;
+  tags?:                 string[];
   brand?:               string;
-  sku:                  string;
-  weight:               number;
-  dimensions:           Dimensions;
-  warrantyInformation:  string;
-  shippingInformation:  string;
-  availabilityStatus:   AvailabilityStatus;
-  reviews:              Review[];
-  returnPolicy:         ReturnPolicy;
-  minimumOrderQuantity: number;
-  meta:                 Meta;
-  images:               string[];
-  thumbnail:            string;
+  sku?:                  string;
+  weight?:               number;
+  dimensions?:           Dimensions;
+  warrantyInformation?:  string;
+  shippingInformation?:  string;
+  availabilityStatus?:   AvailabilityStatus;
+  reviews?:              Review[];
+  returnPolicy?:         ReturnPolicy;
+  minimumOrderQuantity?: number;
+  meta?:                 Meta;
+  images?:               string[];
+  thumbnail?:            string;
 }
 
 export enum AvailabilityStatus {

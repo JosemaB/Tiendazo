@@ -1,0 +1,57 @@
+@if (this.product.images && this.product.images.length > 0) {
+<div
+  id="vertical-thumbnails"
+  data-carousel='{ "loadingClasses": "opacity-0" }'
+  class="relative w-full"
+>
+  <div class="carousel flex space-x-2 rounded-none">
+    <div class="flex-none">
+      <div
+        class="carousel-pagination h-full max-sm:w-8 w-[100px] xl:w-[200px] flex justify-between flex-col gap-y-2 overflow-hidden"
+      >
+        @for (img of product.images.slice(0, 3); track product.id) {
+        <img
+          src="{{img}}"
+          class="object-contain carousel-pagination-item carousel-active:opacity-100 grow opacity-30 rounded-lg"
+          alt="mountain"
+        />
+        }
+      </div>
+    </div>
+    <div class="relative grow overflow-hidden rounded-2xl  justify-center">
+      <div class="carousel-body h-full w-full opacity-0">
+        @for (img of product.images; track product.id) {
+        <!-- Slide -->
+        <div class="carousel-slide">
+          <div class="flex size-full justify-center">
+            <img src="{{img}}" class="size-full object-contain" alt="mountain" />
+          </div>
+        </div>
+        }
+      </div>
+      <!-- Previous Slide -->
+      <button type="button" class="carousel-prev">
+        <span
+          class="size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow-base-300/20 shadow-sm"
+        >
+          <span
+            class="icon-[tabler--chevron-left] size-5 cursor-pointer rtl:rotate-180"
+          ></span>
+        </span>
+        <span class="sr-only">Previous</span>
+      </button>
+      <!-- Next Slide -->
+      <button type="button" class="carousel-next">
+        <span class="sr-only">Next</span>
+        <span
+          class="size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow-base-300/20 shadow-sm"
+        >
+          <span
+            class="icon-[tabler--chevron-right] size-5 cursor-pointer rtl:rotate-180"
+          ></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+}
