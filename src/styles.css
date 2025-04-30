@@ -1,7 +1,4 @@
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes: nord --default
-}
 @plugin "flyonui" {
   themes: light --default;
 }

@@ -1,52 +1,197 @@
-<nav class="navbar z-50 top-0 sticky bg-purple-400 shadow-sm">
-  <div class="flex-1">
-    <a class="btn btn-ghost text-xl">Tiendazo</a>
-  </div>
-  <div class="flex gap-2">
-    <div class="flex items-center">
-      <input
-        type="text"
-        placeholder="Search"
-        class="input w-24 md:w-auto rounded-l-full focus:outline-none"
-        />
-      <button class="cursor-pointer px-2 pr-3 h-full bg-purple-500 hover:bg-fuchsia-400 flex items-center justify-center rounded-r-full"> <!-- Bordes redondeados en la derecha -->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-5 h-5"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-          />
-        </svg>
-      </button>
-    </div>
+<nav class="navbar top-0 sticky left-0 w-full z-50 bg-purple-400 gap-4 px-4">
+  <div class="navbar-start items-center">
+    <a
+      class="link text-white link-neutral hover:text-purple-900text-purple-900 text-xl font-bold no-underline"
+      href="#"
+    >
+     <img src="assets/images/Icon/iconTiendazo.png" class="max-w-full h-auto max-h-10">
+    </a>
 
-    <div class="dropdown dropdown-end">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-        <div class="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-          />
-        </div>
-      </div>
-      <ul
-        tabindex="0"
-        class="bg-purple-400 menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+    <div
+      class="dropdown [--adaptive:none] [--auto-close:inside] [--strategy:static] md:[--strategy:absolute]"
+    >
+      <button
+        type="button"
+        class="dropdown-toggle btn btn-text text-white  font-bold dropdown-open:bg-base-content/10 dropdown-open:text-base-content max-md:px-3 "
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-label="Dropdown"
       >
+        Todas las categorías
+        <span
+          class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"
+        ></span>
+      </button>
+      <div
+        class="dropdown-menu !rounded-none bg-purple-400 dropdown-open:opacity-100 start-0 top-full hidden w-full min-w-60 py-2 opacity-0 transition-[opacity,margin] duration-[0.1ms] before:absolute max-md:shadow-none"
+        role="menu"
+        aria-orientation="vertical"
+      >
+        <ul
+          class="menu md:menu-horizontal rounded-box w-full max-xl:gap-4 p-0 bg-purple-400 justify-center"
+        >
+          <li>
+            <h3
+              class="menu-title text-center text-xl text-shadow font-bold text-white"
+            >
+              🖥️ Tecnología
+            </h3>
+            <ul class="menu">
+              <li><a href="#">Laptops</a></li>
+              <li><a href="#">Móviles</a></li>
+              <li><a href="#">Tablets</a></li>
+              <li><a href="#">Accesorios para móviles</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <h3
+              class="menu-title text-center text-xl text-shadow font-bold text-white"
+            >
+              🏠 Hogar
+            </h3>
+            <ul class="menu">
+              <li><a href="#">Muebles</a></li>
+              <li><a href="#">Decoración</a></li>
+              <li><a href="#">Accesorios de cocina</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <h3
+              class="menu-title text-center text-xl text-shadow font-bold text-white"
+            >
+              ⭐ Ropa y Moda
+            </h3>
+            <ul class="menu">
+              <li><a href="#">Camisas de hombre</a></li>
+              <li><a href="#">Zapatos de hombre</a></li>
+              <li><a href="#">Relojes de hombre</a></li>
+              <li><a href="#">Vestidos de mujer</a></li>
+              <li><a href="#">Bolsos de mujer</a></li>
+              <li><a href="#">Zapatos de mujer</a></li>
+              <li><a href="#">Relojes de mujer</a></li>
+              <li><a href="#">Joyería de mujer</a></li>
+              <li><a href="#">Tops</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <h3
+              class="menu-title text-center text-xl text-shadow font-bold text-white"
+            >
+             🔗 Otros
+            </h3>
+            <ul class="menu">
+              <li><a href="#">Belleza</a></li>
+              <li><a href="#">Cuidado de la piel</a></li>
+              <li><a href="#">Fragancias</a></li>
+              <li><a href="#">Gafas de sol</a></li>
+              <li><a href="#">Alimentos</a></li>
+              <li><a href="#">Vehículos</a></li>
+              <li><a href="#">Motocicletas</a></li>
+              <li><a href="#">Accesorios deportivos</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <h3
+              class="menu-title text-center text-xl text-shadow font-bold text-white"
+            >
+              📞 Contacto
+            </h3>
+            <ul class="menu">
+              <li><a href="#">Quiénes somos</a></li>
+              <li><a href="#">Soporte</a></li>
+              <li><a href="#">Política de privacidad</a></li>
+              <li><a href="#">Términos y condiciones</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-end flex items-center gap-4">
+    <button class="btn btn-sm btn-text btn-circle size-8.5 md:hidden">
+      <span class="icon-[tabler--search] size-5.5"></span>
+    </button>
+    <div class="input max-md:hidden rounded-full max-w-86">
+      <span
+        class="icon-[tabler--search] text-base-content/80 my-auto me-3 size-5 shrink-0"
+      ></span>
+      <label class="sr-only" for="searchInput">Full Name</label>
+      <input type="search" class="grow" placeholder="Search" id="searchInput" />
+    </div>
+    <div
+      class="dropdown relative inline-flex [--auto-close:inside] [--offset:8] [--placement:bottom-end]"
+    >
+      <button
+        id="dropdown-scrollable"
+        type="button"
+        class="dropdown-toggle flex items-center"
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-label="Dropdown"
+      >
+        <div class="avatar">
+          <div class="size-9.5 rounded-full">
+            <img
+              src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png"
+              alt="avatar 1"
+            />
+          </div>
+        </div>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60"
+        role="menu"
+        aria-orientation="vertical"
+        aria-labelledby="dropdown-avatar"
+      >
+        <li class="dropdown-header gap-2">
+          <div class="avatar">
+            <div class="w-10 rounded-full">
+              <img
+                src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png"
+                alt="avatar"
+              />
+            </div>
+          </div>
+          <div>
+            <h6 class="text-base-content text-base font-semibold">John Doe</h6>
+            <small class="text-base-content/50">Admin</small>
+          </div>
+        </li>
         <li>
-          <a class="justify-between">
-            Profile
+          <a class="dropdown-item" href="#">
+            <span class="icon-[tabler--user]"></span>
+            My Profile
           </a>
         </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li>
+          <a class="dropdown-item" href="#">
+            <span class="icon-[tabler--settings]"></span>
+            Settings
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">
+            <span class="icon-[tabler--receipt-rupee]"></span>
+            Billing
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">
+            <span class="icon-[tabler--help-triangle]"></span>
+            FAQs
+          </a>
+        </li>
+        <li class="dropdown-footer gap-2">
+          <a class="btn btn-error btn-soft btn-block" href="#">
+            <span class="icon-[tabler--logout]"></span>
+            Sign out
+          </a>
+        </li>
       </ul>
     </div>
   </div>
