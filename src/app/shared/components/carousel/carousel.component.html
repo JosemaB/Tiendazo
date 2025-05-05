@@ -5,26 +5,31 @@
   class="relative w-full"
 >
   <div class="carousel flex space-x-2 rounded-none">
-    <div class="flex-none">
+    <div class="flex-none hidden lg:block">
       <div
         class="carousel-pagination h-full max-sm:w-8 w-[100px] xl:w-[200px] flex justify-between flex-col gap-y-2 overflow-hidden"
       >
-        @for (img of product.images.slice(0, 3); track product.id) {
+        @for (img of product.images.slice(0, 3); let idx = $index; track
+        img) {
         <img
-          src="{{img}}"
+          src="{{ img }}"
           class="object-contain carousel-pagination-item carousel-active:opacity-100 grow opacity-30 rounded-lg"
           alt="mountain"
         />
         }
       </div>
     </div>
-    <div class="relative grow overflow-hidden rounded-2xl  justify-center">
+    <div class="relative grow overflow-hidden rounded-2xl justify-center">
       <div class="carousel-body h-full w-full opacity-0">
-        @for (img of product.images; track product.id) {
+        @for (img of product.images; let idx = $index; track img) {
         <!-- Slide -->
         <div class="carousel-slide">
           <div class="flex size-full justify-center">
-            <img src="{{img}}" class="size-full object-contain" alt="mountain" />
+            <img
+              src="{{ img }}"
+              class="size-full object-contain"
+              alt="mountain"
+            />
           </div>
         </div>
         }

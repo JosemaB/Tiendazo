@@ -8,7 +8,7 @@
         class="w-50 h-50 object-contain"
         src="{{ img[0] }}?width=100&height=100"
         [srcset]="img[0] + ' 1x, ' + img[0] + ' 2x'"
-        alt="{{alt_img}}"
+        alt="{{ alt_img }}"
       />
     </figure>
     <div class="card-body">
@@ -18,20 +18,19 @@
       >
         {{ title }}
       </h2>
-      <div class="flex items-center mt-2.5 mb-5">
-        <span class="flex" [innerHTML]="getRatingStars(rating)"></span>
-        <span
-          class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm dark:bg-purple-200 dark:text-purple-800 ms-3"
-          >{{ rating }}</span
-        >
-      </div>
-      <div class="flex items-center justify-between">
-        <span class="text-3xl font-bold text-pink-800">{{ price }} $</span>
-        <a
-          (click)="$event.stopPropagation()"
-          class="text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-purple-500 hover:bg-fuchsia-400"
-          >Add to cart</a
-        >
+
+      <div class="flex justify-between items-end">
+        <div class="flex items-center">
+          <span
+            class="flex"
+            [innerHTML]="utilsString.getRatingStars(rating)"
+          ></span>
+          <span
+            class="bg-blue-100 text-blue-800 font-semibold px-2.5 py-0.5 rounded-sm dark:bg-purple-200 dark:text-purple-800 ms-3"
+            >{{ rating }}</span
+          >
+        </div>
+        <span class="text-2xl font-bold text-pink-800">{{ price }} $</span>
       </div>
     </div>
   </div>

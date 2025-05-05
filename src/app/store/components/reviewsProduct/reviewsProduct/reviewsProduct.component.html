@@ -1,0 +1,22 @@
+@for (review of reviews; track review.reviewerEmail; let idx = $index) {
+<div class="rounded-2xl border bg-white p-4 shadow-md mb-1">
+  <div class="flex items-start gap-4">
+    <img
+      src="https://i.pravatar.cc/150?img={{ idx + 10 }}"
+      alt="avatar"
+      class="h-10 w-10 rounded-full object-cover"
+    />
+    <div class="flex-1">
+      <div class="flex justify-between items-center">
+        <p class="font-semibold text-purple-900">{{ review.reviewerName }}</p>
+        <span class="text-xs text-gray-400">
+          Hace {{ stringUtils.getDaysAgo(review.date!) }} días
+        </span>
+      </div>
+      <p class="mt-1 text-sm text-gray-700">
+        {{ review.comment }}
+      </p>
+    </div>
+  </div>
+</div>
+}

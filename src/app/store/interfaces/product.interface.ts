@@ -65,9 +65,9 @@ export enum ReturnPolicy {
 }
 
 export interface Review {
-  rating:        number;
-  comment:       string;
-  date:          Date;
-  reviewerName:  string;
-  reviewerEmail: string;
+  rating?:        number;
+  comment?:       string;
+  date?:          string;
+  reviewerName?:  string;
+  reviewerEmail?: string;
 }

@@ -4,12 +4,11 @@
   data-carousel='{ "loadingClasses": "opacity-0", "slidesQty": { "xs": 1, "md": 2, "xl": 3 } }'
   class="relative w-full"
 >
-  <div class="carousel h-100">
+  <div class="carousel h-auto">
     <div class="carousel-body h-full opacity-0">
       <!-- Slide 1 -->
-      @for(product of products.products; track product.id){
-
-      <div class="carousel-slide">
+      @for(product of products.products; track product.id){ @if(product.id){
+      <div class="carousel-slide w-[450px]">
         <div class="flex h-full justify-center align-center">
           <product-card
             [urlProduct]="product.id"
@@ -21,7 +20,7 @@
           />
         </div>
       </div>
-      }
+      } }
     </div>
   </div>
 
