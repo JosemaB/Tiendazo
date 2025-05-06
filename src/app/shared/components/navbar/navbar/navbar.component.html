@@ -1,14 +1,19 @@
-<nav class="navbar top-0 sticky left-0 w-full z-50 bg-purple-400 gap-4 px-4">
+<nav class="navbar top-0 sticky left-0 w-full z-50 bg-purple-500 gap-4 px-4">
   <div class="navbar-start items-center gap-2">
     <a
-      class="link text-white link-neutral hover:text-purple-900text-purple-900 text-xl font-bold no-underline"
+      class="link text-white flex items-center link-neutral hover:text-purple-900 text-xl font-bold no-underline"
       href="#"
+      aria-label="Ir a Tiendazo"
     >
-      <img
-        src="assets/images/Icon/iconTiendazo.png"
-        class="max-w-full h-auto max-h-10"
+    <img
+      src="assets/images/Icon/iconTiendazo.png"
+      class="max-w-full h-auto max-h-10"
+      alt="Icono Tiendazo"
       />
+      <span class="text-center ml-1">Tiendazo</span>
+      <!-- Añadí un margen a la derecha para separar el texto de la imagen -->
     </a>
+
     <div class="dropdown relative inline-flex [--trigger:hover]">
       <button
         id="dropdown-hover"

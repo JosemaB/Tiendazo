@@ -1,25 +1,22 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-
 import { Products } from '@store/interfaces/product.interface';
 import { ProductsService } from '@store/services/products.service';
 import { productCardComponent } from "@store/components/card/productCard.component";
-import { CarouselMainComponent } from "@store/components/carouselMain/carouselMain/carouselMain.component";
 import { CarouselProductsComponent } from "@shared/components/CarouselProducts/CarouselProducts.component";
 import { distinctUntilChanged, forkJoin, Observable, tap } from 'rxjs';
 import { SectionTitleComponentComponent } from "@shared/components/SectionTitleComponent/SectionTitleComponent.component";
+import { CategoriasHomeComponent } from "./components/categoriasHome/categoriasHome.component";
 
 @Component({
   selector: 'app-home',
-  imports: [productCardComponent, CarouselMainComponent, CarouselProductsComponent, SectionTitleComponentComponent],
+  imports: [productCardComponent, CarouselProductsComponent, SectionTitleComponentComponent, CategoriasHomeComponent],
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
 
   productsService = inject(ProductsService);
   destroyRef = inject(DestroyRef);
-
-
 
   products: Products = {};
   productsPage2: Products = {};
