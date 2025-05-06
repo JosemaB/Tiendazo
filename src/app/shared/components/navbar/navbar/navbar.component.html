@@ -1,114 +1,334 @@
 <nav class="navbar top-0 sticky left-0 w-full z-50 bg-purple-400 gap-4 px-4">
-  <div class="navbar-start items-center">
+  <div class="navbar-start items-center gap-2">
     <a
       class="link text-white link-neutral hover:text-purple-900text-purple-900 text-xl font-bold no-underline"
       href="#"
     >
-     <img src="assets/images/Icon/iconTiendazo.png" class="max-w-full h-auto max-h-10">
+      <img
+        src="assets/images/Icon/iconTiendazo.png"
+        class="max-w-full h-auto max-h-10"
+      />
     </a>
-
-    <div
-      class="dropdown [--adaptive:none] [--auto-close:inside] [--strategy:static] md:[--strategy:absolute]"
-    >
+    <div class="dropdown relative inline-flex [--trigger:hover]">
       <button
+        id="dropdown-hover"
         type="button"
-        class="dropdown-toggle btn btn-text text-white  font-bold dropdown-open:bg-base-content/10 dropdown-open:text-base-content max-md:px-3 "
+        class="dropdown-toggle font-bold text-neutral-50 px-6 py-3 text-base hover:bg-purple-500 rounded-md"
         aria-haspopup="menu"
         aria-expanded="false"
         aria-label="Dropdown"
       >
         Todas las categorías
         <span
-          class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"
+          class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4 ml-2"
         ></span>
       </button>
-      <div
-        class="dropdown-menu !rounded-none bg-purple-400 dropdown-open:opacity-100 start-0 top-full hidden w-full min-w-60 py-2 opacity-0 transition-[opacity,margin] duration-[0.1ms] before:absolute max-md:shadow-none"
+
+      <!-- Menú principal -->
+      <ul
+        class="dropdown-menu dropdown-open:opacity-100 bg-purple-400 hidden min-w-60 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
         role="menu"
         aria-orientation="vertical"
+        aria-labelledby="dropdown-hover"
       >
-        <ul
-          class="menu md:menu-horizontal rounded-box w-full max-xl:gap-4 p-0 bg-purple-400 justify-center"
-        >
-          <li>
-            <h3
-              class="menu-title text-center text-xl text-shadow font-bold text-white"
-            >
-              🖥️ Tecnología
-            </h3>
-            <ul class="menu">
-              <li><a href="#">Laptops</a></li>
-              <li><a href="#">Móviles</a></li>
-              <li><a href="#">Tablets</a></li>
-              <li><a href="#">Accesorios para móviles</a></li>
-            </ul>
-          </li>
+        <!-- Tecnología con submenú -->
+        <li class="relative group">
+          <a
+            class="dropdown-item flex justify-between items-center ext-amber-50 text-amber-50 font-bold hover:bg-purple-500"
+            href="#"
+          >
+            🖥️ Tecnología
+            <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
+          </a>
 
-          <li>
-            <h3
-              class="menu-title text-center text-xl text-shadow font-bold text-white"
-            >
-              🏠 Hogar
-            </h3>
-            <ul class="menu">
-              <li><a href="#">Muebles</a></li>
-              <li><a href="#">Decoración</a></li>
-              <li><a href="#">Accesorios de cocina</a></li>
-            </ul>
-          </li>
+          <!-- Submenú -->
+          <ul
+            class="absolute bg-purple-500 left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-48 z-50 p-2"
+          >
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >💻<span class="mx-1"></span>Laptops</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >📱<span class="mx-1"></span>Móviles</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+              >
+                <svg
+                  fill="#000000"
+                  class="w-4 h-4"
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 955.4 955.4"
+                  xml:space="preserve"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g>
+                      <path
+                        d="M165.351,0c-32.6,0-59,26.4-59,59v836.4c0,33.1,26.9,60,60,60H789.05c33.102,0,60-26.9,60-60V59c0-32.6-26.398-59-59-59 H165.351z M477.75,896.1c-23.4,0-42.3-18.9-42.3-42.299c0-23.4,18.899-42.301,42.3-42.301c23.401,0,42.299,18.9,42.299,42.301 C520.05,877.199,501.151,896.1,477.75,896.1z M773.151,725.4c0,16.6-13.4,30-30,30H212.351c-16.6,0-30-13.4-30-30V104.9 c0-16.6,13.4-30,30-30H743.05c16.602,0,30,13.4,30,30v620.5H773.151z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <span class="mx-1"></span>Tablets
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🎧<span class="mx-1"></span>Accesorios</a
+              >
+            </li>
+          </ul>
+        </li>
 
-          <li>
-            <h3
-              class="menu-title text-center text-xl text-shadow font-bold text-white"
-            >
-              ⭐ Ropa y Moda
-            </h3>
-            <ul class="menu">
-              <li><a href="#">Camisas de hombre</a></li>
-              <li><a href="#">Zapatos de hombre</a></li>
-              <li><a href="#">Relojes de hombre</a></li>
-              <li><a href="#">Vestidos de mujer</a></li>
-              <li><a href="#">Bolsos de mujer</a></li>
-              <li><a href="#">Zapatos de mujer</a></li>
-              <li><a href="#">Relojes de mujer</a></li>
-              <li><a href="#">Joyería de mujer</a></li>
-              <li><a href="#">Tops</a></li>
-            </ul>
-          </li>
+        <!-- Hogar con submenú -->
+        <li class="relative group">
+          <a
+            class="dropdown-item flex justify-between items-center text-amber-50 font-bold hover:bg-purple-500"
+            href="#"
+          >
+            🏠 Hogar
+            <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
+          </a>
+          <ul
+            class="absolute left-full top-0 hidden group-hover:block bg-purple-500 text-black shadow-md rounded-md w-64 z-50 p-2"
+          >
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🛋️<span class="mx-1"></span>Muebles
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🖼️<span class="mx-1"></span>Decoración
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🍽️<span class="mx-1"></span>Accesorios de cocina
+              </a>
+            </li>
+          </ul>
+        </li>
 
-          <li>
-            <h3
-              class="menu-title text-center text-xl text-shadow font-bold text-white"
-            >
-             🔗 Otros
-            </h3>
-            <ul class="menu">
-              <li><a href="#">Belleza</a></li>
-              <li><a href="#">Cuidado de la piel</a></li>
-              <li><a href="#">Fragancias</a></li>
-              <li><a href="#">Gafas de sol</a></li>
-              <li><a href="#">Alimentos</a></li>
-              <li><a href="#">Vehículos</a></li>
-              <li><a href="#">Motocicletas</a></li>
-              <li><a href="#">Accesorios deportivos</a></li>
-            </ul>
-          </li>
+        <!-- Moda con submenú -->
+        <li class="relative group">
+          <a
+            class="dropdown-item flex justify-between items-center text-amber-50 font-bold hover:bg-purple-500"
+            href="#"
+          >
+            ⭐ Moda
+            <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
+          </a>
+          <ul
+            class="absolute bg-purple-500 left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-64 z-50 p-2"
+          >
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >👕<span class="mx-1"></span>Camisas de hombre</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >👞<span class="mx-1"></span>Zapatos de hombre</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >⌚<span class="mx-1"></span>Relojes de hombre</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >👗<span class="mx-1"></span>Vestidos de mujer</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >👜<span class="mx-1"></span>Bolsos de mujer</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >👠<span class="mx-1"></span>Zapatos de mujer</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >⌚<span class="mx-1"></span>Relojes de mujer</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >💍<span class="mx-1"></span>Joyería de mujer</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >👚<span class="mx-1"></span>Tops</a
+              >
+            </li>
+          </ul>
+        </li>
 
-          <li>
-            <h3
-              class="menu-title text-center text-xl text-shadow font-bold text-white"
-            >
-              📞 Contacto
-            </h3>
-            <ul class="menu">
-              <li><a href="#">Quiénes somos</a></li>
-              <li><a href="#">Soporte</a></li>
-              <li><a href="#">Política de privacidad</a></li>
-              <li><a href="#">Términos y condiciones</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+        <!-- Otros con submenú -->
+        <li class="relative group">
+          <a
+            class="dropdown-item flex justify-between items-center hover:bg-purple-500 text-amber-50 font-bold"
+            href="#"
+          >
+            🔗 Otros
+            <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
+          </a>
+          <ul
+            class="absolute left-full top-0 hidden group-hover:block bg-purple-500 text-black shadow-md rounded-md w-64 z-50 p-2"
+          >
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >💄<span class="mx-1"></span>Belleza</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🧴<span class="mx-1"></span>Cuidado de la piel</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🌸<span class="mx-1"></span>Fragancias</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🕶️<span class="mx-1"></span>Gafas de sol</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🥫<span class="mx-1"></span>Alimentos</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🚗<span class="mx-1"></span>Vehículos</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🏍️<span class="mx-1"></span>Motocicletas</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🏋️<span class="mx-1"></span>Accesorios deportivos</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Contacto con submenú -->
+        <li class="relative group">
+          <a
+            class="dropdown-item flex justify-between items-center text-amber-50 font-bold hover:bg-purple-500"
+            href="#"
+          >
+            📞 Contacto
+            <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
+          </a>
+          <ul
+            class="absolute bg-purple-500 left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-64 z-50 p-2"
+          >
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >ℹ️<span class="mx-1"></span>Quiénes somos</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🛠️<span class="mx-1"></span>Soporte</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >🔒<span class="mx-1"></span>Política de privacidad</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                >📜<span class="mx-1"></span>Términos y condiciones</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
   <div class="navbar-end flex items-center gap-4">

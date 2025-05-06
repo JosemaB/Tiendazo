@@ -26,8 +26,6 @@ export class DetailsProductComponent implements OnInit {
     this.productsService.getProduct(this.productId).subscribe({
       next: (product) => {
         this.product = product;
-        console.log('Producto recibido:', product);
-
         // Cargar los detalles del producto cuando el ID cambie
         this.loadProductDetails();
       },
@@ -39,8 +37,6 @@ export class DetailsProductComponent implements OnInit {
     // Suscribirse a los parámetros de la ruta
     this.route.params.subscribe(params => {
       this.productId = params['id']; // Obtenemos el nuevo ID
-      console.log('ID del producto cambiado:', this.productId);
-
       // Cargar el producto con el nuevo ID
       this.loadProductDetails();
     });
@@ -50,7 +46,7 @@ export class DetailsProductComponent implements OnInit {
     // Aquí puedes cargar el producto desde tu servicio
     this.productsService.getProduct(this.productId).subscribe(product => {
       this.product = product;
-      window.scrollTo(0, window.scrollY);
+      window.scrollTo(0, 0);
       //Second request for related products
       this.productsService.getCategoryProducts(this.product.category!).subscribe({
         next: (relatedRes) => {
@@ -61,7 +57,6 @@ export class DetailsProductComponent implements OnInit {
         }
       });
 
-      console.log('Producto cargado:', product);
     });
   }
 }
