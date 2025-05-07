@@ -6,7 +6,7 @@ import { CarouselComponentTripleImg } from "@shared/components/carousel/carousel
 import { SectionTitleComponentComponent } from '@shared/components/SectionTitleComponent/SectionTitleComponent.component';
 import { StringUtils } from '@shared/utils/string.utils';
 import { CarouselProductsComponent } from "@shared/components/CarouselProducts/CarouselProducts.component";
-import { ReviewsProductComponent } from '@store/components/reviewsProduct/reviewsProduct/reviewsProduct.component';
+import { ReviewsProductComponent } from '@store/components/reviewsProduct/reviewsProduct.component';
 
 @Component({
   selector: 'details-product',
