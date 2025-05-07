@@ -20,4 +20,8 @@ export class ProductsService {
   getProduct(id: string): Observable<Product> {
     return this.http.get<Product>(`${environment.productsApi}/${id}`);
   }
+
+  getSearchProduct(product: string): Observable<Products> {
+    return this.http.get(`https://dummyjson.com/products/search?q=${product}`);
+  }
 }

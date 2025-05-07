@@ -1,0 +1,44 @@
+@if (!products.products || products.products.length === 0 ) {
+<!-- We check the error first -->
+<div
+  class="card sm:card-side w-full z-10 h-20 border border-black bg-pink-200 flex justify-center text-center"
+>
+  <div class="card-body">
+    <span class="text-pink-600 font-bold"> No se han encontrado resultados </span>
+  </div>
+</div>
+
+} @for (product of products.products?.slice(0,5); track idx; let idx = $index) {
+<a (click)="goToProduct(product.id!); $event.stopPropagation()" class="cursor-pointer">
+  <div
+    class="card sm:card-side w-full z-10 h-20 border border-black hover:bg-gray-300"
+  >
+    <div
+      class="w-[100px] h-full flex justify-center items-center flex-shrink-0"
+    >
+      @if (product.images) {
+      <img
+        class="w-full h-full object-contain"
+        src="{{ product.images[0] }}"
+        alt="{{ product.title }}"
+      />
+      }
+    </div>
+    <div class="card-body overflow-hidden">
+      <div
+        class="card-title mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis"
+        title=" {{ product.title }}"
+      >
+        {{ product.title }}
+      </div>
+    </div>
+  </div>
+</a>
+} @if (products.products && products.products.length >= 5 ) {
+<!-- We check that it has a value greater than 5 -->
+<button
+  class="cursor-pointer py-3 bg-purple-400 hover:bg-purple-600 w-full font-bold text-white border border-black"
+>
+  Mostrar más
+</button>
+}

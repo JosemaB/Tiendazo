@@ -21,8 +21,7 @@ export class productCardComponent {
   utilsString = inject(StringUtils);
 
   goToProduct(id: number): void {
-    console.log('Click en producto ID:', id);
-    this.router.navigate(['/product', id]); // Esto es lo correcto
+    this.router.navigate(['/product', id]);
   }
 
 
