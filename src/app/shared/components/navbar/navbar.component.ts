@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime } from 'rxjs/operators';
-import { BuscadorNavComponent } from "./components/buscadorNav/buscadorNAv/buscadorNAv.component";
 import { ProductsService } from '@store/services/products.service';
 import { Products } from '@store/interfaces/product.interface';
+import { BuscadorNavComponent } from './components/buscadorNav/buscadorNav.component';
 @Component({
   selector: 'app-navbar',
   imports: [BuscadorNavComponent],
