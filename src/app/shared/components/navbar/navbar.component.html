@@ -1,4 +1,6 @@
-<nav class="navbar top-0 sticky left-0 w-full z-50 bg-purple-500 gap-4 px-4">
+<nav
+  class="navbar purple-personalized top-0 sticky left-0 w-full z-50 purple-personalized gap-4 px-4"
+>
   <div class="navbar-start items-center gap-2">
     <a
       class="link text-white flex items-center link-neutral hover:text-purple-900 text-xl font-bold no-underline"
@@ -18,7 +20,7 @@
       <button
         id="dropdown-hover"
         type="button"
-        class="dropdown-toggle font-bold text-neutral-50 px-6 py-3 text-base hover:bg-purple-500 rounded-md"
+        class="dropdown-toggle font-bold text-neutral-50 px-6 py-3 text-base hover:bg-[rgb(145,80,231)] rounded-md"
         aria-haspopup="menu"
         aria-expanded="false"
         aria-label="Dropdown"
@@ -38,13 +40,13 @@
       >
         <!-- Tecnología con submenú -->
         <li class="relative group">
-          <a
+          <button
+            (click)="$event.stopPropagation()"
             class="dropdown-item flex justify-between items-center ext-amber-50 text-amber-50 font-bold hover:bg-purple-500"
-            href="#"
           >
             🖥️ Tecnología
             <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
-          </a>
+          </button>
 
           <!-- Submenú -->
           <ul
@@ -52,22 +54,22 @@
           >
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('laptops')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >💻<span class="mx-1"></span>Laptops</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('smartphones')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >📱<span class="mx-1"></span>Móviles</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="flex items-center px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('tablets')"
+                class="flex items-center px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
               >
                 <svg
                   fill="#000000"
@@ -98,8 +100,8 @@
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('mobile-accessories')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🎧<span class="mx-1"></span>Accesorios</a
               >
             </li>
@@ -108,34 +110,34 @@
 
         <!-- Hogar con submenú -->
         <li class="relative group">
-          <a
+          <button
+            (click)="$event.stopPropagation()"
             class="dropdown-item flex justify-between items-center text-amber-50 font-bold hover:bg-purple-500"
-            href="#"
           >
             🏠 Hogar
             <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
-          </a>
+          </button>
           <ul
             class="absolute left-full top-0 hidden group-hover:block bg-purple-500 text-black shadow-md rounded-md w-64 z-50 p-2"
           >
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('furniture')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🛋️<span class="mx-1"></span>Muebles
               </a>
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('home-decoration')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🖼️<span class="mx-1"></span>Decoración
               </a>
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('kitchen-accessories')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🍽️<span class="mx-1"></span>Accesorios de cocina
               </a>
             </li>
@@ -144,76 +146,76 @@
 
         <!-- Moda con submenú -->
         <li class="relative group">
-          <a
+          <button
+            (click)="$event.stopPropagation()"
             class="dropdown-item flex justify-between items-center text-amber-50 font-bold hover:bg-purple-500"
-            href="#"
           >
             ⭐ Moda
             <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
-          </a>
+          </button>
           <ul
             class="absolute bg-purple-500 left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-64 z-50 p-2"
           >
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('mens-shirts')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >👕<span class="mx-1"></span>Camisas de hombre</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('mens-shoes')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >👞<span class="mx-1"></span>Zapatos de hombre</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('mens-watches')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >⌚<span class="mx-1"></span>Relojes de hombre</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('womens-dresses')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >👗<span class="mx-1"></span>Vestidos de mujer</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('womens-bags')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >👜<span class="mx-1"></span>Bolsos de mujer</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('womens-shoes')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >👠<span class="mx-1"></span>Zapatos de mujer</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('womens-watches')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >⌚<span class="mx-1"></span>Relojes de mujer</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('womens-jewellery')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >💍<span class="mx-1"></span>Joyería de mujer</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('tops')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >👚<span class="mx-1"></span>Tops</a
               >
             </li>
@@ -222,69 +224,69 @@
 
         <!-- Otros con submenú -->
         <li class="relative group">
-          <a
+          <button
+            (click)="$event.stopPropagation()"
             class="dropdown-item flex justify-between items-center hover:bg-purple-500 text-amber-50 font-bold"
-            href="#"
           >
             🔗 Otros
             <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
-          </a>
+          </button>
           <ul
             class="absolute left-full top-0 hidden group-hover:block bg-purple-500 text-black shadow-md rounded-md w-64 z-50 p-2"
           >
             <li>
               <a
-                href="#"
+                (click)="goToCategorie('beauty')"
                 class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
                 >💄<span class="mx-1"></span>Belleza</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('skin-care')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🧴<span class="mx-1"></span>Cuidado de la piel</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('fragrances')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🌸<span class="mx-1"></span>Fragancias</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('sunglasses')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🕶️<span class="mx-1"></span>Gafas de sol</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('groceries')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🥫<span class="mx-1"></span>Alimentos</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('vehicle')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🚗<span class="mx-1"></span>Vehículos</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('motorcycle')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🏍️<span class="mx-1"></span>Motocicletas</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                (click)="goToCategorie('sports-accessories')"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🏋️<span class="mx-1"></span>Accesorios deportivos</a
               >
             </li>
@@ -293,41 +295,41 @@
 
         <!-- Contacto con submenú -->
         <li class="relative group">
-          <a
+          <button
+            (click)="$event.stopPropagation()"
             class="dropdown-item flex justify-between items-center text-amber-50 font-bold hover:bg-purple-500"
-            href="#"
           >
             📞 Contacto
             <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
-          </a>
+          </button>
           <ul
             class="absolute bg-purple-500 left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-64 z-50 p-2"
           >
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >ℹ️<span class="mx-1"></span>Quiénes somos</a
               >
             </li>
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🛠️<span class="mx-1"></span>Soporte</a
               >
             </li>
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >🔒<span class="mx-1"></span>Política de privacidad</a
               >
             </li>
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
                 >📜<span class="mx-1"></span>Términos y condiciones</a
               >
             </li>
@@ -340,7 +342,7 @@
     <button class="btn btn-sm btn-text btn-circle size-8.5 md:hidden">
       <span class="icon-[tabler--search] size-5.5"></span>
     </button>
-    <div class="grid grid-cols-1 gap-4 w-100 relative">
+    <div class="grid grid-cols-1 gap-4 w-110 relative">
       <div class="input max-md:hidden rounded-full">
         <span
           class="icon-[tabler--search] text-base-content/80 my-auto me-3 size-5 shrink-0"

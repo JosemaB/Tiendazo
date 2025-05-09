@@ -14,7 +14,7 @@ export class ProductsService {
   }
 
   getCategoryProducts(categorie: string): Observable<Products> {
-    return this.http.get<Products>(`${environment.productsCategoryApi}/${categorie}`);
+    return this.http.get<Products>(`${categorie !== 'categorie' ? environment.productsCategoryApi + '/' + categorie : environment.productsApi}`);
   }
 
   getProduct(id: string): Observable<Product> {

@@ -1,6 +1,8 @@
-<div class="grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 xl:grid-cols-6 gap-6 my-6">
+<div
+  class="grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 xl:grid-cols-6 gap-6 my-6"
+>
   <!-- Sección: Fragancias y Belleza -->
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('fragrances')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -10,13 +12,15 @@
           src="assets/images/Categorias/fragancias.jpg"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Fragancias
       </p>
     </div>
   </a>
 
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('beauty')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -26,14 +30,16 @@
           src="assets/images/Categorias/belleza.jpg"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Belleza
       </p>
     </div>
   </a>
 
   <!-- Sección: Ropa y Moda -->
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('men')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -43,13 +49,15 @@
           src="assets/images/Categorias/ropaHombre.avif"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Moda Hombre
       </p>
     </div>
   </a>
 
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('women')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -59,14 +67,16 @@
           src="assets/images/Categorias/ropaMujer.webp"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Moda Mujer
       </p>
     </div>
   </a>
 
   <!-- Sección: Accesorios -->
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('sunglasses')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -76,13 +86,15 @@
           src="assets/images/Categorias/Gafas.jpg"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Gafas
       </p>
     </div>
   </a>
 
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('shoes')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -92,14 +104,16 @@
           src="assets/images/Categorias/calzado.avif"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Calzado
       </p>
     </div>
   </a>
 
   <!-- Sección: Tecnología -->
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('technology')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -109,14 +123,16 @@
           src="assets/images/Categorias/Tecnologia.png"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Tecnología
       </p>
     </div>
   </a>
 
   <!-- Sección: Hogar y Cocina -->
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('home')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -128,13 +144,15 @@
           height="200"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Hogar
       </p>
     </div>
   </a>
 
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('kitchen-accessories')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -144,14 +162,16 @@
           src="assets/images/Categorias/Cocina.jpg"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Accesorios de Cocina
       </p>
     </div>
   </a>
 
   <!-- Sección: Deporte -->
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('sports-accessories')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -167,14 +187,16 @@
           "
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400 font-x">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400 font-x"
+      >
         Accesorios de Deporte
       </p>
     </div>
   </a>
 
   <!-- Sección: Vehículos -->
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('vehicle')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -184,13 +206,15 @@
           src="assets/images/Categorias/Coches.avif"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Coches
       </p>
     </div>
   </a>
 
-  <a class="cursor-pointer">
+  <a (click)="goToCategorie('motorcycle')" class="cursor-pointer">
     <div class="flex flex-col justify-center items-center">
       <div
         class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
@@ -200,7 +224,9 @@
           src="assets/images/Categorias/Motos.png"
         />
       </div>
-      <p class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400">
+      <p
+        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+      >
         Motos
       </p>
     </div>

@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime } from 'rxjs/operators';
 import { ProductsService } from '@store/services/products.service';
@@ -11,9 +12,14 @@ import { BuscadorNavComponent } from './components/buscadorNav/buscadorNav.compo
 })
 export class NavbarComponent implements AfterViewInit {
   @ViewChild('searchInput') searchInput!: ElementRef;
-  products: Products = {};
+  router = inject(Router);
   productsService = inject(ProductsService);
+  products: Products = {};
   showResults = false;
+
+  goToCategorie(categorie: string): void {
+    this.router.navigate(['/categorie', categorie]);
+  }
 
   ngAfterViewInit() {
 

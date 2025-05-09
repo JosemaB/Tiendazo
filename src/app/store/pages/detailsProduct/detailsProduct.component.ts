@@ -42,6 +42,7 @@ export class DetailsProductComponent implements OnInit {
     });
 
   }
+
   loadProductDetails() {
     // Aquí puedes cargar el producto desde tu servicio
     this.productsService.getProduct(this.productId).subscribe(product => {
