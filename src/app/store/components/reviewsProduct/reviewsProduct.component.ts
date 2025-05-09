@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { StringUtils } from '@shared/utils/string.utils';
-import { Product, Review } from '@store/interfaces/product.interface';
+import { Product } from '@store/interfaces/product.interface';
 
 @Component({
   selector: 'reviews-product',
