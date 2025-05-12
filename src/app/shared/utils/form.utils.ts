@@ -1,4 +1,6 @@
-import { FormGroup, ValidationErrors } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormGroup, ValidationErrors } from '@angular/forms';
+import { AuthService } from '@auth/services/auth.service';
+import { catchError, debounceTime, map, Observable, of } from 'rxjs';
 
 
 export class FormUtils {
@@ -9,6 +11,10 @@ export class FormUtils {
   static getTextError(errors: ValidationErrors) {
     for (const key of Object.keys(errors)) {
       switch (key) {
+
+        case 'usernameNotFound':
+          return 'Este nombre de usuario no existe';
+
         case 'required':
           return 'Este campo es requerido';
 
@@ -24,8 +30,6 @@ export class FormUtils {
         case 'emailTaken':
           return `El correo electronico ya está siendo usado por otro usuario`;
 
-        case 'notStrider':
-          return `No se puede usar el username de strider en la app`;
         case 'pattern':
           if (errors['pattern'].requiredPattern === FormUtils.emailPattern) {
             return 'El correo electrónico no es permitido';
@@ -53,4 +57,25 @@ export class FormUtils {
       !!form.controls[fieldName].errors && form.controls[fieldName].touched
     );
   }
+
+  static usernameExists(authService: AuthService): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      return authService.checkUsernameExists(control.value).pipe(
+        debounceTime(1000),
+
+        map((user) => {
+          console.log(user);
+          const exists = user.users && user.users.length > 0;
+          return exists ? null : { usernameNotFound: true };
+        }),
+        catchError((err) => {
+          console.error('Error en validador:', err);
+          return of(null);
+        })
+      );
+    };
+  }
+
+
 }
+

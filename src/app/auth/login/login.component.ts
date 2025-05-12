@@ -1,40 +1,39 @@
+import { RouterModule } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormUtils } from '@shared/utils/form.utils';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '@auth/services/auth.service';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
-
   fb = inject(FormBuilder);
   formUtils = FormUtils;
   authService = inject(AuthService);
 
   myForm = this.fb.group({
-    email: ['', [Validators.required, Validators.pattern(FormUtils.emailPattern)]],
+    username: ['', [Validators.required], [FormUtils.usernameExists(this.authService)]],
     password: ['', [Validators.required]],
   });
 
   onSubmit() {
     this.myForm.markAllAsTouched();
     if (this.myForm.invalid) return;
-    const { email, password } = this.myForm.value;
 
-    this.authService.login(email!, password!).subscribe({
+    const { username, password } = this.myForm.value;
+
+    this.authService.login(username!, password!).subscribe({
       next: (res) => {
         // login OK
+        console.log("Login con exito");
       },
       error: (err) => {
         // Aquí puedes marcar un error al formulario
         this.myForm.setErrors({ invalidCredentials: true });
       }
     })
-
-    console.log(this.myForm.value);
-
   }
 }

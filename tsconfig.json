@@ -5,6 +5,7 @@
     "baseUrl": "./",
     "paths": {
       "@shared/*": ["src/app/shared/*"],
+      "@auth/*":["src/app/auth/*"],
       "@environments/*": ["src/environments/*"],
       "@store/interfaces/*": ["src/app/store/interfaces/*"],
       "@store/components/*": ["src/app/store/components/*"],

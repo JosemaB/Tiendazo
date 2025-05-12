@@ -2,24 +2,23 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './store/pages/home/home.component';
 import { DetailsProductComponent } from './store/pages/detailsProduct/detailsProduct.component';
 import { ProductCategoriesComponent } from './store/pages/product-categories/product-categories.component';
+import { MainLayoutComponent } from './layout/mainLayout/mainLayout.component';
 
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: MainLayoutComponent,
+    children: [
+      { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirige la ruta raíz a '/home'
+      { path: 'home', component: HomeComponent },
+      { path: 'product/:id', component: DetailsProductComponent },
+      { path: 'categorie/:categorie', component: ProductCategoriesComponent },
+    ]
   },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.routes'),
-  },
-  {
-    path: 'product/:id',
-    component: DetailsProductComponent
-  },
-  {
-    path: 'categorie/:categorie',
-    component: ProductCategoriesComponent
   },
   {
     path: '**',

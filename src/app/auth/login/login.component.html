@@ -1,72 +1,92 @@
-<div class="container mx-auto flex justify-center items-center min-h-[89vh]">
+<div class="bg-gradient-to-br from-purple-700 to-pink-500 min-h-screen">
   <div
-    class="bg-white p-6 rounded-lg shadow-lg my-4 border-1 border-black w-150 h-auto m-2"
+    class="container mx-auto flex justify-center items-center min-h-[89vh] flex-col"
   >
-    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
-      Iniciar Sesión
-    </h2>
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto w-full">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"
+      ></div>
 
-    <form action="#" (ngSubmit)="onSubmit()" [formGroup]="myForm">
-      <!-- Campo de correo electrónico -->
-      <div class="mb-4">
-        <label for="email" class="block text-gray-700 font-medium"
-          >Correo Electrónico</label
+      <div class="relative bg-white shadow-lg sm:rounded-3xl">
+        <a
+          [routerLink]="['/home']"
+          aria-label="Ir a Tiendazo"
+          class="text-black py-3 flex items-center justify-center text-2xl font-bold no-underline hover:text-purple-900 transition duration-300"
         >
-        <input
-          type="email"
-          id="email"
-          name="email"
-          formControlName="email"
-          class="form-control w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          required
-        />
-        @if ( formUtils.isValidField(myForm, 'email')) {
-        <span class="form-text text-red-500">
-          {{ formUtils.getFieldError(myForm, "email") }}
-        </span>
-        }
+          <img
+            src="assets/images/Icon/iconTiendazo.png"
+            alt="Icono Tiendazo"
+            class="max-w-full h-10"
+          />
+          <span class="ml-2">Tiendazo</span>
+        </a>
+        <form class="mx-7" (ngSubmit)="onSubmit()" [formGroup]="myForm">
+          <!-- Campo de username -->
+          <div class="mb-4">
+            <label for="username" class="block text-gray-700 font-bold"
+              >Username</label
+            >
+            <input
+              type="username"
+              id="username"
+              name="username"
+              formControlName="username"
+              class="form-control w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+              required
+            />
+            @if ( formUtils.isValidField(myForm, 'username')) {
+            <span class="form-text text-red-600">
+              {{ formUtils.getFieldError(myForm, "username") }}
+            </span>
+            }
+          </div>
+
+          <!-- Campo de contraseña -->
+          <div class="mb-6">
+            <label for="password" class="block text-gray-700 font-bold"
+              >Contraseña</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              formControlName="password"
+              class="form-control w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+              required
+            />
+            @if ( formUtils.isValidField(myForm, 'password')) {
+            <span class="text-red-600 pt-2 break-words">
+              {{ formUtils.getFieldError(myForm, "password") }}
+            </span>
+            } @if (myForm.errors) {
+            <div class="text-red-600 text-center">
+              Username o contraseña incorrectos.
+            </div>
+            }
+          </div>
+
+          <!-- Botón de login -->
+          <div class="mb-6">
+            <button
+              type="submit"
+              class="w-full py-2 cursor-pointer bg-purple-500 font-bold text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-300"
+            >
+              Iniciar Sesión
+            </button>
+          </div>
+        </form>
+
+        <!-- Enlace a la página de registro -->
+        <div class="flex items-center flex-col pb-5">
+          <p class="text-center text-gray-600">¿No tienes una cuenta?</p>
+
+          <a
+            [routerLink]="['/auth/register']"
+            class="text-pink-600 hover:text-pink-700 font-semibold"
+            >Registrarse</a
+          >
+        </div>
       </div>
-
-      <!-- Campo de contraseña -->
-      <div class="mb-6">
-        <label for="password" class="block text-gray-700 font-medium"
-          >Contraseña</label
-        >
-        <input
-          type="password"
-          id="password"
-          name="password"
-          formControlName="password"
-          class="form-control w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          required
-        />
-        @if ( formUtils.isValidField(myForm, 'password')) {
-        <span class="form-text text-red-500">
-          {{ formUtils.getFieldError(myForm, "password") }}
-        </span>
-        } @if (myForm.errors) {
-        <div class="text-red-500">Email o contraseña incorrectos.</div>
-        }
-      </div>
-
-      <!-- Botón de login -->
-      <div class="mb-6">
-        <button
-          type="submit"
-          class="w-full py-2 cursor-pointer bg-purple-500 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-300"
-        >
-          Iniciar Sesión
-        </button>
-      </div>
-    </form>
-
-    <!-- Enlace a la página de registro -->
-    <div class="flex items-center flex-col">
-      <p class="text-center text-gray-600">¿No tienes una cuenta?</p>
-
-      <a href="#" class="text-pink-600 hover:text-pink-700 font-semibold"
-        >Registrarse</a
-      >
     </div>
   </div>
 </div>
