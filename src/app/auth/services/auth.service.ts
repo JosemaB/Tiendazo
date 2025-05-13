@@ -6,6 +6,9 @@ import { UserInterface } from '@store/interfaces/user.interface';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  checkStatus(): boolean {
+    return !!localStorage.getItem('accessToken');
+  }
   private http = inject(HttpClient);
 
   login(username: string, password: string): Observable<any> {

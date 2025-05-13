@@ -9,17 +9,19 @@
 
       <div class="relative bg-white shadow-lg sm:rounded-3xl">
         <div class="flex justify-center items-center">
+          <h1 class="text-2xl font-bold text-purple-600">¡Bienvenido a</h1>
           <a
             [routerLink]="['/home']"
             aria-label="Ir a Tiendazo"
-            class="text-black py-3 text-2xl flex justify-center items-center font-bold no-underline hover:text-purple-500 transition duration-300"
+            class="text-pink-500 py-3 text-2xl flex justify-center items-center font-bold no-underline hover:text-purple-500 transition duration-300"
           >
+            <span class="mx-1">Tiendazo</span>
             <img
               src="assets/images/Icon/iconTiendazo.png"
               alt="Icono Tiendazo"
-              class="max-w-full h-10"
+              class="max-w-full h-9"
             />
-            <span class="ml-2">Tiendazo</span>
+            !
           </a>
         </div>
         <form class="mx-7" (ngSubmit)="onSubmit()" [formGroup]="myForm">
@@ -33,7 +35,7 @@
               id="username"
               name="username"
               formControlName="username"
-              class="form-control w-full px-4 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+              class="form-control w-full px-4 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
               [class.border-red-500]="
                 myForm.controls.username.invalid &&
                 myForm.controls.username.touched
@@ -42,14 +44,16 @@
               required
             />
           </div>
-          @if ( formUtils.isValidField(myForm, 'username')) {
-          <error-form>
-            {{ formUtils.getFieldError(myForm, "username") }}
-          </error-form>
+          <div class="pl-3">
+            @if ( formUtils.isValidField(myForm, 'username')) {
+            <error-form>
+              {{ formUtils.getFieldError(myForm, "username") }}
+            </error-form>
 
-          } @if (myForm.errors) {
-          <error-form> Username o contraseña incorrectos </error-form>
-          }
+            } @if (myForm.errors) {
+            <error-form> Username o contraseña incorrectos </error-form>
+            }
+          </div>
           <!-- Password field -->
           <div class="mb-2">
             <label for="password" class="block text-gray-700 font-bold mb-2"
@@ -61,7 +65,7 @@
                 id="password"
                 name="password"
                 formControlName="password"
-                class="form-control w-full px-4 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+                class="form-control w-full px-4 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
                 [class.border-red-500]="
                   myForm.controls.password.invalid &&
                   myForm.controls.password.touched
@@ -80,6 +84,10 @@
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
+                  [class.text-red-500]="
+                    myForm.controls.password.invalid &&
+                    myForm.controls.password.touched
+                  "
                 >
                   <path
                     fill="currentColor"
@@ -92,6 +100,10 @@
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
+                  [class.text-red-500]="
+                    myForm.controls.password.invalid &&
+                    myForm.controls.password.touched
+                  "
                 >
                   <path
                     fill="currentColor"
@@ -103,11 +115,13 @@
               </button>
             </div>
           </div>
-          @if ( formUtils.isValidField(myForm, 'password')) {
-          <error-form>
-            {{ formUtils.getFieldError(myForm, "password") }}
-          </error-form>
-          }
+          <div class="pl-3">
+            @if ( formUtils.isValidField(myForm, 'password')) {
+            <error-form>
+              {{ formUtils.getFieldError(myForm, "password") }}
+            </error-form>
+            }
+          </div>
 
           <!-- Login button -->
           <div class="mb-6 mt-3">

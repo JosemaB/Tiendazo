@@ -3,6 +3,7 @@ import { HomeComponent } from './store/pages/home/home.component';
 import { DetailsProductComponent } from './store/pages/detailsProduct/detailsProduct.component';
 import { ProductCategoriesComponent } from './store/pages/product-categories/product-categories.component';
 import { MainLayoutComponent } from './layout/mainLayout/mainLayout.component';
+import { NotAuthenticatedGuard } from '@auth/guards/not-authenticated.guard';
 
 
 export const routes: Routes = [
@@ -19,6 +20,9 @@ export const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.routes'),
+    canMatch: [
+      NotAuthenticatedGuard,
+    ],
   },
   {
     path: '**',

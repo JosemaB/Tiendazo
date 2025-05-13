@@ -9,20 +9,48 @@
 
       <div class="relative bg-white shadow-lg sm:rounded-3xl">
         <div class="flex justify-center items-center">
+          <h1 class="text-2xl font-bold text-purple-600">¡Crea tu cuenta en</h1>
           <a
             [routerLink]="['/home']"
             aria-label="Ir a Tiendazo"
-            class="text-black py-3 text-2xl flex justify-center items-center font-bold no-underline hover:text-purple-500 transition duration-300"
+            class="text-pink-500 py-3 text-2xl flex justify-center items-center font-bold no-underline hover:text-purple-500 transition duration-300"
           >
+            <span class="mx-1">Tiendazo</span>
             <img
               src="assets/images/Icon/iconTiendazo.png"
               alt="Icono Tiendazo"
-              class="max-w-full h-10"
+              class="max-w-full h-9"
             />
-            <span class="ml-2">Tiendazo</span>
+            !
           </a>
         </div>
         <form class="mx-7" (ngSubmit)="onSubmit()" [formGroup]="myForm">
+          <!-- Email field -->
+          <div class="mb-2">
+            <label for="email" class="block text-gray-700 font-bold mb-2"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              formControlName="email"
+              class="form-control w-full px-4 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+              [class.border-red-500]="
+                myForm.controls.email.invalid && myForm.controls.email.touched
+              "
+              [class.border-gray-300]="myForm.controls.password.valid"
+              required
+            />
+          </div>
+          <div class="pl-3">
+            @if ( formUtils.isValidField(myForm, 'email')) {
+            <error-form>
+              {{ formUtils.getFieldError(myForm, "email") }}
+            </error-form>
+            }
+          </div>
+
           <!-- Username field -->
           <div class="mb-2">
             <label for="username" class="block text-gray-700 font-bold mb-2"
@@ -33,7 +61,7 @@
               id="username"
               name="username"
               formControlName="username"
-              class="form-control w-full px-4 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+              class="form-control w-full px-4 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
               [class.border-red-500]="
                 myForm.controls.username.invalid &&
                 myForm.controls.username.touched
@@ -42,14 +70,14 @@
               required
             />
           </div>
-          @if ( formUtils.isValidField(myForm, 'username')) {
-          <error-form>
-            {{ formUtils.getFieldError(myForm, "username") }}
-          </error-form>
+          <div class="pl-3">
+            @if ( formUtils.isValidField(myForm, 'username')) {
+            <error-form>
+              {{ formUtils.getFieldError(myForm, "username") }}
+            </error-form>
+            }
+          </div>
 
-          } @if (myForm.errors) {
-          <error-form> Username o contraseña incorrectos </error-form>
-          }
           <!-- Password field -->
           <div class="mb-2">
             <label for="password" class="block text-gray-700 font-bold mb-2"
@@ -61,7 +89,7 @@
                 id="password"
                 name="password"
                 formControlName="password"
-                class="form-control w-full px-4 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+                class="form-control w-full px-4 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
                 [class.border-red-500]="
                   myForm.controls.password.invalid &&
                   myForm.controls.password.touched
@@ -80,6 +108,10 @@
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
+                  [class.text-red-500]="
+                    myForm.controls.password.invalid &&
+                    myForm.controls.password.touched
+                  "
                 >
                   <path
                     fill="currentColor"
@@ -92,6 +124,10 @@
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
+                  [class.text-red-500]="
+                    myForm.controls.password.invalid &&
+                    myForm.controls.password.touched
+                  "
                 >
                   <path
                     fill="currentColor"
@@ -103,19 +139,96 @@
               </button>
             </div>
           </div>
-          @if ( formUtils.isValidField(myForm, 'password')) {
-          <error-form>
-            {{ formUtils.getFieldError(myForm, "password") }}
-          </error-form>
-          }
+          <div class="pl-3">
+            @if ( formUtils.isValidField(myForm, 'password')) {
+            <error-form>
+              {{ formUtils.getFieldError(myForm, "password") }}
+            </error-form>
+            }
+          </div>
 
+          <!-- Password2 field -->
+          <div class="mb-2">
+            <label for="password2" class="block text-gray-700 font-bold mb-2"
+              >Confirmar contraseña</label
+            >
+            <div class="relative">
+              <input
+                [type]="showPassword2 ? 'text' : 'password'"
+                id="password2"
+                name="password2"
+                formControlName="password2"
+                class="form-control w-full px-4 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                [class.border-red-500]="
+                  myForm.controls.password2.invalid &&
+                  myForm.controls.password2.touched
+                "
+                [class.border-gray-300]="myForm.controls.password2.valid"
+                required
+              />
+              <button
+                type="button"
+                (click)="showPassword2 = !showPassword2"
+                class="absolute cursor-pointer right-3 top-1/2 transform -translate-y-1/2 text-gray-500 focus:outline-none"
+              >
+                @if(showPassword2){
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  [class.text-red-500]="
+                    myForm.controls.password2.invalid &&
+                    myForm.controls.password2.touched
+                  "
+                >
+                  <path
+                    fill="currentColor"
+                    d="M2 5.27L3.28 4L20 20.72L18.73 22l-3.08-3.08c-1.15.38-2.37.58-3.65.58c-5 0-9.27-3.11-11-7.5c.69-1.76 1.79-3.31 3.19-4.54zM12 9a3 3 0 0 1 3 3a3 3 0 0 1-.17 1L11 9.17A3 3 0 0 1 12 9m0-4.5c5 0 9.27 3.11 11 7.5a11.8 11.8 0 0 1-4 5.19l-1.42-1.43A9.86 9.86 0 0 0 20.82 12A9.82 9.82 0 0 0 12 6.5c-1.09 0-2.16.18-3.16.5L7.3 5.47c1.44-.62 3.03-.97 4.7-.97M3.18 12A9.82 9.82 0 0 0 12 17.5c.69 0 1.37-.07 2-.21L11.72 15A3.064 3.064 0 0 1 9 12.28L5.6 8.87c-.99.85-1.82 1.91-2.42 3.13"
+                  />
+                </svg>
+                } @if(!showPassword2){
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  [class.text-red-500]="
+                    myForm.controls.password2.invalid &&
+                    myForm.controls.password2.touched
+                  "
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12 9a3 3 0 0 1 3 3a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5c-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0a9.821 9.821 0 0 0-17.64 0"
+                  />
+                </svg>
+
+                }
+              </button>
+            </div>
+          </div>
+          <div class="pl-3">
+            @if ( formUtils.isValidField(myForm, 'password2')) {
+            <error-form>
+              {{ formUtils.getFieldError(myForm, "password2") }}
+            </error-form>
+            } @else if (myForm.hasError('passwordsNotEqual') &&
+            myForm.get('password2')?.touched) {
+            <error-form>
+              Por favor, asegúrate de que ambas contraseñas sean iguales
+            </error-form>
+            } @if (myForm.errors) {
+            <error-form> Porfavor completa todos los campos </error-form>
+            }
+          </div>
           <!-- Login button -->
           <div class="mb-6 mt-3">
             <button
               type="submit"
               class="w-full py-2 cursor-pointer bg-purple-500 font-bold text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-300"
             >
-              Iniciar Sesión
+              Crear cuenta
             </button>
           </div>
         </form>
@@ -125,9 +238,9 @@
           <p class="text-center text-gray-600">¿No tienes una cuenta?</p>
 
           <a
-            [routerLink]="['/auth/register']"
+            [routerLink]="['/auth/login']"
             class="text-pink-600 hover:text-pink-700 font-semibold"
-            >Registrarse</a
+            >Iniciar sesión</a
           >
         </div>
       </div>

@@ -1,9 +1,10 @@
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '@auth/services/auth.service';
 import { FormUtils } from '@shared/utils/form.utils';
 import { ErrorFormComponent } from '@shared/components/errorForm/errorForm.component';
+import { FunctionUtils } from '@shared/utils/function.utils';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,11 @@ import { ErrorFormComponent } from '@shared/components/errorForm/errorForm.compo
 })
 export class LoginComponent {
   fb = inject(FormBuilder);
-  formUtils = FormUtils;
   authService = inject(AuthService);
+  router = inject(Router);
+  formUtils = FormUtils;
+  functionUtils = FunctionUtils;
+
   showPassword: boolean = false;
 
   myForm = this.fb.group(
@@ -32,7 +36,8 @@ export class LoginComponent {
     this.authService.login(username!, password!).subscribe({
       next: (usuario) => {
         // login OK
-        this.login(usuario);
+        this.functionUtils.login(usuario);
+        this.goToHome();
       },
       error: (err) => {
         // Aquí puedes marcar un error al formulario
@@ -41,18 +46,9 @@ export class LoginComponent {
     })
   }
 
-  login(usuario: any) {
-    localStorage.setItem("accessToken", usuario.accessToken);
-    localStorage.setItem("refreshToken", usuario.refreshToken);
-    localStorage.setItem("user", JSON.stringify({
-      id: usuario.id,
-      username: usuario.username,
-      email: usuario.email,
-      firstName: usuario.firstName,
-      lastName: usuario.lastName,
-      gender: usuario.gender,
-      image: usuario.image
-    }));
 
+
+  goToHome(): void {
+    this.router.navigate(['/home']);
   }
 }
