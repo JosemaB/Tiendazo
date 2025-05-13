@@ -16,3 +16,14 @@
 .purple-personalized {
   background-color: rgb(157 100 231);
 }
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

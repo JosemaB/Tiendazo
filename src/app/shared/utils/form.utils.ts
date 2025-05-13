@@ -16,7 +16,7 @@ export class FormUtils {
           return 'Este nombre de usuario no existe';
 
         case 'required':
-          return 'Este campo es requerido';
+          return 'El campo es obligatorio';
 
         case 'minlength':
           return `Mínimo de ${errors['minlength'].requiredLength} caracteres.`;
