@@ -36,8 +36,9 @@ export class LoginComponent {
     this.authService.login(username!, password!).subscribe({
       next: (usuario) => {
         // login OK
-        this.functionUtils.login(usuario);
+        this.authService.loginStorage(usuario);
         this.goToHome();
+        this.authService.isLoggedIn.set(true);
       },
       error: (err) => {
         // Aquí puedes marcar un error al formulario

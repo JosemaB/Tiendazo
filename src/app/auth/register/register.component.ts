@@ -47,8 +47,9 @@ export class RegisterComponent {
       "accessToken": this.functionUtils.generateFakeToken(username!)
     }
     this.authService.register(user);
-    this.functionUtils.login(user);
+    this.authService.loginStorage(user);
     this.goToHome();
+    this.authService.isLoggedIn.set(true);
   }
   goToHome(): void {
     this.router.navigate(['/home']);
