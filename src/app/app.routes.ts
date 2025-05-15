@@ -4,6 +4,7 @@ import { DetailsProductComponent } from './store/pages/detailsProduct/detailsPro
 import { ProductCategoriesComponent } from './store/pages/product-categories/product-categories.component';
 import { MainLayoutComponent } from './layout/mainLayout/mainLayout.component';
 import { NotAuthenticatedGuard } from '@auth/guards/not-authenticated.guard';
+import { ProductsSearchComponent } from './store/pages/products-search/products-search.component';
 
 
 export const routes: Routes = [
@@ -15,6 +16,8 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'product/:id', component: DetailsProductComponent },
       { path: 'categorie/:categorie', component: ProductCategoriesComponent },
+      { path: 'searchProducts/:name', component: ProductsSearchComponent },
+
     ]
   },
   {

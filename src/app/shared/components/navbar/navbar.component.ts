@@ -1,5 +1,8 @@
 import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime } from 'rxjs/operators';
 import { ProductsService } from '@store/services/products.service';
@@ -7,9 +10,10 @@ import { Products } from '@store/interfaces/product.interface';
 import { AuthService } from '@auth/services/auth.service';
 import { BuscadorNavComponent } from './components/buscadorNav/buscadorNav.component';
 import { LoginUser } from '@store/interfaces/loginUser.interface';
+import { ModalCarComponent } from "./components/modalCar/modalCar.component";
 @Component({
   selector: 'app-navbar',
-  imports: [BuscadorNavComponent, RouterModule],
+  imports: [BuscadorNavComponent, RouterModule, MatBadgeModule, MatButtonModule, MatIconModule, ModalCarComponent],
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements AfterViewInit {
@@ -18,9 +22,13 @@ export class NavbarComponent implements AfterViewInit {
   productsService = inject(ProductsService);
   authService = inject(AuthService);
   products: Products = {};
-  showResults = false;
   user: LoginUser = {};
+  showResults = false;
+  hidden = false;
 
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
+  }
   goToCategorie(categorie: string): void {
     this.router.navigate(['/categorie', categorie]);
   }
@@ -37,7 +45,6 @@ export class NavbarComponent implements AfterViewInit {
         debounceTime(500)
       )
       .subscribe((value) => {
-        console.log(value + "sadasd");
         if (value) {
           this.productsService.getSearchProduct(value).subscribe({
             next: (products) => {

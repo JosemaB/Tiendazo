@@ -37,6 +37,7 @@
 } @if (products.products && products.products.length >= 5 ) {
 <!-- We check that it has a value greater than 5 -->
 <button
+(click)="goToSearchProducts()"
   class="cursor-pointer py-3 bg-purple-400 hover:bg-purple-600 w-full font-bold text-white border border-black"
 >
   Mostrar más
