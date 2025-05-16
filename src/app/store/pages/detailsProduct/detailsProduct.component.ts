@@ -7,6 +7,7 @@ import { SectionTitleComponentComponent } from '@shared/components/SectionTitleC
 import { StringUtils } from '@shared/utils/string.utils';
 import { CarouselProductsComponent } from "@shared/components/CarouselProducts/CarouselProducts.component";
 import { ReviewsProductComponent } from '@store/components/reviewsProduct/reviewsProduct.component';
+import { CartProduct } from '@store/interfaces/productCart.interface';
 
 @Component({
   selector: 'details-product',
@@ -59,5 +60,24 @@ export class DetailsProductComponent implements OnInit {
       });
 
     });
+  }
+
+  addProduct() {
+    const product: CartProduct = {
+      id: this.product.id?.toString()!,
+      name: this.product.title!,
+      price: this.product.price!,
+      quantity: 1,
+      image: this.product?.images?.[0] ?? ''
+    }
+    this.openDrawer();
+    this.productsService.addCartStorage(product);
+  }
+
+  openDrawer() {
+    const openBtn = document.querySelector('button[data-overlay="#overlay-end-example"][aria-haspopup="dialog"]');
+    if (openBtn) {
+      (openBtn as HTMLElement).click();
+    }
   }
 }

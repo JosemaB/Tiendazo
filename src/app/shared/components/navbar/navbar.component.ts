@@ -10,10 +10,10 @@ import { Products } from '@store/interfaces/product.interface';
 import { AuthService } from '@auth/services/auth.service';
 import { BuscadorNavComponent } from './components/buscadorNav/buscadorNav.component';
 import { LoginUser } from '@store/interfaces/loginUser.interface';
-import { ModalCarComponent } from "./components/modalCar/modalCar.component";
+import { ModalCartComponent } from "./components/modalCart/modalCart.component";
 @Component({
   selector: 'app-navbar',
-  imports: [BuscadorNavComponent, RouterModule, MatBadgeModule, MatButtonModule, MatIconModule, ModalCarComponent],
+  imports: [BuscadorNavComponent, RouterModule, MatBadgeModule, MatButtonModule, MatIconModule, ModalCartComponent],
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements AfterViewInit {

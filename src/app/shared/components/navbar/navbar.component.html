@@ -365,8 +365,6 @@
       </div>
     </div>
     <!--User logged-->
-    @if(authService.isLoggedIn()){
-    <!-- Botón con badge y carrito -->
     <div
       mat-icon-button
       matBadge="4"
@@ -375,7 +373,7 @@
       aria-label="Carrito de compras"
       class="mx-2 hover:text-pink-100 text-neutral-100"
     >
-      <modal-car>
+      <modal-cart>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -389,8 +387,10 @@
           <circle cx="18" cy="20" r="2"></circle>
           <circle cx="10" cy="20" r="2"></circle>
         </svg>
-      </modal-car>
+      </modal-cart>
     </div>
+    @if(authService.isLoggedIn()){
+    <!-- Botón con badge y carrito -->
 
     <div
       class="dropdown relative inline-flex [--auto-close:inside] [--offset:8] [--placement:bottom-end]"
