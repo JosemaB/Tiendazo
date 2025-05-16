@@ -5,6 +5,7 @@ import { ProductCategoriesComponent } from './store/pages/product-categories/pro
 import { MainLayoutComponent } from './layout/mainLayout/mainLayout.component';
 import { NotAuthenticatedGuard } from '@auth/guards/not-authenticated.guard';
 import { ProductsSearchComponent } from './store/pages/products-search/products-search.component';
+import { ShoppingCartComponentComponent } from './store/pages/ShoppingCartComponent/ShoppingCartComponent.component';
 
 
 export const routes: Routes = [
@@ -17,7 +18,7 @@ export const routes: Routes = [
       { path: 'product/:id', component: DetailsProductComponent },
       { path: 'categorie/:categorie', component: ProductCategoriesComponent },
       { path: 'searchProducts/:name', component: ProductsSearchComponent },
-
+      { path: 'shopping', component: ShoppingCartComponentComponent },
     ]
   },
   {
