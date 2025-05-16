@@ -72,4 +72,11 @@ export class NavbarComponent implements AfterViewInit {
     }, 150);
   }
 
+  totalProducts(): number {
+    let totalProducts = 0;
+    this.productsService.productsCart().forEach(product => {
+      totalProducts += product.quantity;
+    });
+    return totalProducts;
+  }
 }
