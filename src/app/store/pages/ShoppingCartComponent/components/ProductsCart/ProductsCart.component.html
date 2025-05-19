@@ -1,7 +1,5 @@
 @for ( product of this.productsService.productsCart(); track product.id) {
-<div
-  class="flex items-start gap-4 p-2 rounded mb-1"
->
+<div class="flex items-start gap-4 p-2 border-1 border-gray-400 rounded mb-1">
   <!-- Imagen -->
   <div class="w-22 h-20 flex-shrink-0">
     <img
@@ -17,7 +15,7 @@
       <!-- Título -->
       <a (click)="goToProduct(product.id!)">
         <div
-          class="text-sm cursor-pointer font-medium truncate w-full max-w-[180px] text-white hover:text-pink-400"
+          class="text-sm cursor-pointer font-medium truncate w-full max-w-[180px] text-black hover:text-pink-700"
           title="{{ product.name }}"
         >
           {{ product.name }}
@@ -29,7 +27,7 @@
         <button
           (click)="this.productsService.removeCartItem(product.id!)"
           type="button"
-          class="text-gray-300 hover:text-red-400 rounded h-5 w-5 cursor-pointer"
+          class="text-gray-700 hover:bg-gray-200 rounded h-5 w-5 cursor-pointer"
           aria-label="Tooltip"
         >
           <svg
@@ -53,7 +51,7 @@
           role="tooltip"
         >
           <span
-            class="tooltip-body bg-gray-800 text-white textarea-xs p-2 rounded shadow whitespace-nowrap overflow-visible mr-5"
+            class="tooltip-body bg-gray-800 text-white textarea-xs p-2 rounded shadow whitespace-nowrap overflow-visible"
           >
             Eliminar articulo
           </span>
@@ -62,14 +60,14 @@
     </div>
 
     <!-- Precio -->
-    <div class="mt-1 font-bold text-base text-green-300">
+    <div class="mt-1 font-bold text-base text-pink-700">
       ${{ product.price }}
     </div>
 
     <!-- Unidades -->
-    <div class="text-sm text-blue-100">
+    <div class="text-sm text-gray-600">
       Unidades:
-      <span class="font-semibold text-gray-200">{{ product.quantity }}</span>
+      <span class="font-semibold text-purple-950">{{ product.quantity }}</span>
     </div>
   </div>
 </div>

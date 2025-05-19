@@ -3,7 +3,7 @@
 >
   <div class="navbar-start items-center gap-2">
     <a
-      class="link text-white flex items-center link-neutral hover:text-purple-900 text-xl font-bold no-underline"
+      class="link text-white flex items-center link-neutral hover:text-purple-300 text-xl font-bold no-underline"
       href="#"
       aria-label="Ir a Tiendazo"
     >
@@ -20,7 +20,7 @@
       <button
         id="dropdown-hover"
         type="button"
-        class="dropdown-toggle font-bold text-neutral-50 px-6 py-3 text-base hover:bg-[rgb(145,80,231)] rounded-md"
+        class="dropdown-toggle font-bold text-neutral-50 px-6 py-3 text-base hover:bg-[Zb996d1] rounded-md"
         aria-haspopup="menu"
         aria-expanded="false"
         aria-label="Dropdown"
@@ -33,7 +33,7 @@
 
       <!-- Menú principal -->
       <ul
-        class="dropdown-menu dropdown-open:opacity-100 bg-purple-400 hidden min-w-60 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+        class="dropdown-menu dropdown-open:opacity-100 purpleLight-personalized hidden min-w-60 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="dropdown-hover"
@@ -42,7 +42,7 @@
         <li class="relative group">
           <button
             (click)="$event.stopPropagation()"
-            class="dropdown-item flex justify-between items-center ext-amber-50 text-amber-50 font-bold hover:bg-purple-500"
+            class="dropdown-item flex justify-between items-center ext-amber-50 text-amber-50 font-bold purpleHover-personalized"
           >
             🖥️ Tecnología
             <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
@@ -50,26 +50,26 @@
 
           <!-- Submenú -->
           <ul
-            class="absolute bg-purple-500 left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-48 z-50 p-2"
+            class="absolute purpleDark-personalized left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-48 z-50 p-2"
           >
             <li>
               <a
                 (click)="goToCategorie('laptops')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >💻<span class="mx-1"></span>Laptops</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('smartphones')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >📱<span class="mx-1"></span>Móviles</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('tablets')"
-                class="flex items-center px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="flex items-center px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
               >
                 <svg
                   fill="#000000"
@@ -101,7 +101,7 @@
             <li>
               <a
                 (click)="goToCategorie('mobile-accessories')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🎧<span class="mx-1"></span>Accesorios</a
               >
             </li>
@@ -112,32 +112,32 @@
         <li class="relative group">
           <button
             (click)="$event.stopPropagation()"
-            class="dropdown-item flex justify-between items-center text-amber-50 font-bold hover:bg-purple-500"
+            class="dropdown-item flex justify-between items-center text-amber-50 font-bold purpleHover-personalized"
           >
             🏠 Hogar
             <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
           </button>
           <ul
-            class="absolute left-full top-0 hidden group-hover:block bg-purple-500 text-black shadow-md rounded-md w-64 z-50 p-2"
+            class="absolute left-full top-0 hidden group-hover:block purpleDark-personalized text-black shadow-md rounded-md w-64 z-50 p-2"
           >
             <li>
               <a
                 (click)="goToCategorie('furniture')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🛋️<span class="mx-1"></span>Muebles
               </a>
             </li>
             <li>
               <a
                 (click)="goToCategorie('home-decoration')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🖼️<span class="mx-1"></span>Decoración
               </a>
             </li>
             <li>
               <a
                 (click)="goToCategorie('kitchen-accessories')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🍽️<span class="mx-1"></span>Accesorios de cocina
               </a>
             </li>
@@ -148,74 +148,74 @@
         <li class="relative group">
           <button
             (click)="$event.stopPropagation()"
-            class="dropdown-item flex justify-between items-center text-amber-50 font-bold hover:bg-purple-500"
+            class="dropdown-item flex justify-between items-center text-amber-50 font-bold purpleHover-personalized"
           >
             ⭐ Moda
             <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
           </button>
           <ul
-            class="absolute bg-purple-500 left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-64 z-50 p-2"
+            class="absolute purpleDark-personalized left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-64 z-50 p-2"
           >
             <li>
               <a
                 (click)="goToCategorie('mens-shirts')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >👕<span class="mx-1"></span>Camisas de hombre</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('mens-shoes')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >👞<span class="mx-1"></span>Zapatos de hombre</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('mens-watches')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >⌚<span class="mx-1"></span>Relojes de hombre</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('womens-dresses')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >👗<span class="mx-1"></span>Vestidos de mujer</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('womens-bags')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >👜<span class="mx-1"></span>Bolsos de mujer</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('womens-shoes')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >👠<span class="mx-1"></span>Zapatos de mujer</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('womens-watches')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >⌚<span class="mx-1"></span>Relojes de mujer</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('womens-jewellery')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >💍<span class="mx-1"></span>Joyería de mujer</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('tops')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >👚<span class="mx-1"></span>Tops</a
               >
             </li>
@@ -226,67 +226,67 @@
         <li class="relative group">
           <button
             (click)="$event.stopPropagation()"
-            class="dropdown-item flex justify-between items-center hover:bg-purple-500 text-amber-50 font-bold"
+            class="dropdown-item flex justify-between items-center purpleHover-personalized text-amber-50 font-bold"
           >
             🔗 Otros
             <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
           </button>
           <ul
-            class="absolute left-full top-0 hidden group-hover:block bg-purple-500 text-black shadow-md rounded-md w-64 z-50 p-2"
+            class="absolute left-full top-0 hidden group-hover:block purpleDark-personalized text-black shadow-md rounded-md w-64 z-50 p-2"
           >
             <li>
               <a
                 (click)="goToCategorie('beauty')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >💄<span class="mx-1"></span>Belleza</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('skin-care')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🧴<span class="mx-1"></span>Cuidado de la piel</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('fragrances')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🌸<span class="mx-1"></span>Fragancias</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('sunglasses')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🕶️<span class="mx-1"></span>Gafas de sol</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('groceries')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🥫<span class="mx-1"></span>Alimentos</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('vehicle')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🚗<span class="mx-1"></span>Vehículos</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('motorcycle')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🏍️<span class="mx-1"></span>Motocicletas</a
               >
             </li>
             <li>
               <a
                 (click)="goToCategorie('sports-accessories')"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🏋️<span class="mx-1"></span>Accesorios deportivos</a
               >
             </li>
@@ -297,39 +297,39 @@
         <li class="relative group">
           <button
             (click)="$event.stopPropagation()"
-            class="dropdown-item flex justify-between items-center text-amber-50 font-bold hover:bg-purple-500"
+            class="dropdown-item flex justify-between items-center text-amber-50 font-bold purpleHover-personalized"
           >
             📞 Contacto
             <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
           </button>
           <ul
-            class="absolute bg-purple-500 left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-64 z-50 p-2"
+            class="absolute purpleDark-personalized left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-64 z-50 p-2"
           >
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >ℹ️<span class="mx-1"></span>Quiénes somos</a
               >
             </li>
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🛠️<span class="mx-1"></span>Soporte</a
               >
             </li>
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >🔒<span class="mx-1"></span>Política de privacidad</a
               >
             </li>
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-amber-50 hover:bg-purple-600 rounded cursor-pointer"
+                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
                 >📜<span class="mx-1"></span>Términos y condiciones</a
               >
             </li>
@@ -343,15 +343,17 @@
       <span class="icon-[tabler--search] size-5.5"></span>
     </button>
     <div class="grid grid-cols-1 gap-4 w-110 relative">
-      <div class="input max-md:hidden rounded-full">
+      <div
+        class="input max-md:hidden rounded-full focus:outline-none focus-within:ring-2 focus-within:ring-purple-400 focus-within:border-purple-700"
+      >
         <span
-          class="icon-[tabler--search] text-base-content/80 my-auto me-3 size-5 shrink-0"
+          class="icon-[tabler--search] text-base-content/80 my-auto me-3 size-5"
         ></span>
         <label class="sr-only" for="searchInput">Full Name</label>
         <input
           #searchInput
           type="search"
-          class="grow"
+          class="grow focus:outline-none"
           placeholder="Search"
           id="searchInput"
           (focus)="onFocus(searchInput.value)"
@@ -367,17 +369,17 @@
     <!--User logged-->
     <div
       mat-icon-button
-      matBadge={{totalProducts()}}
+      matBadge="{{ totalProducts() }}"
       matBadgeColor="accent"
       matBadgeOverlap="false"
       aria-label="Carrito de compras"
-      class="mx-2 hover:text-pink-100 text-neutral-100"
+      class="mx-2 text-neutral-100"
     >
       <modal-cart>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          class="h-full w-full"
+          class="h-full w-full hover:text-purple-300"
           fill="currentColor"
           style="display: block; margin: auto"
         >
@@ -453,7 +455,7 @@
     }@else {
     <a
       routerLink="/auth/login"
-      class="flex items-center gap-2 py-2 rounded-md text-sm text-purple-100 hover:text-purple-300 transition"
+      class="flex items-center gap-2 py-2 rounded-md text-sm text-purple-100 hover:text-purple-300"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -1,0 +1,152 @@
+<form
+  [formGroup]="addressFormBuilder"
+  class="max-w-200 mx-auto p-6 bg-white rounded shadow space-y-6 mb-4"
+>
+  <h2 class="text-2xl font-semibold mb-4">Añadir dirección de envío</h2>
+
+  <div class="sm:flex justify-center items-center gap-2">
+    <!-- Nombre -->
+    <div class="mb-5 sm:mb-0 sm:flex-1/2">
+      <label for="nombre" class="block text-sm font-medium mb-1">Nombre*</label>
+      <input
+        id="nombre"
+        type="text"
+        formControlName="nombre"
+        required
+        class="border border-gray-300 placeholder-gray-300 rounded w-full px-2 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 text-left"
+        placeholder="Nombre"
+      />
+    </div>
+    <!-- Apellidos -->
+    <div class="sm:flex-1/2">
+      <label for="apellidos" class="block text-sm font-medium mb-1"
+        >Apellidos*</label
+      >
+      <input
+        id="apellidos"
+        type="text"
+        formControlName="apellidos"
+        required
+        class="border border-gray-300 placeholder-gray-300 rounded w-full px-2 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+        placeholder="Apellidos"
+      />
+    </div>
+  </div>
+
+  <!-- País -->
+  <div>
+    <label for="pais" class="block text-sm font-medium mb-1">País*</label>
+    <select
+      id="pais"
+      formControlName="pais"
+      required
+      class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+    >
+      <option value="">Seleccione un país</option>
+      <option value="Francia">🇫🇷 Francia</option>
+      <option value="España">🇪🇸 España</option>
+      <option value="Alemania">🇩🇪 Alemania</option>
+    </select>
+  </div>
+
+  <!-- Móvil -->
+  <div>
+    <label for="movil" class="block text-sm font-medium mb-1">Móvil*</label>
+    <input
+      id="movil"
+      type="tel"
+      formControlName="movil"
+      required
+      class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      placeholder="+33 6 12 34 56 78"
+    />
+  </div>
+
+  <!-- Dirección y número -->
+  <div>
+    <label for="direccion" class="block text-sm font-medium mb-1"
+      >Dirección y número*</label
+    >
+    <input
+      id="direccion"
+      type="text"
+      formControlName="direccion"
+      required
+      placeholder="Ej. Calle de Cavanilles, 35"
+      class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+    />
+  </div>
+
+  <!-- Datos adicionales -->
+  <div>
+    <label for="datosAdicionales" class="block text-sm font-medium mb-1"
+      >Datos adicionales (piso, puerta, barrio...)</label
+    >
+    <input
+      id="datosAdicionales"
+      type="text"
+      formControlName="datosAdicionales"
+      placeholder="Ej. Piso 2, Puerta 4"
+      class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+    />
+  </div>
+
+  <!-- Observaciones -->
+  <div>
+    <label for="observaciones" class="block text-sm font-medium mb-1"
+      >Observaciones para la agencia</label
+    >
+    <textarea
+      id="observaciones"
+      formControlName="observaciones"
+      placeholder="Escribe aquí tus observaciones para la agencia..."
+      rows="3"
+      class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 resize-y focus:outline-none focus:ring-2 focus:ring-purple-500"
+    ></textarea>
+  </div>
+
+  <!-- Código postal -->
+  <div>
+    <label for="codigoPostal" class="block text-sm font-medium mb-1"
+      >Código postal*</label
+    >
+    <input
+      id="codigoPostal"
+      type="text"
+      formControlName="codigoPostal"
+      required
+      class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      placeholder="Código postal"
+    />
+  </div>
+
+  <!-- Población -->
+  <div>
+    <label for="poblacion" class="block text-sm font-medium mb-1"
+      >Población*</label
+    >
+    <input
+      id="poblacion"
+      type="text"
+      formControlName="poblacion"
+      required
+      class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      placeholder="Población"
+    />
+  </div>
+
+  <!-- Provincia -->
+  <div>
+    <label for="provincia" class="block text-sm font-medium mb-1"
+      >Provincia*</label
+    >
+    <input
+      id="provincia"
+      type="text"
+      formControlName="provincia"
+      required
+      class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      placeholder="Provincia"
+    />
+  </div>
+</form>

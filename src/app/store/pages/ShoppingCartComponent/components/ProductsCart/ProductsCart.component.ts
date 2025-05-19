@@ -1,0 +1,27 @@
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductsService } from '@store/services/products.service';
+
+@Component({
+  selector: 'products-cart',
+  imports: [],
+  templateUrl: './ProductsCart.component.html',
+})
+export class ProductsCartComponent {
+
+  router = inject(Router);
+  productsService = inject(ProductsService);
+
+  goToProduct(id: string): void {
+    this.closeDrawer();
+    this.router.navigate(['/product', Number(id)]);
+  }
+
+  closeDrawer() {
+    const closeBtn = document.querySelector('button[data-overlay="#overlay-end-example"][aria-label="Close"]');
+    if (closeBtn) {
+      (closeBtn as HTMLElement).click();
+    }
+  }
+
+}

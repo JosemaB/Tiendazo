@@ -13,8 +13,34 @@
     -1px  1px 0 #000,
      1px  1px 0 #000;
 }
+/* Colors Profesionals */
+
+
+/* Más oscuro */
+/*--purple-base: #7b4397;*/
+
+/*--purple-dark: #5a2f6f;*/
+
+/* Un poco más claro */
+/*--purple-light: #9c6fb9;*/
+
+/* Claro para hover */
+/*--purple-lighter: #b996d1;*/
+
 .purple-personalized {
-  background-color: rgb(157 100 231);
+  background-color: #7b4397;
+}
+
+.purpleLight-personalized {
+  background-color: #9c6fb9;
+}
+
+.purpleDark-personalized {
+  background-color: #7f529d;
+}
+
+.purpleHover-personalized:hover {
+  background-color: #b996d1;
 }
 
 .fade-in {

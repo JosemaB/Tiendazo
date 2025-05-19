@@ -1,0 +1,45 @@
+.mat-stepper-horizontal {
+  margin-top: 8px;
+  background-color: white;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+::ng-deep mat-step-header[aria-selected="true"],
+::ng-deep mat-step-header.mat-active {
+  background-color: #cececeaf !important; /* gris claro */
+  color: #000000 !important;            /* texto casi negro */
+  border-radius: 10px;
+}
+
+::ng-deep mat-step-header:hover {
+  background-color: #cececeaf !important; /* gris medio */
+  color: #000000 !important;
+  border-radius: 10px;
+}
+
+::ng-deep mat-step-header {
+  color: #525355 !important;            /* gris texto inactivo */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+::ng-deep mat-step-header .mat-step-label,
+::ng-deep mat-step-header .mat-step-icon {
+  color: inherit !important; /* Hereda el color que definimos arriba */
+}
+ button.mat-stepper-previous,
+ button.mat-stepper-next {
+  background-color: #f72e88 !important; /* bg-pink-600 */
+  color: white !important;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+button.mat-stepper-previous:hover,
+button.mat-stepper-next:hover {
+  background-color: #be185d !important; /* bg-pink-700 */
+}
+

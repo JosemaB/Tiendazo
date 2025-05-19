@@ -16,7 +16,7 @@ export class ModalCartComponent {
   );
 
   totalPrice = computed(() =>
-    this.productsService.productsCart().reduce((acc, item) => acc + item.price! * item.quantity, 0)
+    this.productsService.productsCart().reduce((acc, item) => acc + item.price! * item.quantity, 0).toFixed(2)
   );
 
 }
