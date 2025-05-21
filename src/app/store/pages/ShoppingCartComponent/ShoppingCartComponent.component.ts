@@ -1,5 +1,6 @@
 import { Component, computed, inject, ViewChild } from '@angular/core';
 import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { STEPPER_GLOBAL_OPTIONS, StepperSelectionEvent } from '@angular/cdk/stepper';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -41,7 +42,8 @@ import { ErrorFormComponent } from '@shared/components/errorForm/errorForm.compo
     ProductsCartComponent,
     ShippingAddressComponent,
     NgxPaymentCardModule,
-    ErrorFormComponent
+    ErrorFormComponent,
+    RouterModule
   ],
 })
 export class ShoppingCartComponentComponent {
@@ -49,6 +51,8 @@ export class ShoppingCartComponentComponent {
   formBuilder = inject(FormBuilder);
   productsService = inject(ProductsService);
   formUtils = FormUtils;
+  isLoading = false;
+  isCompleted = false;
 
   addressFormBuilder = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25), Validators.pattern(FormUtils.textPattern)]],
@@ -59,7 +63,7 @@ export class ShoppingCartComponentComponent {
     datosAdicionales: [''],
     observaciones: [''],
     codigoPostal: ['', [Validators.required, Validators.pattern(FormUtils.postalCodePattern)]],
-    poblacion: ['', [Validators.required, Validators.pattern(FormUtils.locationPattern)]],
+    poblacion: ['', [Validators.required, Validators.minLength(2), Validators.pattern(FormUtils.locationPattern)]],
     provincia: ['', [Validators.required, Validators.minLength(2), Validators.pattern(FormUtils.locationPattern)]]
   });
 
@@ -91,5 +95,14 @@ export class ShoppingCartComponentComponent {
     }
   }
 
+  procesarCompra() {
+    this.isLoading = true;
+
+    // Simulamos un proceso de compra
+    setTimeout(() => {
+      this.isLoading = false;
+      this.isCompleted = true;
+    }, 3000); // 3 segundos
+  }
 
 }
