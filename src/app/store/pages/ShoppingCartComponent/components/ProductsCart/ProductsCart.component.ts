@@ -11,6 +11,7 @@ export class ProductsCartComponent {
 
   router = inject(Router);
   productsService = inject(ProductsService);
+  cantidad: number = 0;
 
   goToProduct(id: string): void {
     this.closeDrawer();
@@ -24,4 +25,11 @@ export class ProductsCartComponent {
     }
   }
 
+  increase(productId: string) {
+    this.productsService.increaseProduct(productId);
+  }
+
+  decrease(productId: string) {
+    this.productsService.decreaseProduct(productId);
+  }
 }

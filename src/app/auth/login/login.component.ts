@@ -41,7 +41,7 @@ export class LoginComponent {
         this.authService.isLoggedIn.set(true);
       },
       error: (err) => {
-        // Aquí puedes marcar un error al formulario
+
         this.myForm.setErrors({ invalidCredentials: true });
       }
     })

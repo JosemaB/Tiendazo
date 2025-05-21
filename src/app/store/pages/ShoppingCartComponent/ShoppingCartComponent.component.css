@@ -43,3 +43,8 @@ button.mat-stepper-next:hover {
   background-color: #be185d !important; /* bg-pink-700 */
 }
 
+
+::ng-deep  .mat-step-sub-label-error,::ng-deep  .mat-step-icon-state-error .mat-step-icon-content  {
+  color: #be185d;
+}
+

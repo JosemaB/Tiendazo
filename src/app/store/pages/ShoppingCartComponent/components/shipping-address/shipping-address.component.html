@@ -4,21 +4,31 @@
 >
   <h2 class="text-2xl font-semibold mb-4">Añadir dirección de envío</h2>
 
-  <div class="sm:flex justify-center items-center gap-2">
+  <div class="sm:flex sm:gap-4">
     <!-- Nombre -->
-    <div class="mb-5 sm:mb-0 sm:flex-1/2">
-      <label for="nombre" class="block text-sm font-medium mb-1">Nombre*</label>
+    <div class="sm:flex-1">
+      <label for="name" class="block text-sm font-medium mb-1">Nombre*</label>
       <input
-        id="nombre"
+        id="name"
         type="text"
-        formControlName="nombre"
-        required
-        class="border border-gray-300 placeholder-gray-300 rounded w-full px-2 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 text-left"
+        formControlName="name"
+        class="border border-gray-300 placeholder-gray-300 rounded w-full px-2 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
         placeholder="Nombre"
+        [class.border-red-500]="
+          addressFormBuilder.controls['name'].invalid &&
+          addressFormBuilder.controls['name'].touched
+        "
+        required
       />
+      @if ( formUtils.isValidField(addressFormBuilder, 'name')) {
+      <error-form class="block mt-1 ml-1 text-sm text-red-500">
+        {{ formUtils.getFieldError(addressFormBuilder, "name") }}
+      </error-form>
+      }
     </div>
+
     <!-- Apellidos -->
-    <div class="sm:flex-1/2">
+    <div class="sm:flex-1">
       <label for="apellidos" class="block text-sm font-medium mb-1"
         >Apellidos*</label
       >
@@ -26,10 +36,19 @@
         id="apellidos"
         type="text"
         formControlName="apellidos"
-        required
         class="border border-gray-300 placeholder-gray-300 rounded w-full px-2 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
         placeholder="Apellidos"
+        [class.border-red-500]="
+          addressFormBuilder.controls['apellidos'].invalid &&
+          addressFormBuilder.controls['apellidos'].touched
+        "
+        required
       />
+      @if ( formUtils.isValidField(addressFormBuilder, 'apellidos')) {
+      <error-form class="block mt-1 ml-1 text-sm text-red-500">
+        {{ formUtils.getFieldError(addressFormBuilder, "apellidos") }}
+      </error-form>
+      }
     </div>
   </div>
 
@@ -39,14 +58,23 @@
     <select
       id="pais"
       formControlName="pais"
-      required
       class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+      [class.border-red-500]="
+        addressFormBuilder.controls['pais'].invalid &&
+        addressFormBuilder.controls['pais'].touched
+      "
+      required
     >
       <option value="">Seleccione un país</option>
       <option value="Francia">🇫🇷 Francia</option>
       <option value="España">🇪🇸 España</option>
       <option value="Alemania">🇩🇪 Alemania</option>
     </select>
+    @if ( formUtils.isValidField(addressFormBuilder, 'pais')) {
+    <error-form class="block mt-1 ml-1 text-sm text-red-500">
+      {{ formUtils.getFieldError(addressFormBuilder, "pais") }}
+    </error-form>
+    }
   </div>
 
   <!-- Móvil -->
@@ -56,10 +84,19 @@
       id="movil"
       type="tel"
       formControlName="movil"
-      required
       class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
       placeholder="+33 6 12 34 56 78"
+      [class.border-red-500]="
+        addressFormBuilder.controls['movil'].invalid &&
+        addressFormBuilder.controls['movil'].touched
+      "
+      required
     />
+    @if ( formUtils.isValidField(addressFormBuilder, 'movil')) {
+    <error-form class="block mt-1 ml-1 text-sm text-red-500">
+      {{ formUtils.getFieldError(addressFormBuilder, "movil") }}
+    </error-form>
+    }
   </div>
 
   <!-- Dirección y número -->
@@ -71,10 +108,19 @@
       id="direccion"
       type="text"
       formControlName="direccion"
-      required
       placeholder="Ej. Calle de Cavanilles, 35"
       class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      [class.border-red-500]="
+        addressFormBuilder.controls['direccion'].invalid &&
+        addressFormBuilder.controls['direccion'].touched
+      "
+      required
     />
+    @if ( formUtils.isValidField(addressFormBuilder, 'direccion')) {
+    <error-form class="block mt-1 ml-1 text-sm text-red-500">
+      {{ formUtils.getFieldError(addressFormBuilder, "direccion") }}
+    </error-form>
+    }
   </div>
 
   <!-- Datos adicionales -->
@@ -112,12 +158,22 @@
     >
     <input
       id="codigoPostal"
+      maxlength="5"
       type="text"
       formControlName="codigoPostal"
-      required
       class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
       placeholder="Código postal"
+      [class.border-red-500]="
+        addressFormBuilder.controls['codigoPostal'].invalid &&
+        addressFormBuilder.controls['codigoPostal'].touched
+      "
+      required
     />
+    @if ( formUtils.isValidField(addressFormBuilder, 'codigoPostal')) {
+    <error-form class="block mt-1 ml-1 text-sm text-red-500">
+      {{ formUtils.getFieldError(addressFormBuilder, "codigoPostal") }}
+    </error-form>
+    }
   </div>
 
   <!-- Población -->
@@ -129,10 +185,19 @@
       id="poblacion"
       type="text"
       formControlName="poblacion"
-      required
       class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
       placeholder="Población"
+      [class.border-red-500]="
+        addressFormBuilder.controls['poblacion'].invalid &&
+        addressFormBuilder.controls['poblacion'].touched
+      "
+      required
     />
+    @if ( formUtils.isValidField(addressFormBuilder, 'poblacion')) {
+    <error-form class="block mt-1 ml-1 text-sm text-red-500">
+      {{ formUtils.getFieldError(addressFormBuilder, "poblacion") }}
+    </error-form>
+    }
   </div>
 
   <!-- Provincia -->
@@ -144,9 +209,18 @@
       id="provincia"
       type="text"
       formControlName="provincia"
-      required
       class="w-full border border-gray-300 placeholder-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
       placeholder="Provincia"
+      [class.border-red-500]="
+        addressFormBuilder.controls['provincia'].invalid &&
+        addressFormBuilder.controls['provincia'].touched
+      "
+      required
     />
+    @if ( formUtils.isValidField(addressFormBuilder, 'provincia')) {
+    <error-form class="block mt-1 ml-1 text-sm text-red-500">
+      {{ formUtils.getFieldError(addressFormBuilder, "provincia") }}
+    </error-form>
+    }
   </div>
 </form>

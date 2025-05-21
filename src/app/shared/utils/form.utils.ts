@@ -7,10 +7,19 @@ export class FormUtils {
   static namePattern = '([a-zA-Z]+) ([a-zA-Z]+)';
   static emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
   static passwordPattern = '^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$';
+  static textPattern = '^[a-zA-ZÁÉÍÓÚáéíóúÑñ\\s]*$';
+  static phoneNumberPattern = '^\\+?\\d[\\d\\s-]{6,19}$';
+  static addressPattern = "^(?=.*[a-zA-ZÁÉÍÓÚáéíóúÑñ])(?=.*\\d)[a-zA-Z0-9ÁÉÍÓÚáéíóúÑñ\\s.,#\\-\\/'°]+$";
+  static postalCodePattern = '^\\d{4,5}$';
+  static locationPattern = "^[a-zA-ZÁÉÍÓÚáéíóúÑñ\\s'-]+$";
+  static ibanPattern = '^[A-Z]{2}[0-9]{13}$';
+  static cardNumberPattern = '^[0-9]{13,20}$';
+  static cardCvvPattern = '^[0-9]{3,4}$';
 
   static getTextError(errors: ValidationErrors) {
     for (const key of Object.keys(errors)) {
       switch (key) {
+
         case 'usernameFound':
           return 'Este nombre de usuario ya está en uso';
 
@@ -18,7 +27,10 @@ export class FormUtils {
           return 'El campo es obligatorio';
 
         case 'minlength':
-          return `Mínimo de ${errors['minlength'].requiredLength} caracteres.`;
+          return `Mínimo ${errors['minlength'].requiredLength} caracteres.`;
+
+        case 'maxlength':
+          return `Máximo ${errors['maxlength'].requiredLength} caracteres.`;
 
         case 'email':
           return `El valor ingresado no es un correo electrónico`;
@@ -29,10 +41,36 @@ export class FormUtils {
         case 'pattern':
           if (errors['pattern'].requiredPattern === FormUtils.emailPattern) {
             return 'El correo electrónico no es válido';
+
           } else if (errors['pattern'].requiredPattern === FormUtils.passwordPattern) {
             return 'La contraseña debe tener al menos 8 caracteres, incluir mayúsculas, minúsculas, números y un símbolo especial (@, $, %, etc.)';
+
+          } else if (errors['pattern'].requiredPattern === FormUtils.textPattern) {
+            return 'Solo se permiten letras';
+
+          } else if (errors['pattern'].requiredPattern === FormUtils.phoneNumberPattern) {
+            return 'Ingrese un número de teléfono válido';
+
+          } else if (errors['pattern'].requiredPattern === FormUtils.addressPattern) {
+            return 'La dirección debe contener al menos un número, y solo puede incluir letras, números y los símbolos , . # - / \' ° (Ej: Calle 123)';
+
+          } else if (errors['pattern'].requiredPattern === FormUtils.postalCodePattern) {
+            return 'El código postal debe contener exactamente 4 a 5 números';
+
+          } else if (errors['pattern'].requiredPattern === FormUtils.locationPattern) {
+            return "Nombre inválido. Use solo letras, espacios y los caracteres ( ', y, - )";
+
+          } else if (errors['pattern'].requiredPattern === FormUtils.ibanPattern) {
+            return "IBAN inválido. Usa hasta 15 caracteres en mayúsculas y números solamente";
           }
-          return 'El de patrón contra expresión regular';
+          else if (errors['pattern'].requiredPattern === FormUtils.cardNumberPattern) {
+            return "Número de tarjeta inválido. Debe tener entre 13 y 20 dígitos";
+          }
+          else if (errors['pattern'].requiredPattern === FormUtils.cardCvvPattern) {
+            return "CVV inválido. Debe tener 3 o 4 dígitos";
+          }
+
+          return 'El de patrón contra expresión regular' + errors['pattern'].requiredPattern;
 
         default:
           return `Error de validación no controlado ${key}`;

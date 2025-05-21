@@ -46,6 +46,33 @@ export class ProductsService {
     localStorage.setItem('cart', JSON.stringify(carrito));
   }
 
+  increaseProduct(productId: string) {
+    const carrito: CartProduct[] = JSON.parse(localStorage.getItem('cart')!) || [];
+    const productoExistente = carrito.find(item => item.id === productId);
+    if (productoExistente) {
+      productoExistente.quantity += 1;
+
+      //Lo cambiamos en el set
+      this.productsCart.set(carrito);
+
+      // Guardamos actualizado
+      localStorage.setItem('cart', JSON.stringify(carrito));
+    }
+  }
+  decreaseProduct(productId: string) {
+    const carrito: CartProduct[] = JSON.parse(localStorage.getItem('cart')!) || [];
+    const productoExistente = carrito.find(item => item.id === productId);
+    if (productoExistente && productoExistente.quantity > 1) {
+      productoExistente.quantity -= 1;
+
+      //Lo cambiamos en el set
+      this.productsCart.set(carrito);
+
+      // Guardamos actualizado
+      localStorage.setItem('cart', JSON.stringify(carrito));
+    }
+  }
+
   removeCartItem(productId: string) {
     const carritoActual: CartProduct[] = this.productsCart();
 

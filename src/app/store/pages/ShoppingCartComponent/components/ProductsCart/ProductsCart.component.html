@@ -15,7 +15,7 @@
       <!-- Título -->
       <a (click)="goToProduct(product.id!)">
         <div
-          class="text-sm cursor-pointer font-medium truncate w-full max-w-[180px] text-black hover:text-pink-700"
+          class="text-sm cursor-pointer font-medium truncate w-full  text-black hover:text-pink-700"
           title="{{ product.name }}"
         >
           {{ product.name }}
@@ -23,42 +23,70 @@
       </a>
 
       <!-- Icono eliminar -->
-      <div class="relative group">
-        <button
-          (click)="this.productsService.removeCartItem(product.id!)"
-          type="button"
-          class="text-gray-700 hover:bg-gray-200 rounded h-5 w-5 cursor-pointer"
-          aria-label="Tooltip"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-full h-full"
-            viewBox="0 0 24 24"
+      <div class="flex gap-4 justify-center items-center">
+        <div class="relative group flex justify-center items-center">
+          <button
+            (click)="this.productsService.removeCartItem(product.id!)"
+            type="button"
+            class="text-gray-700 hover:text-red-500 rounded w-6 h-8 cursor-pointer"
+            aria-label="Tooltip"
           >
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"
-            />
-          </svg>
-        </button>
-
-        <span
-          class="absolute left-1/2 top-full mt-2 -translate-x-1/2 opacity-0 invisible transition-opacity duration-200 group-hover:opacity-100 group-hover:visible"
-          role="tooltip"
-        >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-full h-full"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"
+              />
+            </svg>
+          </button>
           <span
-            class="tooltip-body bg-gray-800 text-white textarea-xs p-2 rounded shadow whitespace-nowrap overflow-visible"
+            class="absolute left-1/2 top-full mt-2 -translate-x-1/2 opacity-0 invisible transition-opacity duration-200 group-hover:opacity-100 group-hover:visible"
+            role="tooltip"
           >
-            Eliminar articulo
+            <span
+              class="tooltip-body bg-gray-800 text-white textarea-xs p-2 rounded shadow whitespace-nowrap overflow-visible"
+            >
+              Eliminar articulo
+            </span>
           </span>
-        </span>
+        </div>
+        <div class="flex justify-center items-center gap-2">
+          <button
+            class="btn w-6 h-8 text-base"
+            [disabled]="product.quantity === 1"
+            [class]="
+              product.quantity === 1
+                ? 'bg-gray-200 text-black cursor-not-allowed'
+                : 'bg-pink-700 hover:bg-pink-800'
+            "
+            (click)="decrease(product.id!)"
+          >
+            -
+          </button>
+
+          <input
+            class="w-10 h-8 text-center text-base border border-gray-300 rounded"
+            type="text"
+            [value]="product.quantity"
+            readonly
+          />
+
+          <button
+            class="btn w-6 h-8 text-base bg-pink-700 hover:bg-pink-800 text-white"
+            (click)="increase(product.id!)"
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
-
     <!-- Precio -->
     <div class="mt-1 font-bold text-base text-pink-700">
       ${{ product.price }}
