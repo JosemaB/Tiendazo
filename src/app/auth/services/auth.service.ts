@@ -27,6 +27,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("cart");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");
     this.isLoggedIn.set(false);

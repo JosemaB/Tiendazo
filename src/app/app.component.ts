@@ -1,6 +1,7 @@
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { RouterOutlet } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { NavigationStart, RouterOutlet } from '@angular/router';
 import { Router, NavigationEnd, Event } from '@angular/router';
 
 @Component({
@@ -13,7 +14,7 @@ export class AppComponent {
   title = 'tiendazo';
   destroyRef = inject(DestroyRef);
   router = inject(Router);
-
+  snackBar = inject(MatSnackBar);
   ngOnInit() {
     this.router.events
       .pipe(takeUntilDestroyed(this.destroyRef))
@@ -24,6 +25,9 @@ export class AppComponent {
               window.HSStaticMethods.autoInit();
             }
           }, 500);
+        }
+        if (event instanceof NavigationStart && event.url !== '/auth/login') {
+          this.snackBar.dismiss();
         }
       });
   }

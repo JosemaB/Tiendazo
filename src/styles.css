@@ -63,4 +63,21 @@
   margin-top: 16px;
 }
 
+.mdc-snackbar__surface {
+  background-color: #f24c4c !important;
+  color: #ffffff !important;
+  font-size: 1.9rem !important;
+  font-weight: 700 !important;
+  padding: 16px 28px !important;
+  border-radius: 12px !important;
+  text-align: center !important;
+  max-width: 500px !important;
+  margin: 16px auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  letter-spacing: 0.03em !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

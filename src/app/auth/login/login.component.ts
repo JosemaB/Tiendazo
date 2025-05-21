@@ -1,4 +1,4 @@
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '@auth/services/auth.service';
@@ -15,17 +15,23 @@ export class LoginComponent {
   fb = inject(FormBuilder);
   authService = inject(AuthService);
   router = inject(Router);
+  route = inject(ActivatedRoute);  // <-- inyectar aquí correctamente
+
   formUtils = FormUtils;
   functionUtils = FunctionUtils;
-
   showPassword: boolean = false;
 
-  myForm = this.fb.group(
-    {
-      username: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-    }
-  );
+  returnUrl: string = '/';  // variable para guardar returnUrl
+
+  myForm = this.fb.group({
+    username: ['', [Validators.required]],
+    password: ['', [Validators.required]],
+  });
+
+  constructor() {
+    // Capturar returnUrl en constructor o ngOnInit
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
 
   onSubmit() {
     this.myForm.markAllAsTouched();
@@ -41,15 +47,12 @@ export class LoginComponent {
         this.authService.isLoggedIn.set(true);
       },
       error: (err) => {
-
         this.myForm.setErrors({ invalidCredentials: true });
       }
-    })
+    });
   }
 
-
-
   goToHome(): void {
-    this.router.navigate(['/home']);
+    this.router.navigateByUrl(this.returnUrl);
   }
 }
