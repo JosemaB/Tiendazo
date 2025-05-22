@@ -1,4 +1,4 @@
-@if (this.productsService.productsCart().length > 0) {
+@if (this.productsService.productsCart().length > 0 || this.isCompleted) {
 
 <mat-stepper
   #stepper

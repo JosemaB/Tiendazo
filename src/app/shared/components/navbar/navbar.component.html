@@ -412,7 +412,7 @@
         </div>
       </button>
       <ul
-        class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60"
+        class="dropdown-menu dropdown-open:opacity-100 purpleDark-personalized hidden min-w-60"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="dropdown-avatar"
@@ -424,26 +424,28 @@
             </div>
           </div>
           <div>
-            <h6 class="text-base-content text-base font-semibold">John Doe</h6>
-            <small class="text-base-content/50">Admin</small>
+            <h6 class="text-base font-semibold text-neutral-100">
+              {{ user.firstName }}
+            </h6>
+            <small class="text-neutral-100">Cliente</small>
           </div>
         </li>
         <li>
-          <a class="dropdown-item" href="#">
+          <a (click)="closeDrawer()" class="dropdown-item text-neutral-100" routerLink="/perfil">
             <span class="icon-[tabler--user]"></span>
-            My Profile
+            Perfil
           </a>
         </li>
         <li>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item text-neutral-100" routerLink="/ajustes" (click)="closeDrawer()">
             <span class="icon-[tabler--settings]"></span>
-            Settings
+            Ajustes
           </a>
         </li>
-        <li class="dropdown-footer gap-2">
+        <li class="dropdown-footer gap-2 text-neutral-100">
           <a
             (click)="this.authService.logout()"
-            class="btn btn-error btn-soft btn-block"
+            class="btn bg-red-400 hover:bg-red-500 w-full"
             href="#"
           >
             <span class="icon-[tabler--logout]"></span>

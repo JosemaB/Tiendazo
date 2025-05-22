@@ -13,6 +13,8 @@ import { NgxPaymentCardModule } from 'ngx-payment-card';
 import { ProductsService } from '@store/services/products.service';
 import { FormUtils } from '@shared/utils/form.utils';
 import { ErrorFormComponent } from '@shared/components/errorForm/errorForm.component';
+import { Product } from '@store/interfaces/product.interface';
+import { CartProduct } from '@store/interfaces/productCart.interface';
 
 /**
  * @title Stepper with customized states
@@ -102,7 +104,17 @@ export class ShoppingCartComponentComponent {
     setTimeout(() => {
       this.isLoading = false;
       this.isCompleted = true;
-    }, 3000); // 3 segundos
+      localStorage.removeItem('cart');
+
+      const productsPurchaseHistory: CartProduct[] = [];
+      this.productsService.productsCart().forEach((product) => {
+        productsPurchaseHistory.push(product);
+      });
+      this.productsService.saveProductToPurchaseHistory(productsPurchaseHistory)
+      this.productsService.productsCart.set([]);
+    }, 3000);
   }
 
 }
+
+

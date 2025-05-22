@@ -59,16 +59,68 @@ export class ProductsService {
       localStorage.setItem('cart', JSON.stringify(carrito));
     }
   }
+
+  /* Whislist */
+  saveProductWishlist(product: Product) {
+    const productsWishlist: Product[] = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    productsWishlist.push(product);
+    localStorage.setItem('wishlist', JSON.stringify(productsWishlist));
+
+  }
+
+  isProductInWishlist(productId: number): boolean {
+    const productsWishlist: Product[] = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    return productsWishlist.some(product => product.id === productId);
+  }
+
+  removeProductFromWishlist(productId: number) {
+    const productsWishlist: Product[] = JSON.parse(localStorage.getItem('wishlist') || '[]');
+
+    const updatedWishlist = productsWishlist.filter(product => product.id !== productId);
+
+    localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+  }
+
+  /* History */
+  saveProductToPurchaseHistory(products: CartProduct[]) {
+    const today = new Date().toISOString().split('T')[0]; // e.g., "2025-05-22"
+
+    // Obtener el historial completo
+    const fullHistory: { [date: string]: CartProduct[] } = JSON.parse(localStorage.getItem('purchaseHistory') || '{}');
+
+    // Si no hay entrada para hoy, inicializarla
+    if (!fullHistory[today]) {
+      fullHistory[today] = [];
+    }
+
+    products.forEach(product => {
+      const existing = fullHistory[today].find(p => p.id === product.id);
+
+      if (existing) {
+        existing.quantity += product.quantity;
+
+      } else {
+        fullHistory[today].push({ ...product });
+      }
+    });
+
+    // Guardar de nuevo el historial completo
+    localStorage.setItem('purchaseHistory', JSON.stringify(fullHistory));
+  }
+
+
+  getPurchaseHistory(): Product[] {
+    return JSON.parse(localStorage.getItem('purchaseHistory') || '[]');
+  }
+
   decreaseProduct(productId: string) {
     const carrito: CartProduct[] = JSON.parse(localStorage.getItem('cart')!) || [];
     const productoExistente = carrito.find(item => item.id === productId);
     if (productoExistente && productoExistente.quantity > 1) {
       productoExistente.quantity -= 1;
 
-      //Lo cambiamos en el set
       this.productsCart.set(carrito);
 
-      // Guardamos actualizado
       localStorage.setItem('cart', JSON.stringify(carrito));
     }
   }

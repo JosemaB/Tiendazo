@@ -79,4 +79,10 @@ export class NavbarComponent implements AfterViewInit {
     });
     return totalProducts;
   }
+  closeDrawer() {
+    const closeBtn = document.getElementById('dropdown-scrollable');
+    if (closeBtn) {
+      (closeBtn as HTMLElement).click();
+    }
+  }
 }

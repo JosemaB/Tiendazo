@@ -30,6 +30,9 @@ export class AuthService {
     localStorage.removeItem("cart");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");
+    localStorage.removeItem("wishlist");
+    localStorage.removeItem("purchaseHistory");
+
     this.isLoggedIn.set(false);
   }
 
@@ -51,4 +54,5 @@ export class AuthService {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     return user;
   }
+
 }

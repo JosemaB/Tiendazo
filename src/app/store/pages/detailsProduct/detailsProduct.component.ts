@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product, Products } from '@store/interfaces/product.interface';
 import { ProductsService } from '@store/services/products.service';
 import { CarouselComponentTripleImg } from "@shared/components/carousel/carousel.component";
@@ -19,6 +19,7 @@ export class DetailsProductComponent implements OnInit {
   product: Product = {};
   productsRelated: Products = {};
   route = inject(ActivatedRoute);
+  router = inject(Router);
   productsService = inject(ProductsService);
   stringUtils = inject(StringUtils);
 
@@ -72,6 +73,17 @@ export class DetailsProductComponent implements OnInit {
     }
     this.openDrawer();
     this.productsService.addCartStorage(product);
+  }
+  comprarProducto() {
+    const product: CartProduct = {
+      id: this.product.id?.toString()!,
+      name: this.product.title!,
+      price: this.product.price!,
+      quantity: 1,
+      image: this.product?.images?.[0] ?? ''
+    }
+    this.productsService.addCartStorage(product);
+    this.router.navigate(['/shopping']);
   }
 
   openDrawer() {

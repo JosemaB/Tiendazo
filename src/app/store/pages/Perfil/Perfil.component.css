@@ -1,0 +1,11 @@
+::ng-deep  .mdc-tab__text-label{
+  color: rgb(230, 0, 255) !important;
+}
+::ng-deep  .mdc-tab__text-label:hover{
+  color: rgb(141, 0, 156) !important;
+}
+
+::ng-deep .mat-mdc-tab-body-content {
+  background-color: transparent; /* o cualquier color */
+  height: 0px;
+}

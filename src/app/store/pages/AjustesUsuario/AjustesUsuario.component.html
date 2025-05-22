@@ -1,0 +1,29 @@
+<mat-sidenav-container class="sidenav-container" class="min-h-[89vh]">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        (click)="contenidoActual = 'inicio'"
+        [class.activo]="contenidoActual === 'inicio'"
+        >Inicio</a
+      >
+      <a mat-list-item (click)="contenidoActual = 'productos'">Productos</a>
+      <a mat-list-item (click)="contenidoActual = 'contacto'">Contacto</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="contenido">
+    @if (contenidoActual === 'inicio') {
+    <h2>Bienvenido a Inicio</h2>
+    <p>Este es el contenido de inicio.</p>
+    } @else if (contenidoActual === 'productos') {
+    <h2>Nuestros Productos</h2>
+    <p>Listado de productos aquí.</p>
+    } @else if (contenidoActual === 'contacto') {
+    <h2>Contacto</h2>
+    <p>Formulario o información de contacto aquí.</p>
+    } @else {
+    <p>Selecciona una opción del menú.</p>
+    }
+  </mat-sidenav-content>
+</mat-sidenav-container>
