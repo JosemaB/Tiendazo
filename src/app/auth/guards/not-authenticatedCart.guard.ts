@@ -26,6 +26,8 @@ export const NotAuthenticatedCartGuard: CanMatchFn = (
       duration: 2000,
       verticalPosition: 'top',
       horizontalPosition: 'center',
+      panelClass: ['custom-error-snackbar']
+
     });
     document.body.style.overflow = 'auto';
 

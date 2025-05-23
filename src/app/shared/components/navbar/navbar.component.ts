@@ -11,6 +11,7 @@ import { AuthService } from '@auth/services/auth.service';
 import { BuscadorNavComponent } from './components/buscadorNav/buscadorNav.component';
 import { LoginUser } from '@store/interfaces/loginUser.interface';
 import { ModalCartComponent } from "./components/modalCart/modalCart.component";
+import { UserService } from '@store/services/user.service';
 @Component({
   selector: 'app-navbar',
   imports: [BuscadorNavComponent, RouterModule, MatBadgeModule, MatButtonModule, MatIconModule, ModalCartComponent],
@@ -22,7 +23,7 @@ export class NavbarComponent implements AfterViewInit {
   productsService = inject(ProductsService);
   authService = inject(AuthService);
   products: Products = {};
-  user: LoginUser = {};
+  userService = inject(UserService);
   showResults = false;
   hidden = false;
 
@@ -32,9 +33,7 @@ export class NavbarComponent implements AfterViewInit {
   goToCategorie(categorie: string): void {
     this.router.navigate(['/categorie', categorie]);
   }
-  ngOnInit(): void {
-    this.user = this.authService.getUserInfo();
-  }
+
   ngAfterViewInit() {
 
     const inputElement = this.searchInput.nativeElement;

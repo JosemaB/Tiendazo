@@ -1,27 +1,59 @@
-<mat-sidenav-container class="sidenav-container" class="min-h-[89vh]">
+<mat-sidenav-container class="min-h-[89vh]">
   <mat-sidenav mode="side" opened>
-    <mat-nav-list>
+    <mat-nav-list class="text-center">
       <a
         mat-list-item
-        (click)="contenidoActual = 'inicio'"
-        [class.activo]="contenidoActual === 'inicio'"
-        >Inicio</a
+        (click)="contenidoActual = 'perfil'"
+        [class.activo]="contenidoActual === 'perfil'"
+        >Perfil</a
       >
-      <a mat-list-item (click)="contenidoActual = 'productos'">Productos</a>
-      <a mat-list-item (click)="contenidoActual = 'contacto'">Contacto</a>
+      <a
+        mat-list-item
+        (click)="contenidoActual = 'avatar'"
+        [class.activo]="contenidoActual === 'avatar'"
+        >Cambiar avatar</a
+      >
+      <a
+        mat-list-item
+        (click)="contenidoActual = 'seguridad'"
+        [class.activo]="contenidoActual === 'seguridad'"
+        >Seguridad y Privacidad</a
+      >
+      <a
+        mat-list-item
+        (click)="contenidoActual = 'contacto'"
+        [class.activo]="contenidoActual === 'contacto'"
+        >Centro de ayuda</a
+      >
+      <a
+        mat-list-item
+        (click)="contenidoActual = 'cerrarCuenta'"
+        [class.activo]="contenidoActual === 'cerrarCuenta'"
+        >Cerrar Cuenta</a
+      >
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content class="contenido">
-    @if (contenidoActual === 'inicio') {
-    <h2>Bienvenido a Inicio</h2>
-    <p>Este es el contenido de inicio.</p>
-    } @else if (contenidoActual === 'productos') {
-    <h2>Nuestros Productos</h2>
-    <p>Listado de productos aquí.</p>
+  <mat-sidenav-content class="p-5">
+    @if (contenidoActual === 'perfil') {
+    <h2>Bienvenido a nuestro Perfil</h2>
+    <p>Este es el contenido de Perfil.</p>
+
+    } @else if (contenidoActual === 'avatar') {
+    <change-avatar-component />
+
+    } @else if (contenidoActual === 'seguridad') {
+    <h2>Seguridad</h2>
+    <p>Formulario o información de seguridad aquí.</p>
+
     } @else if (contenidoActual === 'contacto') {
-    <h2>Contacto</h2>
+    <h2>Centro de ayuda</h2>
     <p>Formulario o información de contacto aquí.</p>
+
+    }@else if (contenidoActual === 'cerrarCuenta') {
+    <h2>Cerrar Cuenta</h2>
+    <p>Formulario o información de cerrar uenta.</p>
+
     } @else {
     <p>Selecciona una opción del menú.</p>
     }

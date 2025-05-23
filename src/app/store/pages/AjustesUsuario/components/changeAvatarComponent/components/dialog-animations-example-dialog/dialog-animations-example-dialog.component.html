@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Cambiar avatar</h2>
+<mat-dialog-actions>
+  <div class="flex flex-wrap gap-4 mt-4 justify-center mb-7">
+    @for (avatar of avatares; track avatar) {
+    <div
+      class="w-25 h-25 rounded-full overflow-hidden shadow-lg border-4 transition-transform hover:scale-105 cursor-pointer"
+      aria-label="Vista previa del avatar"
+      (click)="seleccionarAvatar(avatar)"
+      [class.ring-2]="avatarSeleccionado === avatar"
+      [class.ring-pink-500]="avatarSeleccionado === avatar"
+      [class.border-pink-700]="avatarSeleccionado === avatar"
+      [class.border-gray-300]="avatarSeleccionado !== avatar"
+    >
+      <img
+        class="object-cover w-full h-full"
+        src="{{ avatar }}"
+        alt="Vista previa del avatar"
+      />
+    </div>
+    }
+  </div>
+  <div class="flex justify-center items-center w-full">
+    <button mat-button mat-dialog-close class="w-1/2">Cancelar</button>
+    <button
+      (click)="
+        avatarSelecionado()
+      "
+      mat-button
+      [disabled]="avatarSeleccionado === this.userService.user().image"
+      [class.opacity-50]="avatarSeleccionado === this.userService.user().image"
+      mat-dialog-close
+      class="w-1/2 bg-red-500"
+    >
+      Aceptar
+    </button>
+  </div>
+</mat-dialog-actions>

@@ -1,5 +1,19 @@
 .activo {
-  background-color: #e0e0e0 !important;
+  background-color: #7f529d !important;
   font-weight: bold;
   color: #1976d2 !important;
+}
+::ng-deep .mat-drawer-container.mat-sidenav-container.mat-drawer-transition{
+  background-color: #ffffff !important;
+  color: black !important;
+}
+
+.mat-drawer.mat-sidenav.mat-drawer-opened.mat-drawer-side{
+  background-color: #b996d1 !important;
+  border-radius: 0%;
+
+}
+::ng-deep .mat-mdc-list-item-unscoped-content.mdc-list-item__primary-text{
+ color: #f9f9f9 !important;
+font-weight: bold !important;
 }

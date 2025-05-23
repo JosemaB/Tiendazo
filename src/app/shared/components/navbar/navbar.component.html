@@ -407,7 +407,7 @@
       >
         <div class="avatar cursor-pointer">
           <div class="size-9.5 rounded-full bg-neutral-50">
-            <img src="{{ user.image }}" alt="avatar 1" />
+            <img src="{{ this.userService.user().image }}" alt="avatar 1" />
           </div>
         </div>
       </button>
@@ -420,24 +420,32 @@
         <li class="dropdown-header gap-2">
           <div class="avatar">
             <div class="w-10 rounded-full bg-neutral-50">
-              <img src="{{ user.image }}" alt="avatar" />
+              <img src="{{ this.userService.user().image }}" alt="avatar" />
             </div>
           </div>
           <div>
             <h6 class="text-base font-semibold text-neutral-100">
-              {{ user.firstName }}
+              {{ this.userService.user().firstName }}
             </h6>
             <small class="text-neutral-100">Cliente</small>
           </div>
         </li>
         <li>
-          <a (click)="closeDrawer()" class="dropdown-item text-neutral-100" routerLink="/perfil">
+          <a
+            (click)="closeDrawer()"
+            class="dropdown-item text-neutral-100"
+            routerLink="/perfil"
+          >
             <span class="icon-[tabler--user]"></span>
             Perfil
           </a>
         </li>
         <li>
-          <a class="dropdown-item text-neutral-100" routerLink="/ajustes" (click)="closeDrawer()">
+          <a
+            class="dropdown-item text-neutral-100"
+            routerLink="/ajustes"
+            (click)="closeDrawer()"
+          >
             <span class="icon-[tabler--settings]"></span>
             Ajustes
           </a>
@@ -445,7 +453,7 @@
         <li class="dropdown-footer gap-2 text-neutral-100">
           <a
             (click)="this.authService.logout()"
-            class="btn bg-red-400 hover:bg-red-500 w-full"
+            class="btn bg-red-400 hover:bg-red-500 w-full shadow-none"
             href="#"
           >
             <span class="icon-[tabler--logout]"></span>

@@ -1,0 +1,19 @@
+<app-section-title> Mi Avatar </app-section-title>
+
+<div class="flex flex-col items-center space-y-8 pt-10">
+  <div
+    (click)="openDialog('0ms', '0ms')"
+    class="w-40 h-40 rounded-full hover:brightness-75 cursor-pointer overflow-hidden shadow-lg border-4 border-gray-400 ring-2 ring-blue-300 transition-transform hover:scale-105"
+    aria-label="Vista previa del avatar"
+  >
+    <img
+      class="object-cover w-full h-full"
+      src="{{ this.userService.user().image }}"
+      alt="Vista previa del avatar"
+    />
+  </div>
+
+  <p class="text-gray-600 text-sm italic">
+    Vista previa de tu avatar actual. Puedes actualizarlo cuando quieras
+  </p>
+</div>

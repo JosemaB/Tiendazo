@@ -1,0 +1,9 @@
+.mdc-button.mat-mdc-button.mat-unthemed.mat-mdc-button-base{
+background: #c61588 !important;
+border: 1px solid black;
+color: #fff !important;
+}
+.mdc-button.mat-mdc-button.mat-unthemed.mat-mdc-button-base:hover{
+background: #900c62 !important;
+
+}
