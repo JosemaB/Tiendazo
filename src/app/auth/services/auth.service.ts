@@ -48,6 +48,7 @@ export class AuthService {
       gender: usuario.gender,
       image: usuario.image
     }));
+
   }
 
 }

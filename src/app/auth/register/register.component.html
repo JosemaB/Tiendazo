@@ -218,7 +218,7 @@
             <error-form>
               Por favor, asegúrate de que ambas contraseñas sean iguales
             </error-form>
-            } @if (myForm.errors) {
+            } @else if (myForm.errors) {
             <error-form> Porfavor completa todos los campos </error-form>
             }
           </div>

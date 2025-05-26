@@ -119,7 +119,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .toast-bottom-right {
   right: 12px;
-  width: 200px;
+  width: 300px;
   border-radius: 10px;
   bottom: 12px;
 }
@@ -131,9 +131,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* toast styles */
 .toast-title {
   font-weight: bold;
+  color: #ffff;
+  padding-left: 10px;
+  padding-top: 5px;
 }
 .toast-message {
   word-wrap: break-word;
+  color: #ffff;
+  background-color: #51A351;
+  padding: 10px;
 }
 .toast-message a,
 .toast-message label {
@@ -144,18 +150,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   text-decoration: none;
 }
 .toast-close-button {
-  position: relative;
-  right: -0.3em;
-  top: -0.3em;
-  float: right;
-  pointer-events: auto;  /* Muy importante */
-  z-index: 1000; /* Asegura que esté arriba */
-  font-size: 20px;
-  font-weight: bold;
-  color: #FFFFFF;
-  text-shadow: 0 1px 0 #ffffff;
-  /* opacity: 0.8; */
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 18px;
+  color: #fff;
+  background: none;
+  border: none;
+  z-index: 1000;
+  cursor: pointer;
 }
+
 .toast-close-button:hover,
 .toast-close-button:focus {
   color: #000000;
@@ -173,7 +178,7 @@ button.toast-close-button {
   border: 0;
 }
 .toast-container {
-  pointer-events: none;
+  pointer-events: auto;
   position: fixed;
   z-index: 999999;
 }
@@ -184,9 +189,9 @@ button.toast-close-button {
   position: relative;
   overflow: hidden;
   margin: 0 0 6px;
+  border-radius: 20px;
   padding: 15px 15px 15px 50px;
   width: 300px;
-  border-radius: 3px 3px 3px 3px;
   background-position: 15px center;
   background-repeat: no-repeat;
   background-size: 24px;
@@ -208,6 +213,7 @@ button.toast-close-button {
 }
 /* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/check.svg */
 .toast-success {
+  border-radius: 5px;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTE3My44OTggNDM5LjQwNGwtMTY2LjQtMTY2LjRjLTkuOTk3LTkuOTk3LTkuOTk3LTI2LjIwNiAwLTM2LjIwNGwzNi4yMDMtMzYuMjA0YzkuOTk3LTkuOTk4IDI2LjIwNy05Ljk5OCAzNi4yMDQgMEwxOTIgMzEyLjY5IDQzMi4wOTUgNzIuNTk2YzkuOTk3LTkuOTk3IDI2LjIwNy05Ljk5NyAzNi4yMDQgMGwzNi4yMDMgMzYuMjA0YzkuOTk3IDkuOTk3IDkuOTk3IDI2LjIwNiAwIDM2LjIwNGwtMjk0LjQgMjk0LjQwMWMtOS45OTggOS45OTctMjYuMjA3IDkuOTk3LTM2LjIwNC0uMDAxeicvPjwvc3ZnPg==");
 }
 /* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/exclamation-triangle.svg */

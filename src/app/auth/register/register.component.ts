@@ -5,6 +5,7 @@ import { AuthService } from '@auth/services/auth.service';
 import { ErrorFormComponent } from '@shared/components/errorForm/errorForm.component';
 import { FormUtils } from '@shared/utils/form.utils';
 import { FunctionUtils } from '@shared/utils/function.utils';
+import { UserService } from '@store/services/user.service';
 
 
 @Component({
@@ -16,8 +17,9 @@ export class RegisterComponent {
 
   fb = inject(FormBuilder);
   router = inject(Router);
-  formUtils = FormUtils;
+  userService = inject(UserService);
   authService = inject(AuthService);
+  formUtils = FormUtils;
   functionUtils = FunctionUtils;
   showPassword1: boolean = false;
   showPassword2: boolean = false;
@@ -44,11 +46,13 @@ export class RegisterComponent {
       "username": username,
       "password": password,
       "email": email,
+      "image": "assets/images/avatares/sinAvatar.png",
       "accessToken": this.functionUtils.generateFakeToken(username!)
     }
     this.authService.register(user);
     this.authService.loginStorage(user);
     this.goToHome();
+    this.userService.reloadUser();
     this.authService.isLoggedIn.set(true);
   }
   goToHome(): void {

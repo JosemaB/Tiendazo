@@ -18,4 +18,7 @@ export class UserService {
 
     localStorage.setItem('user', JSON.stringify(updatedUser));
   }
+  reloadUser() {
+    this.user.set(JSON.parse(localStorage.getItem('user')!));
+  }
 }

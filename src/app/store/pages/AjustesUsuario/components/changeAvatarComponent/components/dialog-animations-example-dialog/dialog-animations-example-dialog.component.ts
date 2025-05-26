@@ -3,7 +3,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { UserService } from '@store/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { TauiToastService } from '@ngx-tailwind-ui/toast';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -17,35 +16,34 @@ export class DialogAnimationsExampleDialogComponent {
   snackBar = inject(MatSnackBar);
   toastr = inject(ToastrService);
 
-  avatarSeleccionado: string | null = this.userService.user()?.image || '';
   avatares: string[] = [
-    "assets/images/avatares/Cuphead.jpg",
-    "assets/images/avatares/dark_souls.jpg",
-    "assets/images/avatares/elden-ring.webp",
-    "assets/images/avatares/hollow_knight.jpg",
-    "assets/images/avatares/luffy.jpg",
-    "assets/images/avatares/morgana.jpg",
-    "assets/images/avatares/persona3.jpg",
-    "assets/images/avatares/persona4.jpg",
-    "assets/images/avatares/sora.png",
-    "assets/images/avatares/stardew_valley.png",
-    "assets/images/avatares/wukong.jpg",
-    "assets/images/avatares/Yoshi.jpg"
+    "assets/images/avatares/Avatar1.png",
+    "assets/images/avatares/Avatar2.png",
+    "assets/images/avatares/Avatar3.png",
+    "assets/images/avatares/Avatar4.png",
+    "assets/images/avatares/Avatar5.png",
+    "assets/images/avatares/Avatar6.png",
+    "assets/images/avatares/Avatar7.png",
+    "assets/images/avatares/Avatar8.png",
+    "assets/images/avatares/Avatar9.png",
+    "assets/images/avatares/Avatar10.png",
+    "assets/images/avatares/Avatar11.png",
+    "assets/images/avatares/Avatar12.png"
   ];
+
+  avatarSeleccionado: string = this.avatares.includes(this.userService.user()?.image || '')
+    ? this.userService.user()?.image!
+    : '';
 
   seleccionarAvatar(avatar: string) {
     this.avatarSeleccionado = avatar;
   }
-  toast = inject(TauiToastService);
-
 
   avatarSelecionado() {
-
-    this.toastr.success('Hello world!', 'Toastr fun!', {
-      positionClass: 'toast-bottom-right'
+    this.toastr.success('El avatar se actualizó con éxito', 'Actualización completa', {
+      positionClass: 'toast-bottom-right',
     });
-
-
+    this.userService.changeAvatar(this.avatarSeleccionado);
   }
 
 }

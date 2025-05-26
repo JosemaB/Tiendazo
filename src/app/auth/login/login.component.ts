@@ -5,6 +5,7 @@ import { AuthService } from '@auth/services/auth.service';
 import { FormUtils } from '@shared/utils/form.utils';
 import { ErrorFormComponent } from '@shared/components/errorForm/errorForm.component';
 import { FunctionUtils } from '@shared/utils/function.utils';
+import { UserService } from '@store/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   authService = inject(AuthService);
   router = inject(Router);
   route = inject(ActivatedRoute);  // <-- inyectar aquí correctamente
-
+  userService = inject(UserService);
   formUtils = FormUtils;
   functionUtils = FunctionUtils;
   showPassword: boolean = false;
@@ -43,8 +44,10 @@ export class LoginComponent {
       next: (usuario) => {
         // login OK
         this.authService.loginStorage(usuario);
+        this.userService.reloadUser();
         this.goToHome();
         this.authService.isLoggedIn.set(true);
+
       },
       error: (err) => {
         this.myForm.setErrors({ invalidCredentials: true });

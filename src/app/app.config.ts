@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
   importProvidersFrom(
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-top-center',
+      positionClass: 'toast-bottom-right',
       timeOut: 3000,
       closeButton: true,
       progressBar: true,

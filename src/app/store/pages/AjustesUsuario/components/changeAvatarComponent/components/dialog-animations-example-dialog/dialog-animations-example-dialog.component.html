@@ -22,9 +22,7 @@
   <div class="flex justify-center items-center w-full">
     <button mat-button mat-dialog-close class="w-1/2">Cancelar</button>
     <button
-      (click)="
-        avatarSelecionado()
-      "
+      (click)="avatarSelecionado()"
       mat-button
       [disabled]="avatarSeleccionado === this.userService.user().image"
       [class.opacity-50]="avatarSeleccionado === this.userService.user().image"
