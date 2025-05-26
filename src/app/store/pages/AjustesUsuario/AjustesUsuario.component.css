@@ -8,7 +8,8 @@
   color: black !important;
 }
 
-.mat-drawer.mat-sidenav.mat-drawer-opened.mat-drawer-side{
+.mat-drawer.mat-sidenav.mat-drawer-opened.mat-drawer-side,
+::ng-deep .mat-drawer-inner-container{
   background-color: #b996d1 !important;
   border-radius: 0%;
 

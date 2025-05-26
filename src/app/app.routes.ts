@@ -9,6 +9,7 @@ import { ShoppingCartComponentComponent } from './store/pages/ShoppingCartCompon
 import { NotAuthenticatedCartGuard } from '@auth/guards/not-authenticatedCart.guard';
 import { PerfilComponent } from './store/pages/Perfil/Perfil.component';
 import { AjustesUsuarioComponent } from './store/pages/AjustesUsuario/AjustesUsuario.component';
+import { AuthenticatedGuard } from '@auth/guards/authenticated.guard';
 
 
 export const routes: Routes = [
@@ -25,9 +26,12 @@ export const routes: Routes = [
         path: 'shopping', component: ShoppingCartComponentComponent,
         canMatch: [NotAuthenticatedCartGuard]
       },
-      { path: 'perfil', component: PerfilComponent },
-      { path: 'ajustes', component: AjustesUsuarioComponent },
-
+      {
+        path: 'perfil', component: PerfilComponent, canMatch: [AuthenticatedGuard],
+      },
+      {
+        path: 'ajustes', component: AjustesUsuarioComponent, canMatch: [AuthenticatedGuard],
+      }
     ]
   },
   {

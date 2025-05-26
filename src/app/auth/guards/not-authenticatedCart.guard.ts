@@ -17,8 +17,6 @@ export const NotAuthenticatedCartGuard: CanMatchFn = (
   const snackBar = inject(MatSnackBar);
   if (!authService.checkStatus()) {
     // Mostrar alerta o notificación
-
-
     document.getElementById('overlay-end-example-backdrop')?.remove();
     const attemptedUrl = '/' + segments.map(s => s.path).join('/');
     router.navigate(['/auth/login'], { queryParams: { returnUrl: attemptedUrl } });

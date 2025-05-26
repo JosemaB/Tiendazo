@@ -1,61 +1,62 @@
 <mat-sidenav-container class="min-h-[89vh]">
-  <mat-sidenav mode="side" opened>
+  <mat-sidenav #drawer [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile">
     <mat-nav-list class="text-center">
-      <a
+      <button
         mat-list-item
-        (click)="contenidoActual = 'perfil'"
+        (click)="onMenuClick('perfil', drawer)"
         [class.activo]="contenidoActual === 'perfil'"
-        >Perfil</a
       >
-      <a
+        Perfil
+      </button>
+      <button
         mat-list-item
-        (click)="contenidoActual = 'avatar'"
+        (click)="onMenuClick('avatar', drawer)"
         [class.activo]="contenidoActual === 'avatar'"
-        >Cambiar avatar</a
       >
-      <a
+        Cambiar avatar
+      </button>
+      <button
         mat-list-item
-        (click)="contenidoActual = 'seguridad'"
+        (click)="onMenuClick('seguridad', drawer)"
         [class.activo]="contenidoActual === 'seguridad'"
-        >Seguridad y Privacidad</a
       >
-      <a
+        Seguridad y Privacidad
+      </button>
+      <button
         mat-list-item
-        (click)="contenidoActual = 'contacto'"
+        (click)="onMenuClick('contacto', drawer)"
         [class.activo]="contenidoActual === 'contacto'"
-        >Centro de ayuda</a
       >
-      <a
+        Centro de ayuda
+      </button>
+      <button
         mat-list-item
-        (click)="contenidoActual = 'cerrarCuenta'"
+        (click)="onMenuClick('cerrarCuenta', drawer)"
         [class.activo]="contenidoActual === 'cerrarCuenta'"
-        >Cerrar Cuenta</a
       >
+        Cerrar Cuenta
+      </button>
     </mat-nav-list>
   </mat-sidenav>
-
+  <!--Arreglar el padding de los menus qute tienen diferentes caa uno-->
   <mat-sidenav-content class="p-5">
-    @if (contenidoActual === 'perfil') {
-    <h2>Bienvenido a nuestro Perfil</h2>
-    <p>Este es el contenido de Perfil.</p>
-
+    <!-- Botón para abrir menú en móvil -->
+    @if (isMobile) {
+    <button mat-icon-button (click)="drawer.toggle()" aria-label="Toggle menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    } @if (contenidoActual === 'perfil') {
+    <perfil-form></perfil-form>
     } @else if (contenidoActual === 'avatar') {
-    <change-avatar-component />
-
+    <change-avatar-component></change-avatar-component>
     } @else if (contenidoActual === 'seguridad') {
-    <h2>Seguridad</h2>
-    <p>Formulario o información de seguridad aquí.</p>
-
+    <security-and-privacy></security-and-privacy>
     } @else if (contenidoActual === 'contacto') {
-    <h2>Centro de ayuda</h2>
-    <p>Formulario o información de contacto aquí.</p>
-
-    }@else if (contenidoActual === 'cerrarCuenta') {
-    <h2>Cerrar Cuenta</h2>
-    <p>Formulario o información de cerrar uenta.</p>
-
+    <help-center></help-center>
+    } @else if (contenidoActual === 'cerrarCuenta') {
+    <close-account></close-account>
     } @else {
-    <p>Selecciona una opción del menú.</p>
+    <p>Selecciona una opción del menú</p>
     }
   </mat-sidenav-content>
 </mat-sidenav-container>

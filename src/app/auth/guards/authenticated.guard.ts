@@ -7,15 +7,15 @@ import {
 } from '@angular/router';
 import { AuthService } from '@auth/services/auth.service';
 
-export const NotAuthenticatedGuard: CanMatchFn = async (
+export const AuthenticatedGuard: CanMatchFn = async (
   route: Route,
   segments: UrlSegment[]
 ) => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  if (authService.checkStatus()) {
-    router.navigateByUrl('/home');
+  if (!authService.checkStatus()) {
+    router.navigateByUrl('/');
     return false;
   }
 

@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>¿Estás seguro?</h2>
+
+<mat-dialog-content>
+  <p>
+    Esta acción
+    <span class="font-semibold text-red-400"
+      >eliminará permanentemente tu cuenta</span
+    >
+    y no podrá deshacerse. Todos tus datos se perderán.
+  </p>
+  @if(!showSecondStep){
+  <p class="mt-4 textarea-sm text-red-400 font-bold text-center">
+    Podrás aceptar en {{ secondsRemaining }} segundos...
+  </p>
+  }
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div class="flex flex-wrap gap-4 mt-4 justify-center mb-7 w-full">
+    <button mat-button mat-dialog-close class="w-1/2">Cancelar</button>
+    <button
+      (click)="cerrarCuena()"
+      mat-button
+      mat-dialog-close
+      [disabled]="!showSecondStep"
+      [class.opacity-50]="!showSecondStep"
+      [class.cursor-not-allowed]="!showSecondStep"
+      class="w-1/2 bg-red-800! text-white"
+    >
+      Cerrar cuenta
+    </button>
+  </div>
+</mat-dialog-actions>

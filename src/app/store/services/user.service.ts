@@ -21,4 +21,17 @@ export class UserService {
   reloadUser() {
     this.user.set(JSON.parse(localStorage.getItem('user')!));
   }
+
+  updateUserPerfil(username: string, email: string, biography: string) {
+    const currentUser = this.user();
+
+    // Modificar la imagen
+    const updatedUser = { ...currentUser, username, email, biography };
+
+    // Actualizar la señal
+    this.user.set(updatedUser);
+
+
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+  }
 }

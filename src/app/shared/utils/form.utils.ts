@@ -109,8 +109,10 @@ export class FormUtils {
     };
   }
 
-  static usernameExists(authService: AuthService): AsyncValidatorFn {
+  static usernameExists(authService: AuthService, originalUsername: string = ""): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      if (originalUsername === control.value) return of(null);
+      console.log(control.value);
       return authService.checkUsernameExists(control.value).pipe(
         map((user) => {
           const exists = user.users!.some(u => u.username === control.value);
@@ -125,8 +127,9 @@ export class FormUtils {
   }
 
 
-  static emailExists(authService: AuthService): AsyncValidatorFn {
+  static emailExists(authService: AuthService, originalEmail: string = ""): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      if (originalEmail === control.value) return of(null);
       return authService.checkUsernameExists(control.value).pipe(
         map((user) => {
           console.log(user);

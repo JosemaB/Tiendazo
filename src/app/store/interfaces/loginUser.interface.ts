@@ -8,4 +8,5 @@ export interface LoginUser {
   lastName?: string;
   gender?: string;
   image?: string;
+  biography?: string;
 }

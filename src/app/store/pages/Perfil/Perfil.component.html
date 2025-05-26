@@ -7,6 +7,7 @@
       <h1 class="text-3xl font-bold text-gray-900 mt-1 truncate">
         {{ user.username }}
       </h1>
+      <p class="p-3">{{ user.biography }}</p>
     </div>
     <!-- Avatar y botón -->
     <div class="flex flex-col items-center">
@@ -117,7 +118,7 @@
           </a>
         </div>
         } @else {
-         <card-product-history />
+        <card-product-history />
         }
       </mat-tab>
     </mat-tab-group>
