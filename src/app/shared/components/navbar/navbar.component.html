@@ -1,7 +1,7 @@
 <nav
-  class="navbar purple-personalized top-0 sticky left-0 w-full z-50 purple-personalized gap-4 px-4"
+  class="navbar purple-personalized top-0 sticky left-0 w-full z-50 purple-personalized gap-4 px-4 justify-between"
 >
-  <div class="navbar-start items-center gap-2">
+  <div class="sm:navbar-start items-center gap-2">
     <a
       class="link text-white flex items-center link-neutral hover:text-purple-300 text-xl font-bold no-underline"
       routerLink="home"
@@ -12,10 +12,12 @@
         class="max-w-full h-auto max-h-10"
         alt="Icono Tiendazo"
       />
-      <span class="text-center ml-1">Tiendazo</span>
+      <span class="text-center ml-1 hidden sm:block">Tiendazo</span>
+
       <!-- Añadí un margen a la derecha para separar el texto de la imagen -->
     </a>
 
+    @if(!isMobile){
     <div class="dropdown relative inline-flex [--trigger:hover]">
       <button
         id="dropdown-hover"
@@ -337,14 +339,12 @@
         </li>
       </ul>
     </div>
+    }
   </div>
-  <div class="navbar-end flex items-center gap-4">
-    <button class="btn btn-sm btn-text btn-circle size-8.5 md:hidden">
-      <span class="icon-[tabler--search] size-5.5"></span>
-    </button>
-    <div class="grid grid-cols-1 gap-4 w-110 relative">
+  <div class="sm:navbar-end flex items-center gap-4">
+    <div class="grid grid-cols-1 gap-4 sm:w-110 w-full relative">
       <div
-        class="input max-md:hidden rounded-full focus:outline-none focus-within:ring-2 focus-within:ring-purple-400 focus-within:border-purple-700"
+        class="input rounded-full focus:outline-none focus-within:ring-2 focus-within:ring-purple-400 focus-within:border-purple-700"
       >
         <span
           class="icon-[tabler--search] text-base-content/80 my-auto me-3 size-5"
@@ -366,6 +366,7 @@
         }
       </div>
     </div>
+
     <!--User logged-->
     <div
       mat-icon-button
@@ -373,13 +374,13 @@
       matBadgeColor="accent"
       matBadgeOverlap="false"
       aria-label="Carrito de compras"
-      class="mx-2 text-neutral-100"
+      class="mr-2 text-neutral-100"
     >
       <modal-cart>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          class="h-full w-full hover:text-purple-300"
+          class="h-7 w-7 sm:h-full sm:w-full hover:text-purple-300"
           fill="currentColor"
           style="display: block; margin: auto"
         >
@@ -406,7 +407,7 @@
         aria-label="Dropdown"
       >
         <div class="avatar cursor-pointer">
-          <div class="size-9.5 rounded-full bg-neutral-50">
+          <div class="size-9.5 h-8 w-8 sm:w-10 sm:h-10 rounded-full bg-neutral-50">
             <img src="{{ this.userService.user().image }}" alt="avatar 1" />
           </div>
         </div>
@@ -433,7 +434,7 @@
         <li>
           <a
             (click)="closeDrawer()"
-            class="dropdown-item text-neutral-100"
+            class="dropdown-item text-neutral-100 purpleHover-personalized"
             routerLink="/perfil"
           >
             <span class="icon-[tabler--user]"></span>
@@ -442,7 +443,7 @@
         </li>
         <li>
           <a
-            class="dropdown-item text-neutral-100"
+            class="dropdown-item text-neutral-100 purpleHover-personalized"
             routerLink="/ajustes"
             (click)="closeDrawer()"
           >

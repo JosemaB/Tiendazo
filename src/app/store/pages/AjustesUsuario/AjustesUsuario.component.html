@@ -42,19 +42,38 @@
   <mat-sidenav-content class="p-5">
     <!-- Botón para abrir menú en móvil -->
     @if (isMobile) {
-    <button mat-icon-button (click)="drawer.toggle()" aria-label="Toggle menu">
-      <mat-icon>menu</mat-icon>
-    </button>
+
+    <mat-tab-group
+      [(selectedIndex)]="selectedTabIndex"
+      (selectedIndexChange)="onTabChange($event)"
+    >
+      <mat-tab label="perfil"></mat-tab>
+      <mat-tab label="avatar"></mat-tab>
+      <mat-tab label="seguridad"></mat-tab>
+      <mat-tab label="contacto"></mat-tab>
+      <mat-tab label="cerrarCuenta"></mat-tab>
+    </mat-tab-group>
+
     } @if (contenidoActual === 'perfil') {
-    <perfil-form></perfil-form>
+    <div class="mt-5">
+      <perfil-form></perfil-form>
+    </div>
     } @else if (contenidoActual === 'avatar') {
-    <change-avatar-component></change-avatar-component>
+    <div class="mt-5">
+      <change-avatar-component></change-avatar-component>
+    </div>
     } @else if (contenidoActual === 'seguridad') {
-    <security-and-privacy></security-and-privacy>
+    <div class="mt-5">
+      <security-and-privacy></security-and-privacy>
+    </div>
     } @else if (contenidoActual === 'contacto') {
-    <help-center></help-center>
+    <div class="mt-5">
+      <help-center></help-center>
+    </div>
     } @else if (contenidoActual === 'cerrarCuenta') {
-    <close-account></close-account>
+    <div class="mt-5">
+      <close-account></close-account>
+    </div>
     } @else {
     <p>Selecciona una opción del menú</p>
     }

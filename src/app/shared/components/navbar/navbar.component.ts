@@ -12,6 +12,7 @@ import { BuscadorNavComponent } from './components/buscadorNav/buscadorNav.compo
 import { LoginUser } from '@store/interfaces/loginUser.interface';
 import { ModalCartComponent } from "./components/modalCart/modalCart.component";
 import { UserService } from '@store/services/user.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
   selector: 'app-navbar',
   imports: [BuscadorNavComponent, RouterModule, MatBadgeModule, MatButtonModule, MatIconModule, ModalCartComponent],
@@ -26,6 +27,7 @@ export class NavbarComponent implements AfterViewInit {
   userService = inject(UserService);
   showResults = false;
   hidden = false;
+  isMobile = false;
 
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
@@ -33,7 +35,11 @@ export class NavbarComponent implements AfterViewInit {
   goToCategorie(categorie: string): void {
     this.router.navigate(['/categorie', categorie]);
   }
-
+  constructor(private breakpointObserver: BreakpointObserver) {
+    this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet ]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+  }
   ngAfterViewInit() {
 
     const inputElement = this.searchInput.nativeElement;
@@ -49,7 +55,6 @@ export class NavbarComponent implements AfterViewInit {
             next: (products) => {
               this.showResults = true;
               this.products = products;
-              console.log(products);
             },
             error: (error) => {
               console.error('Error getting related products:', error);
@@ -65,6 +70,7 @@ export class NavbarComponent implements AfterViewInit {
   onFocus(value: string) {
     this.showResults = value.trim().length > 0;
   }
+
   onBlur() {
     setTimeout(() => {
       this.showResults = false;

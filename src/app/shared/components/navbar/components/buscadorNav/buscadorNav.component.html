@@ -1,20 +1,23 @@
 @if (!products.products || products.products.length === 0 ) {
 <!-- We check the error first -->
-<div
-  class="card sm:card-side w-full z-10 h-15 border border-black bg-pink-200"
->
+<div class="card card-side w-full z-10 h-15 border border-black bg-pink-200">
   <div class="card-body flex justify-center items-center">
-    <span class="text-pink-600 font-bold"> No se han encontrado resultados </span>
+    <span class="text-pink-600 text-sm sm:text-lg font-bold">
+      No se han encontrado resultados
+    </span>
   </div>
 </div>
 
 } @for (product of products.products?.slice(0,5); track idx; let idx = $index) {
-<a (click)="goToProduct(product.id!); $event.stopPropagation()" class="cursor-pointer">
+<a
+  (click)="goToProduct(product.id!); $event.stopPropagation()"
+  class="cursor-pointer"
+>
   <div
-    class="card sm:card-side w-full z-10 h-20 border border-black hover:bg-gray-300"
+    class="card card-side w-full z-10 h-20 border border-black hover:bg-gray-300"
   >
     <div
-      class="w-[100px] h-full flex justify-center items-center flex-shrink-0"
+      class="sm:w-[100px] h-full flex justify-center items-center flex-shrink-0"
     >
       @if (product.images) {
       <img
@@ -26,7 +29,7 @@
     </div>
     <div class="card-body overflow-hidden">
       <div
-        class="card-title mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis"
+        class="card-title mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis text-base sm:text-lg"
         title=" {{ product.title }}"
       >
         {{ product.title }}
@@ -37,7 +40,7 @@
 } @if (products.products && products.products.length >= 5 ) {
 <!-- We check that it has a value greater than 5 -->
 <button
-(click)="goToSearchProducts()"
+  (click)="goToSearchProducts()"
   class="cursor-pointer py-3 bg-purple-400 hover:bg-purple-600 w-full font-bold text-white border border-black"
 >
   Mostrar más
