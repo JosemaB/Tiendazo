@@ -1,4 +1,4 @@
-<mat-sidenav-container class="min-h-[89vh]">
+<mat-sidenav-container class="min-h-[89vh] bg-white!">
   <mat-sidenav #drawer [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile">
     <mat-nav-list class="text-center">
       <button
@@ -6,35 +6,50 @@
         (click)="onMenuClick('perfil', drawer)"
         [class.activo]="contenidoActual === 'perfil'"
       >
-        Perfil
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>person</mat-icon>
+          <span>Perfil</span>
+        </span>
       </button>
       <button
         mat-list-item
         (click)="onMenuClick('avatar', drawer)"
         [class.activo]="contenidoActual === 'avatar'"
       >
-        Cambiar avatar
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>face</mat-icon>
+          <span>Cambiar avatar</span>
+        </span>
       </button>
       <button
         mat-list-item
         (click)="onMenuClick('seguridad', drawer)"
         [class.activo]="contenidoActual === 'seguridad'"
       >
-        Seguridad y Privacidad
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>security</mat-icon>
+          <span>Seguridad y Privacidad</span>
+        </span>
       </button>
       <button
         mat-list-item
         (click)="onMenuClick('contacto', drawer)"
         [class.activo]="contenidoActual === 'contacto'"
       >
-        Centro de ayuda
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>help</mat-icon>
+          <span>Centro de ayuda</span>
+        </span>
       </button>
       <button
         mat-list-item
         (click)="onMenuClick('cerrarCuenta', drawer)"
         [class.activo]="contenidoActual === 'cerrarCuenta'"
       >
-        Cerrar Cuenta
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>logout</mat-icon>
+          <span>Cerrar Cuenta</span>
+        </span>
       </button>
     </mat-nav-list>
   </mat-sidenav>

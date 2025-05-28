@@ -294,49 +294,6 @@
             </li>
           </ul>
         </li>
-
-        <!-- Contacto con submenú -->
-        <li class="relative group">
-          <button
-            (click)="$event.stopPropagation()"
-            class="dropdown-item flex justify-between items-center text-amber-50 font-bold purpleHover-personalized"
-          >
-            📞 Contacto
-            <span class="icon-[tabler--chevron-right] size-4 ml-auto"></span>
-          </button>
-          <ul
-            class="absolute purpleDark-personalized left-full top-0 hidden group-hover:block text-black shadow-md rounded-md w-64 z-50 p-2"
-          >
-            <li>
-              <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
-                >ℹ️<span class="mx-1"></span>Quiénes somos</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
-                >🛠️<span class="mx-1"></span>Soporte</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
-                >🔒<span class="mx-1"></span>Política de privacidad</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block px-4 py-2 text-amber-50 purpleHover-personalized rounded cursor-pointer"
-                >📜<span class="mx-1"></span>Términos y condiciones</a
-              >
-            </li>
-          </ul>
-        </li>
       </ul>
     </div>
     }
@@ -407,7 +364,9 @@
         aria-label="Dropdown"
       >
         <div class="avatar cursor-pointer">
-          <div class="size-9.5 h-8 w-8 sm:w-10 sm:h-10 rounded-full bg-neutral-50">
+          <div
+            class="size-9.5 h-8 w-8 sm:w-10 sm:h-10 rounded-full bg-neutral-50"
+          >
             <img src="{{ this.userService.user().image }}" alt="avatar 1" />
           </div>
         </div>

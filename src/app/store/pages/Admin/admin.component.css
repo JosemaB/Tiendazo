@@ -1,0 +1,47 @@
+.activo {
+  background-color: #7f529d !important;
+  font-weight: bold;
+  color: #1976d2 !important;
+}
+::ng-deep .mat-drawer-container.mat-sidenav-container.mat-drawer-transition{
+  background-color: #ffffff !important;
+  color: black !important;
+}
+
+.mat-drawer.mat-sidenav.mat-drawer-opened.mat-drawer-side,
+::ng-deep .mat-drawer-inner-container{
+  background-color: #b996d1 !important;
+  border-radius: 0%;
+
+}
+::ng-deep .mat-mdc-list-item-unscoped-content.mdc-list-item__primary-text{
+ color: #f9f9f9 !important;
+font-weight: bold !important;
+}
+::ng-deep .mdc-tab__text-label{
+  color: rgb(87, 86, 86) !important;
+}
+::ng-deep .mat-mdc-tab-header-pagination {
+  background-color: #ad3ab7bf;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px;
+  transition: background-color 0.3s ease;
+}
+
+::ng-deep  .mat-mdc-tab-header-pagination-before{
+  margin-right: 15px;
+}
+
+::ng-deep  .mat-mdc-tab-header-pagination-after{
+  margin-left: 15px;
+}
+
+::ng-deep .mat-mdc-tab-header-pagination-chevron {
+  fill: #333;
+}
+

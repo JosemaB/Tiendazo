@@ -79,8 +79,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: #7f529d;
 }
 
+.mat-mdc-paginator-outer-container, .mat-mdc-paginator, div.mat-mdc-select-panel {
+  background-color: #9b63c1 !important;
+  border-radius: 10px;
+}
+.mat-mdc-option.mdc-list-item.mdc-list-item--selected.mat-mdc-option-active{
+  background-color: #7f529d !important;
 
-
+}
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
 
 /* position */

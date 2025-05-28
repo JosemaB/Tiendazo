@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>¿Estás seguro?</h2>
+
+<mat-dialog-content>
+  <p class="text-center">
+    ¿Realmente deseas eliminar
+    <strong class="text-pink-400">{{ itemName }}</strong
+    >?
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div class="flex flex-wrap gap-4 mt-4 justify-center mb-7 w-full">
+    <button mat-button mat-dialog-close class="w-1/2">Cancelar</button>
+    <button
+      mat-button
+      mat-dialog-close
+      class="w-1/2 bg-red-800! text-white"
+      (click)="delete()"
+
+    >
+      Eliminar
+    </button>
+  </div>
+</mat-dialog-actions>

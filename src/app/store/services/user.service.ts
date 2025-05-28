@@ -1,9 +1,12 @@
-import { Injectable, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
 import { LoginUser } from '@store/interfaces/loginUser.interface';
+import { UserInterface } from '@store/interfaces/user.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-
+  http = inject(HttpClient);
   user = signal<LoginUser>(JSON.parse(localStorage.getItem('user')!) || []);
 
   changeAvatar(img: string) {
@@ -33,5 +36,14 @@ export class UserService {
 
 
     localStorage.setItem('user', JSON.stringify(updatedUser));
+  }
+
+  getAllUser(page = 1, limit = 12): Observable<UserInterface> {
+    const skip = (page - 1) * limit;
+    return this.http.get<UserInterface>(`https://dummyjson.com/users?limit=${limit}&skip=${skip}`);
+  }
+
+  getSearchUser(user: string): Observable<UserInterface> {
+    return this.http.get<UserInterface>(`https://dummyjson.com/products/search?q=${user}`);
   }
 }

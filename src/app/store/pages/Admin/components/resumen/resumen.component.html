@@ -1,0 +1,27 @@
+<div class="bg-white p-6 rounded-xl shadow mt-6 max-w-4xl mx-auto">
+  <h2
+    class="text-xl sm:text-3xl font-bold text-purple-600 mb-6 flex justify-center items-center gap-2"
+  >
+    <mat-icon color="primary">dashboard</mat-icon>
+    Resumen general
+    <a
+      routerLink="/home"
+      aria-label="Ir a Tiendazo"
+      class="text-pink-500 py-3 text-xl sm:text-3xl flex justify-center items-center font-bold no-underline hover:text-purple-500 transition duration-300"
+    >
+      <span class="mr-1 text-xl sm:text-3xl">Tiendazo</span>
+      <img
+        src="assets/images/Icon/iconTiendazo.png"
+        alt="Icono Tiendazo"
+        class="max-w-full h-9"
+      />
+    </a>
+  </h2>
+
+  <canvas
+    baseChart
+    [data]="barChartData"
+    [options]="barChartOptions"
+    [type]="'bar'"
+  ></canvas>
+</div>

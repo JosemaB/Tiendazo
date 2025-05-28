@@ -1,0 +1,96 @@
+<mat-sidenav-container class="min-h-[89vh] bg-white!">
+  <mat-sidenav #drawer [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile">
+    <mat-nav-list class="text-center">
+      <button
+        mat-list-item
+        (click)="onMenuClick('dashboard', drawer)"
+        [class.activo]="contenidoActual === 'dashboard'"
+      >
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>dashboard</mat-icon>
+          Resumen general
+        </span>
+      </button>
+      <button
+        mat-list-item
+        (click)="onMenuClick('carts', drawer)"
+        [class.activo]="contenidoActual === 'carts'"
+      >
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>shopping_cart</mat-icon>
+          Carts
+        </span>
+      </button>
+      <button
+        mat-list-item
+        (click)="onMenuClick('usuarios', drawer)"
+        [class.activo]="contenidoActual === 'usuarios'"
+      >
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>group</mat-icon>
+          Usuarios
+        </span>
+      </button>
+      <button
+        mat-list-item
+        (click)="onMenuClick('products', drawer)"
+        [class.activo]="contenidoActual === 'products'"
+      >
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>inventory_2</mat-icon>
+          Products
+        </span>
+      </button>
+      <button
+        mat-list-item
+        (click)="onMenuClick('comments', drawer)"
+        [class.activo]="contenidoActual === 'comments'"
+      >
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>chat_bubble</mat-icon>
+          Comments
+        </span>
+      </button>
+    </mat-nav-list>
+  </mat-sidenav>
+  <!--Arreglar el padding de los menus qute tienen diferentes caa uno-->
+  <mat-sidenav-content class="p-5">
+    <!-- Botón para abrir menú en móvil -->
+    @if (isMobile) {
+
+    <mat-tab-group
+      [(selectedIndex)]="selectedTabIndex"
+      (selectedIndexChange)="onTabChange($event)"
+    >
+      <mat-tab label="Resumen general"></mat-tab>
+      <mat-tab label="carts"></mat-tab>
+      <mat-tab label="usuarios"></mat-tab>
+      <mat-tab label="products"></mat-tab>
+      <mat-tab label="comments"></mat-tab>
+    </mat-tab-group>
+
+    } @if (contenidoActual === 'dashboard') {
+    <div class="mt-5">
+      <admin-resumen />
+    </div>
+    } @else if (contenidoActual === 'carts') {
+    <div class="mt-5">
+      <all-carts />
+    </div>
+    } @else if (contenidoActual === 'usuarios') {
+    <div class="mt-5">
+      <all-users />
+    </div>
+    } @else if (contenidoActual === 'products') {
+    <div class="mt-5">
+      <all-products />
+    </div>
+    } @else if (contenidoActual === 'comments') {
+    <div class="mt-5">
+      <all-comments />
+    </div>
+    } @else {
+    <p>Selecciona una opción del menú</p>
+    }
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,4 +1,5 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Products } from '@store/interfaces/product.interface';
 import { ProductsService } from '@store/services/products.service';
@@ -10,7 +11,7 @@ import { CategoriasHomeComponent } from "./components/categoriasHome/categoriasH
 
 @Component({
   selector: 'app-home',
-  imports: [productCardComponent, CarouselProductsComponent, SectionTitleComponentComponent, CategoriasHomeComponent],
+  imports: [productCardComponent, CarouselProductsComponent, SectionTitleComponentComponent, CategoriasHomeComponent, RouterModule],
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AuthService } from '../../../../../../../auth/services/auth.service';
+import { AuthService } from '@auth/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -34,7 +34,7 @@ export class ModalCloseAccountComponent {
       clearInterval(this.intervalId);
     }
   }
-  cerrarCuena() {
+  cerrarCuenta() {
     this.authService.logout();
     this.toastr.success('La cuenta se ha eliminado correctamente', 'Cuenta eliminada', {
       positionClass: 'toast-bottom-right',

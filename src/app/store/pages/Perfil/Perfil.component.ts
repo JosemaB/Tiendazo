@@ -9,7 +9,7 @@ import { CardProductHistoryComponent } from "./components/cardProductHistory/car
 
 @Component({
   selector: 'app-perfil',
-  imports: [MatTabsModule, productCardComponent, RouterModule, CardProductHistoryComponent],
+  imports: [MatTabsModule, productCardComponent, RouterModule, CardProductHistoryComponent, RouterModule],
   templateUrl: './Perfil.component.html',
   styleUrl: './Perfil.component.css',
 

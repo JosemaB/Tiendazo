@@ -1,0 +1,182 @@
+<div class="w-full px-4">
+  <!-- Header -->
+  <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-4">
+    <h2
+      class="text-xl sm:text-2xl lg:text-3xl font-bold text-purple-600 text-center sm:text-left"
+    >
+      All products
+      <a
+        routerLink="/home"
+        aria-label="Ir a Tiendazo"
+        class="text-pink-500 hover:text-purple-500 transition duration-300 font-bold inline-flex items-center gap-1"
+      >
+        <span class="text-xl sm:text-2xl lg:text-3xl">Tiendazo</span>
+        <img
+          src="assets/images/Icon/iconTiendazo.png"
+          alt="Icono Tiendazo"
+          class="h-8 sm:h-9"
+        />
+      </a>
+    </h2>
+
+    <!-- Search -->
+    <div class="relative w-full sm:w-auto max-w-md">
+      <span
+        class="icon-[tabler--search] absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 size-5"
+      ></span>
+      <input
+        #searchInput
+        type="search"
+        (input)="onTyping(searchInput.value)"
+        placeholder="Search"
+        id="leadingIconDefault"
+        class="pl-10 pr-4 py-2 w-full border rounded-md focus:outline-none focus:ring focus:ring-purple-200"
+      />
+    </div>
+  </div>
+
+  <!-- Product Content -->
+  @if(products.products && products.products!.length > 0) {
+  <!-- Table View for md+ -->
+  <div class="mt-8 overflow-x-auto hidden md:block">
+    <table class="table w-full min-w-[700px] border">
+      <thead>
+        <tr>
+          <th>Products</th>
+          <th class="text-center">Category</th>
+          <th class="text-center">Price</th>
+          <th class="text-center">Rating</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of products.products; track product.id) {
+        <tr #row>
+          <td>
+            <div class="flex items-center gap-3">
+              <div class="avatar">
+                <div
+                  class="bg-base-content/10 hover:bg-base-content/30 h-10 w-10 rounded-md cursor-pointer"
+                  routerLink="/product/{{ product.id }}"
+                >
+                  @if(product.images){
+                  <img
+                    src="{{ product.images[0] }}"
+                    alt="{{ product.title }} image"
+                    class="h-10 w-10 object-cover rounded-md"
+                  />
+                  }
+                </div>
+              </div>
+              <div>
+                <div class="text-sm text-gray-500">{{ product.brand }}</div>
+                <div
+                  class="font-medium hover:text-pink-700 cursor-pointer"
+                  routerLink="/product/{{ product.id }}"
+                >
+                  {{ product.title }}
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center text-purple-700">{{ product.category }}</td>
+          <td class="text-center text-pink-700">${{ product.price }}</td>
+          <td class="text-center">
+            <span
+              class="flex justify-center"
+              [innerHTML]="this.stringUtils.getRatingStars(product.rating!)"
+            ></span>
+          </td>
+          <td class="text-center">
+            <button class="btn btn-circle btn-text btn-sm" aria-label="Edit">
+              <span class="icon-[tabler--pencil] size-5"></span>
+            </button>
+            <button
+              (click)="openDialog('0ms', '0ms', product.title!, row)"
+              class="btn btn-circle btn-text btn-sm"
+              aria-label="Delete"
+            >
+              <span class="icon-[tabler--trash] size-5"></span>
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mobile Card View -->
+  <div class="md:hidden mt-6 flex flex-col gap-4">
+    @for (product of products.products; track product.id) {
+    <div class="bg-white p-4 rounded-xl shadow-md" #row>
+      <div class="flex gap-4">
+        @if(product.images){
+
+        <img
+          [src]="product.images[0]"
+          alt="{{ product.title }}"
+          class="w-16 h-16 rounded-md object-cover"
+        />
+        }
+        <div class="flex flex-col justify-between">
+          <div class="text-sm text-gray-500">{{ product.brand }}</div>
+          <div
+            class="font-semibold text-base text-purple-800 hover:text-pink-700"
+            routerLink="/product/{{ product.id }}"
+          >
+            {{ product.title }}
+          </div>
+          <div class="text-sm text-purple-700">{{ product.category }}</div>
+          <div class="text-pink-700 font-bold">${{ product.price }}</div>
+        </div>
+      </div>
+      <div class="flex justify-end gap-2 mt-3">
+        <button class="btn btn-sm btn-circle" aria-label="Edit">
+          <span class="icon-[tabler--pencil] size-4"></span>
+        </button>
+        <button
+          (click)="openDialog('0ms', '0ms', product.title!, row)"
+          class="btn btn-sm btn-circle"
+          aria-label="Delete"
+        >
+          <span class="icon-[tabler--trash] size-4"></span>
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+
+  <!-- Paginator -->
+  <div class="w-full mt-6">
+    <mat-paginator
+      class="p-2"
+      [length]="products.total"
+      [pageSize]="20"
+      [pageSizeOptions]="[10, 20, 50, 100]"
+      aria-label="Select page"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+  } @else if(products.products && products.products!.length === 0) {
+  <!-- No results found -->
+  <div class="flex justify-center items-center min-h-[300px] mt-3">
+    <div
+      class="rounded-2xl bg-red-50 border border-red-200 p-6 shadow-md w-full max-w-md text-center"
+    >
+      <div class="flex flex-col items-center gap-3">
+        <span class="text-red-500 text-3xl">
+          <span class="icon-[tabler--alert-circle]"></span>
+        </span>
+        <h3 class="text-lg font-semibold text-red-600">
+          No se encontraron resultados para:
+        </h3>
+        <p class="text-base font-medium text-red-600">
+          "{{ this.searchValue }}"
+        </p>
+        <p class="text-sm text-red-500">Intenta escribir otro término</p>
+      </div>
+    </div>
+  </div>
+  }
+</div>
