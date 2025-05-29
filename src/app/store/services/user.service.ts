@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { LoginUser } from '@store/interfaces/loginUser.interface';
-import { UserInterface } from '@store/interfaces/user.interface';
+import { User, UserInterface } from '@store/interfaces/user.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -44,6 +44,10 @@ export class UserService {
   }
 
   getSearchUser(user: string): Observable<UserInterface> {
-    return this.http.get<UserInterface>(`https://dummyjson.com/products/search?q=${user}`);
+    return this.http.get<UserInterface>(`https://dummyjson.com/users/search?q=${user}`);
+  }
+
+  getSearchUserID(id: string): Observable<User> {
+    return this.http.get<User>(`https://dummyjson.com/users/${id}`);
   }
 }

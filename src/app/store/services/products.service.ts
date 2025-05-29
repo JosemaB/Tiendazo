@@ -28,6 +28,9 @@ export class ProductsService {
     return this.http.get(`https://dummyjson.com/products/search?q=${product}`);
   }
 
+  getSearchProductID(id: string): Observable<Product> {
+    return this.http.get<Product>(`https://dummyjson.com/products/${id}`);
+  }
   addCartStorage(producto: CartProduct) {
 
     const carrito: CartProduct[] = JSON.parse(localStorage.getItem('cart')!) || [];

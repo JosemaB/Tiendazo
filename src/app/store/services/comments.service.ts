@@ -13,6 +13,6 @@ export class CommentsService {
   }
 
   getSearchComment(id: string): Observable<CommentsInterface> {
-    return this.http.get<CommentsInterface>(`'https://dummyjson.com/comments/${id}`);
+    return this.http.get<CommentsInterface>(`https://dummyjson.com/comments/post/${id}`);
   }
 }

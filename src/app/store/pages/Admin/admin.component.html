@@ -13,16 +13,6 @@
       </button>
       <button
         mat-list-item
-        (click)="onMenuClick('carts', drawer)"
-        [class.activo]="contenidoActual === 'carts'"
-      >
-        <span class="flex items-center justify-center gap-2 w-full">
-          <mat-icon>shopping_cart</mat-icon>
-          Carts
-        </span>
-      </button>
-      <button
-        mat-list-item
         (click)="onMenuClick('usuarios', drawer)"
         [class.activo]="contenidoActual === 'usuarios'"
       >
@@ -51,6 +41,16 @@
           Comments
         </span>
       </button>
+      <button
+        mat-list-item
+        (click)="onMenuClick('carts', drawer)"
+        [class.activo]="contenidoActual === 'carts'"
+      >
+        <span class="flex items-center justify-center gap-2 w-full">
+          <mat-icon>shopping_cart</mat-icon>
+          Shopping Carts
+        </span>
+      </button>
     </mat-nav-list>
   </mat-sidenav>
   <!--Arreglar el padding de los menus qute tienen diferentes caa uno-->
@@ -63,21 +63,17 @@
       (selectedIndexChange)="onTabChange($event)"
     >
       <mat-tab label="Resumen general"></mat-tab>
-      <mat-tab label="carts"></mat-tab>
       <mat-tab label="usuarios"></mat-tab>
       <mat-tab label="products"></mat-tab>
       <mat-tab label="comments"></mat-tab>
+      <mat-tab label="Shopping Carts"></mat-tab>
     </mat-tab-group>
 
     } @if (contenidoActual === 'dashboard') {
     <div class="mt-5">
       <admin-resumen />
     </div>
-    } @else if (contenidoActual === 'carts') {
-    <div class="mt-5">
-      <all-carts />
-    </div>
-    } @else if (contenidoActual === 'usuarios') {
+    }@else if (contenidoActual === 'usuarios') {
     <div class="mt-5">
       <all-users />
     </div>
@@ -88,6 +84,10 @@
     } @else if (contenidoActual === 'comments') {
     <div class="mt-5">
       <all-comments />
+    </div>
+    } @else if (contenidoActual === 'carts') {
+    <div class="mt-5">
+      <all-carts />
     </div>
     } @else {
     <p>Selecciona una opción del menú</p>

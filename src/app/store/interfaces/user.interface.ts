@@ -6,34 +6,34 @@ export interface UserInterface {
 }
 
 export interface User {
-  id:         number;
-  firstName:  string;
-  lastName:   string;
-  maidenName: string;
-  age:        number;
-  gender:     Gender;
-  email:      string;
-  phone:      string;
-  username:   string;
-  password:   string;
-  birthDate:  string;
-  image:      string;
-  bloodGroup: string;
-  height:     number;
-  weight:     number;
-  eyeColor:   string;
-  hair:       Hair;
-  ip:         string;
-  address:    Address;
-  macAddress: string;
-  university: string;
-  bank:       Bank;
-  company:    Company;
-  ein:        string;
-  ssn:        string;
-  userAgent:  string;
-  crypto:     Crypto;
-  role:       Role;
+  id?:         number;
+  firstName?:  string;
+  lastName?:   string;
+  maidenName?: string;
+  age?:        number;
+  gender?:     Gender;
+  email?:      string;
+  phone?:      string;
+  username?:   string;
+  password?:   string;
+  birthDate?:  string;
+  image?:      string;
+  bloodGroup?: string;
+  height?:     number;
+  weight?:     number;
+  eyeColor?:   string;
+  hair?:       Hair;
+  ip?:         string;
+  address?:    Address;
+  macAddress?: string;
+  university?: string;
+  bank?:       Bank;
+  company?:    Company;
+  ein?:        string;
+  ssn?:        string;
+  userAgent?:  string;
+  crypto?:     Crypto;
+  role?:       Role;
 }
 
 export interface Address {

@@ -14,7 +14,6 @@ export class ProductsCartComponent {
   cantidad: number = 0;
 
   goToProduct(id: string): void {
-    this.closeDrawer();
     this.router.navigate(['/product', Number(id)]);
   }
 

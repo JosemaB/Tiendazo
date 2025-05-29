@@ -400,6 +400,18 @@
             Perfil
           </a>
         </li>
+        @if(isAdmin){
+        <li>
+          <a
+            class="dropdown-item text-neutral-100 purpleHover-personalized"
+            routerLink="/admin/dashboard"
+            (click)="closeDrawer()"
+          >
+            <span class="icon-[tabler--user-shield]"></span>
+            Adminitrador
+          </a>
+        </li>
+        }
         <li>
           <a
             class="dropdown-item text-neutral-100 purpleHover-personalized"

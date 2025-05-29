@@ -7,7 +7,12 @@ import { Observable } from 'rxjs';
 export class CartsService {
   http = inject(HttpClient);
 
-  getAllCarts(): Observable<CartsInterface> {
-    return this.http.get<any>('https://dummyjson.com/carts');
+  getAllCarts(page = 1, limit = 12): Observable<CartsInterface> {
+    const skip = (page - 1) * limit;
+    return this.http.get<CartsInterface>(`https://dummyjson.com/carts?limit=${limit}&skip=${skip}`);
+  }
+
+  getSearchCart(id: string): Observable<CartsInterface> {
+    return this.http.get<CartsInterface>(`https://dummyjson.com/carts/user/${id}`);
   }
 }

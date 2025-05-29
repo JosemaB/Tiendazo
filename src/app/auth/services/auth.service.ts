@@ -32,6 +32,7 @@ export class AuthService {
     localStorage.removeItem("cart");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");
+    localStorage.removeItem("products");
     localStorage.removeItem("wishlist");
     localStorage.removeItem("purchaseHistory");
     this.router.navigateByUrl('/home');
@@ -40,8 +41,8 @@ export class AuthService {
   }
 
   loginStorage(usuario: any) {
-    localStorage.setItem("accessToken", usuario.accessToken);
-    localStorage.setItem("refreshToken", usuario.refreshToken);
+    localStorage.setItem("accessToken", usuario.accessToken!);
+    localStorage.setItem("refreshToken", usuario.refreshToken!);
     localStorage.setItem("user", JSON.stringify({
       id: usuario.id,
       username: usuario.username,

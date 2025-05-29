@@ -10,7 +10,7 @@ import { NotAuthenticatedCartGuard } from '@auth/guards/not-authenticatedCart.gu
 import { PerfilComponent } from './store/pages/Perfil/Perfil.component';
 import { AjustesUsuarioComponent } from './store/pages/AjustesUsuario/AjustesUsuario.component';
 import { AuthenticatedGuard } from '@auth/guards/authenticated.guard';
-import { AdminComponent } from './store/pages/Admin/admin.component';
+import { AuthenticatedAdminGuard } from '@auth/guards/authenticatedAdmin.guard';
 
 
 export const routes: Routes = [
@@ -23,8 +23,13 @@ export const routes: Routes = [
       { path: 'product/:id', component: DetailsProductComponent },
       { path: 'categorie/:categorie', component: ProductCategoriesComponent },
       { path: 'searchProducts/:name', component: ProductsSearchComponent },
-      { path: 'admin', component: AdminComponent },
-
+      {
+        path: 'admin',
+        loadChildren: () => import('./store/pages/Admin/admin.routes'),
+        canMatch: [
+          AuthenticatedAdminGuard
+        ],
+      },
       {
         path: 'shopping', component: ShoppingCartComponentComponent,
         canMatch: [NotAuthenticatedCartGuard]

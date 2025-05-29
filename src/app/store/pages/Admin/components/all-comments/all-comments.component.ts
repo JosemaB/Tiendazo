@@ -33,7 +33,7 @@ export class AllCommentsComponent {
         this.comments = responses;
       },
       error: (err) => {
-        console.error('Error al cargar todos los productos:', err);
+        console.error('Error al cargar todos los comentarios:', err);
       }
     })
 
@@ -47,7 +47,7 @@ export class AllCommentsComponent {
           this.comments = responses;
         },
         error: (err) => {
-          console.error('Error al cargar todos los productos:', err);
+          console.error('Error al cargar todos los comentarios:', err);
         }
       })
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -62,7 +62,7 @@ export class AllCommentsComponent {
           this.searchValue = value;
         },
         error: (err) => {
-          console.error('Error al cargar todos los productos:', err);
+          console.error('Error al cargar todos los comentarios:', err);
         }
       })
 

@@ -34,7 +34,7 @@ export class AllUsersComponent {
         this.users = responses;
       },
       error: (err) => {
-        console.error('Error al cargar todos los productos:', err);
+        console.error('Error al cargar todos los usuarios:', err);
       }
     })
 
@@ -48,7 +48,7 @@ export class AllUsersComponent {
           this.users = responses;
         },
         error: (err) => {
-          console.error('Error al cargar todos los productos:', err);
+          console.error('Error al cargar todos los usuarios:', err);
         }
       })
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -63,7 +63,7 @@ export class AllUsersComponent {
           this.searchValue = value;
         },
         error: (err) => {
-          console.error('Error al cargar todos los productos:', err);
+          console.error('Error al cargar todos los usuarios:', err);
         }
       })
 

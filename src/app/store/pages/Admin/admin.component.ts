@@ -33,10 +33,10 @@ export class AdminComponent {
   isMobile = false;
   tabMap: { [key: string]: number } = {
     dashboard: 0,
-    carts: 1,
-    usuarios: 2,
-    products: 3,
-    comments: 4
+    usuarios: 1,
+    products: 2,
+    comments: 3,
+    carts: 4
   };
 
   constructor(private breakpointObserver: BreakpointObserver) {

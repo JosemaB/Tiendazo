@@ -9,7 +9,6 @@ import { ProductsService } from '@store/services/products.service';
 import { Products } from '@store/interfaces/product.interface';
 import { AuthService } from '@auth/services/auth.service';
 import { BuscadorNavComponent } from './components/buscadorNav/buscadorNav.component';
-import { LoginUser } from '@store/interfaces/loginUser.interface';
 import { ModalCartComponent } from "./components/modalCart/modalCart.component";
 import { UserService } from '@store/services/user.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -19,16 +18,16 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements AfterViewInit {
-  @ViewChild('searchInput') searchInput!: ElementRef;
   router = inject(Router);
   productsService = inject(ProductsService);
   authService = inject(AuthService);
-  products: Products = {};
   userService = inject(UserService);
+  @ViewChild('searchInput') searchInput!: ElementRef;
+  products: Products = {};
   showResults = false;
   hidden = false;
   isMobile = false;
-
+  isAdmin = false;
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
   }
@@ -36,9 +35,19 @@ export class NavbarComponent implements AfterViewInit {
     this.router.navigate(['/categorie', categorie]);
   }
   constructor(private breakpointObserver: BreakpointObserver) {
-    this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet ]).subscribe(result => {
+    this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet]).subscribe(result => {
       this.isMobile = result.matches;
     });
+  }
+  ngOnInit(): void {
+    const userId = this.userService.user().id?.toString();
+
+    this.userService.getSearchUserID(userId!)
+      .pipe(
+        map(user => {
+          this.isAdmin = user?.role === 'admin' ? true : false;
+        })
+      ).subscribe();
   }
   ngAfterViewInit() {
 

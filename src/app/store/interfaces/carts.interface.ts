@@ -1,8 +1,8 @@
 export interface CartsInterface {
-  carts: Cart[];
-  total: number;
-  skip:  number;
-  limit: number;
+  carts?: Cart[];
+  total?: number;
+  skip?:  number;
+  limit?: number;
 }
 
 export interface Cart {
