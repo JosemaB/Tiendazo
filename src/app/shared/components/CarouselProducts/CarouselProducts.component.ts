@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Products } from '@store/interfaces/product.interface';
+import { Product } from '@store/interfaces/product.interface';
 import { productCardComponent } from "@store/components/card/productCard.component";
 
 @Component({
@@ -9,6 +9,6 @@ import { productCardComponent } from "@store/components/card/productCard.compone
 })
 export class CarouselProductsComponent {
 
-  @Input() products: Products = {};
+  @Input() products: Product[] = [];
 
 }

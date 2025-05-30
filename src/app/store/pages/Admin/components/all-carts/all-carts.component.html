@@ -1,3 +1,4 @@
+@if(loading){
 <div class="w-full px-4">
   <!-- Header -->
   <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-4">
@@ -39,9 +40,9 @@
         @for (cart of carts.carts; track cart.id) {
         <tr #row>
           <td class="text-center">{{ cart.id }}</td>
-          <td class="text-center text-purple-700">{{ cart.userId }}</td>
           <td class="text-center text-pink-700">{{ cart.totalProducts }}</td>
-          <td class="text-center text-pink-700">{{ cart.totalQuantity }}</td>
+          <td class="text-center">{{ cart.userId }}</td>
+          <td class="text-center text-purple-700">{{ cart.totalQuantity }}</td>
           <td class="text-center text-pink-700">${{ cart.total }}</td>
 
           <td class="text-center">
@@ -68,8 +69,10 @@
           <span>CartID: {{ cart.id }}</span>
           <span>UserID: {{ cart.userId }}</span>
         </div>
-        <div class="text-sm text-gray-700">{{ cart.totalQuantity }}</div>
-        <div class="text-sm text-pink-700 mt-2">Likes: {{ cart.total }}</div>
+        <div class="text-sm text-gray-700">
+          Amount: {{ cart.totalQuantity }}
+        </div>
+        <div class="text-sm text-pink-700 mt-2">Total: ${{ cart.total }}</div>
         <div class="flex justify-end mt-3">
           <button
             class="btn btn-sm btn-circle"
@@ -118,3 +121,8 @@
   </div>
   }
 </div>
+}@else if(!loading){
+<div class="min-h-[60vh] flex h-full justify-center items-center">
+  <span class="loading loading-bars loading-xl"></span>
+</div>
+}

@@ -20,21 +20,23 @@ export class AllUsersComponent {
   readonly dialog = inject(MatDialog);
   stringUtils = inject(StringUtils);
   destroyRef = inject(DestroyRef);
-
   users: UserInterface = {};
   searchValue = '';
   totalItems = 0;
   pageSize = 20;
   currentPage = 0;
+  loading = false;
 
 
   ngOnInit(): void {
     this.userService.getAllUser(1, 20).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (responses: UserInterface) => {
         this.users = responses;
+        this.loading = true;
       },
       error: (err) => {
         console.error('Error al cargar todos los usuarios:', err);
+        this.loading = true;
       }
     })
 

@@ -30,8 +30,15 @@ export class HomeComponent implements OnInit {
       this.getAllProducts(),
       this.getAllProducts(5),
       this.getProductsLaptops(),
-      this.getProductsSports()
-    ]).subscribe();
+      this.getProductsSports(),
+    ]).subscribe(() => {
+      // ⏳ Esperas 2 segundos antes de ejecutar algo, como autoInit()
+      setTimeout(() => {
+        if (typeof window !== 'undefined' && window.HSStaticMethods) {
+          window.HSStaticMethods.autoInit();
+        }
+      }, 100);
+    });
 
 
     window.HSStaticMethods.autoInit()

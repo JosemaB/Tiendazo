@@ -1,0 +1,75 @@
+@if(this.productsService.isProductInPurchaseHistory(this.productoId)){
+<h2 mat-dialog-title>Send Review</h2>
+<mat-dialog-content>
+  <form [formGroup]="myForm">
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Your review</mat-label>
+      <textarea
+        formControlName="reviewTextarea"
+        matInput
+        placeholder="Write your review"
+        rows="5"
+        required
+        [class.border-red-500]="
+          myForm.controls.reviewTextarea.invalid &&
+          myForm.controls.reviewTextarea.touched
+        "
+      ></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <div class="flex justify-center items-center w-full">
+    <button
+      mat-button
+      mat-dialog-close
+      class="w-full !bg-purple-300 hover:!bg-purple-800 text-white transition-colors"
+    >
+      Cancel
+    </button>
+    <button
+      mat-button
+      class="w-full text-white transition-colors"
+      [class.bg-purple-600!]="
+        !myForm.invalid && myForm.get('reviewTextarea')?.value !== initialReview
+      "
+      [class.bg-purple-900!]="
+        myForm.invalid ||
+        myForm.get('reviewTextarea')?.value!.trim() === initialReview
+      "
+      [disabled]="
+        myForm.invalid ||
+        myForm.get('reviewTextarea')?.value!.trim()! === initialReview
+      "
+      (click)="send()"
+    >
+      Send
+    </button>
+  </div>
+</mat-dialog-actions>
+}@else if(!this.productsService.isProductInPurchaseHistory(this.productoId)){
+<!-- Mostrar el formulario si el producto está en el historial -->
+<h2 mat-dialog-title class="text-xl text-gray-800 font-bold">
+  Producto no comprado
+</h2>
+
+<mat-dialog-content class="py-4 px-2 text-gray-700">
+  <p class="text-center text-base">
+    Debes comprar este producto antes de dejar una reseña
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="pb-4 px-4">
+  <div class="flex justify-center items-center w-full">
+    <button
+      mat-button
+      mat-dialog-close
+      class="w-full max-w-xs bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 rounded-xl shadow-md transition-colors"
+    >
+      Aceptar
+    </button>
+  </div>
+</mat-dialog-actions>
+
+}

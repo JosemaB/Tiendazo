@@ -19,20 +19,21 @@ export class AllProductsComponent implements OnInit {
   readonly dialog = inject(MatDialog);
   stringUtils = inject(StringUtils);
   destroyRef = inject(DestroyRef);
-
   products: Products = {};
   searchValue = '';
   totalItems = 0;
   pageSize = 20;
   currentPage = 0;
-
+  loading = false;
 
   ngOnInit(): void {
     this.productsService.getAllProducts(1, 20).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (responses: Products) => {
         this.products = responses;
+        this.loading = true;
       },
       error: (err) => {
+        this.loading = true;
         console.error('Error al cargar todos los productos:', err);
       }
     })

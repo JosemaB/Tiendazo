@@ -62,7 +62,9 @@
 .demo-section + .demo-section {
   margin-top: 16px;
 }
-
+.mat-mdc-text-field-wrapper.mdc-text-field.mdc-text-field--filled {
+  background-color: rgba(255, 255, 255, 0.1); /* blanco semi-transparente */
+}
 .custom-error-snackbar .mdc-snackbar__surface {
   background-color: #dc2626 !important;
   color: white !important;

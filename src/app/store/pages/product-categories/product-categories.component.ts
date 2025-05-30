@@ -16,9 +16,9 @@ export class ProductCategoriesComponent {
   route = inject(ActivatedRoute);
   productsService = inject(ProductsService);
   products: Product[] = [];
-  categorie: string = '';
   categories: string[] = [];
-
+  categorie: string = '';
+  loading = false;
   ngOnInit(): void {
     //Route
     this.route.params.subscribe(params => {
@@ -81,13 +81,19 @@ export class ProductCategoriesComponent {
             this.productsService.getCategoryProducts('categorie').subscribe({
               next: (res) => {
                 this.products = res.products || [];
+                this.loading = true;
+                window.scrollTo(0, 0);
               },
               error: (err) => {
                 console.error('Error al cargar todos los productos:', err);
+                this.loading = true;
               }
             });
           } else {
             this.products = allProducts;
+            window.scrollTo(0, 0);
+
+            this.loading = true;
           }
         },
         error: (error) => {

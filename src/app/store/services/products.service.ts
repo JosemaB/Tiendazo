@@ -10,6 +10,7 @@ import { CartProduct } from '@store/interfaces/productCart.interface';
 export class ProductsService {
   private http = inject(HttpClient);
   productsCart = signal<CartProduct[]>(JSON.parse(localStorage.getItem('cart')!) || []);
+  reviewProduct = signal(JSON.parse(localStorage.getItem('reviews')!) || []);
 
   getAllProducts(page = 1, limit = 12): Observable<Products> {
     const skip = (page - 1) * limit;
@@ -68,8 +69,39 @@ export class ProductsService {
     const productsWishlist: Product[] = JSON.parse(localStorage.getItem('wishlist') || '[]');
     productsWishlist.push(product);
     localStorage.setItem('wishlist', JSON.stringify(productsWishlist));
-
   }
+
+  saveReview(productId: string, review: string) { //I do this because the API simulates the push of the comment, so it should send it to the backend
+
+    const reviewsStr = localStorage.getItem('reviews');
+    const reviews = reviewsStr ? JSON.parse(reviewsStr) : {};
+
+    if (!reviews[productId]) {
+      reviews[productId] = [];
+    }
+    // Creas el objeto review con fecha de hoy
+    const reviewUser = {
+      review: review,
+      date: new Date().toISOString() // fecha actual en formato ISO
+    };
+
+    reviews[productId] = reviewUser;
+    localStorage.setItem('reviews', JSON.stringify(reviews));
+    this.reviewProduct.set(reviews);
+  }
+
+  getReviewProduct(idProduct: string) {
+    const reviewsStr = localStorage.getItem('reviews');
+    const reviews = reviewsStr ? JSON.parse(reviewsStr) : {};
+    return reviews[idProduct] || [];
+  }
+
+  hasReviewProduct(idProduct: string): boolean {
+    const reviewsStr = localStorage.getItem('reviews');
+    const reviews = reviewsStr ? JSON.parse(reviewsStr) : {};
+    return !!reviews[idProduct]; // Devuelve true si existe, false si no
+  }
+
 
   isProductInWishlist(productId: number): boolean {
     const productsWishlist: Product[] = JSON.parse(localStorage.getItem('wishlist') || '[]');
@@ -111,6 +143,13 @@ export class ProductsService {
     localStorage.setItem('purchaseHistory', JSON.stringify(fullHistory));
   }
 
+  isProductInPurchaseHistory(productId: string): boolean {
+    const fullHistory: { [date: string]: CartProduct[] } = JSON.parse(localStorage.getItem('purchaseHistory') || '{}');
+
+    return Object.values(fullHistory)
+      .flat()
+      .some(product => product.id === productId);
+  }
 
   getPurchaseHistory(): Product[] {
     return JSON.parse(localStorage.getItem('purchaseHistory') || '[]');

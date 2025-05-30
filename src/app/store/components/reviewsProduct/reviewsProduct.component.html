@@ -1,4 +1,38 @@
-@for (review of reviews; track idx; let idx = $index) {
+@if(this.productsService.isProductInPurchaseHistory(this.productId) &&
+this.productsService.hasReviewProduct(this.productId)){
+<div class="rounded-2xl border bg-white p-4 shadow-md mb-2">
+  <div class="flex items-start gap-4">
+    <img
+      src="{{ this.userService.user().image }}"
+      alt="avatar"
+      class="h-10 w-10 rounded-full object-cover"
+    />
+    <div class="flex-1">
+      <div class="flex justify-between items-start">
+        <!-- Nombre + Compra verificada -->
+        <div>
+          <p class="font-semibold text-purple-900">
+            {{ this.userService.user().username }}
+          </p>
+          <div class="text-xs text-green-800 flex items-center gap-1">
+            <span>✔</span> <span>Compra verificada</span>
+          </div>
+        </div>
+
+        <!-- Fecha -->
+        <span class="text-xs text-gray-400">
+          Hace {{ stringUtils.getDaysAgo(date()) }} días
+        </span>
+      </div>
+
+      <!-- Comentario -->
+      <p class="mt-2 text-sm text-gray-700">
+        {{ review() }}
+      </p>
+    </div>
+  </div>
+</div>
+} @for (review of reviews; track idx; let idx = $index) {
 <div class="rounded-2xl border bg-white p-4 shadow-md mb-2">
   <div class="flex items-start gap-4">
     <img

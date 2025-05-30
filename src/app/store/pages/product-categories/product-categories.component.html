@@ -1,9 +1,9 @@
+@if(loading){
 <div class="min-h-[89vh] container mx-auto">
-  @if(categorie){
   <app-section-title>
     {{ getTitleCategory() }}
   </app-section-title>
-  }
+
   <div
     class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 justify-items-center gap-x-4"
   >
@@ -19,3 +19,8 @@
     }
   </div>
 </div>
+}@else if(!loading){
+<div class="min-h-[89vh] flex h-full justify-center items-center">
+  <span class="loading loading-bars loading-xl"></span>
+</div>
+}
