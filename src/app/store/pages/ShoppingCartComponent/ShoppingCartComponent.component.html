@@ -4,27 +4,53 @@
   #stepper
   class="min-h-[89vh] max-w-450 mx-auto"
   (selectionChange)="onStepChange($event)"
+  [orientation]="isSmallScreen ? 'vertical' : 'horizontal'"
 >
   <!--Step 1-->
   <mat-step>
     <ng-template matStepLabel>Productos</ng-template>
-    <div class="flex gap-2 max-w-500 mx-auto">
-      <!-- All products in the cart -->
-      <products-cart class="flex-[3]" />
+    <div class="flex flex-col lg:flex-row gap-2 mx-auto">
       <div
-        class="flex-[2] h-55 max-w-sm mx-auto bg-white rounded-lg shadow-md p-6 border-gray-400 border-1"
+        class="block lg:hidden lg:flex-2 w-full h-55 max-w-lg mx-auto bg-white rounded-lg shadow-md p-6 border border-gray-400"
       >
         <h2 class="text-2xl font-bold mb-4 text-center">Resumen</h2>
 
         <div class="mb-4">
           <div class="flex justify-between items-center mb-1">
-            <span class="text-gray-700">Total de articulos</span>
+            <span class="text-gray-700">Total de artículos</span>
             <span class="font-medium truncate" title="{{ totalUnits() }}">{{
               totalUnits()
             }}</span>
           </div>
           <div class="border-b border-dashed border-gray-300 mb-1"></div>
-          <!-- línea separadora -->
+        </div>
+
+        <div class="flex justify-between items-center text-lg font-semibold">
+          <span>Total (IVA incluido)</span>
+          <span class="truncate text-green-700" title="{{ totalPrice() }}"
+            >${{ totalPrice() }}</span
+          >
+        </div>
+        <button mat-button matStepperNext class="w-full mt-3">
+          Realizar Pedido
+        </button>
+      </div>
+      <!-- All products in the cart -->
+      <products-cart class="flex-none lg:flex-3 w-full" />
+
+      <div
+        class="hidden sm:flex-2 sm:block w-full h-55 max-w-sm mx-auto bg-white rounded-lg shadow-md p-6 border border-gray-400"
+      >
+        <h2 class="text-2xl font-bold mb-4 text-center">Resumen</h2>
+
+        <div class="mb-4">
+          <div class="flex justify-between items-center mb-1">
+            <span class="text-gray-700">Total de artículos</span>
+            <span class="font-medium truncate" title="{{ totalUnits() }}">{{
+              totalUnits()
+            }}</span>
+          </div>
+          <div class="border-b border-dashed border-gray-300 mb-1"></div>
         </div>
 
         <div class="flex justify-between items-center text-lg font-semibold">

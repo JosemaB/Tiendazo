@@ -15,6 +15,7 @@ import { FormUtils } from '@shared/utils/form.utils';
 import { ErrorFormComponent } from '@shared/components/errorForm/errorForm.component';
 import { Product } from '@store/interfaces/product.interface';
 import { CartProduct } from '@store/interfaces/productCart.interface';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 /**
  * @title Stepper with customized states
@@ -55,6 +56,16 @@ export class ShoppingCartComponentComponent {
   formUtils = FormUtils;
   isLoading = false;
   isCompleted = false;
+  isSmallScreen = false; // móvil o tablet
+
+  constructor(private breakpointObserver: BreakpointObserver) {
+    this.breakpointObserver
+      .observe([Breakpoints.Handset, Breakpoints.Tablet])
+      .subscribe(result => {
+        this.isSmallScreen = result.matches;
+      });
+  }
+
 
   addressFormBuilder = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25), Validators.pattern(FormUtils.textPattern)]],
@@ -95,6 +106,7 @@ export class ShoppingCartComponentComponent {
     } else if (previousStep === 2 && !this.addressFormBuilder.valid) {
       this.addressFormBuilder.markAllAsTouched();
     }
+
   }
 
   procesarCompra() {
