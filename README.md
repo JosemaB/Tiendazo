@@ -7,7 +7,7 @@ It is designed to practice modern concepts such as Signals, RxJS, state manageme
 Getting Started
 
 1. Clone the repository:
-   git clone https://github.com/your-username/tiendazo.git
+   git clone https://github.com/JosemaB/Tiendazo.git
    cd tiendazo
 
 2. Install the dependencies (use -f to force installation if needed):
