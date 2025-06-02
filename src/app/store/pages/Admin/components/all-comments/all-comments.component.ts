@@ -56,17 +56,33 @@ export class AllCommentsComponent {
   }
 
   onTyping(value: string) {
-    this.commentsService.getSearchComment(value)
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
+    if (!value) {
+      this.commentsService.getAllComments(1, 20).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
         next: (responses: CommentsInterface) => {
           this.comments = responses;
-          this.searchValue = value;
+          this.loading = true;
         },
         error: (err) => {
+          this.loading = true;
           console.error('Error al cargar todos los comentarios:', err);
         }
       })
+
+    } else {
+
+      this.commentsService.getSearchComment(value)
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe({
+          next: (responses: CommentsInterface) => {
+            this.comments = responses;
+            console.log(value);
+            this.searchValue = value;
+          },
+          error: (err) => {
+            console.error('Error al cargar todos los comentarios:', err);
+          }
+        })
+    }
 
   }
 

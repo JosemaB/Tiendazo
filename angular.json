@@ -25,9 +25,7 @@
                 "glob": "**/*",
                 "input": "public",
                 "output": "/assets"
-              },
-              "src/_redirects",
-              "src/redirects-test.txt"
+              }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/magenta-violet.css",
