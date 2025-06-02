@@ -1,4 +1,5 @@
-.mat-stepper-horizontal {
+.mat-stepper-horizontal,
+.mat-stepper-vertical {
   margin-top: 8px;
   background-color: white;
 }

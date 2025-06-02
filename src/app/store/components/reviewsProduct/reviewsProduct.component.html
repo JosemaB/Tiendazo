@@ -1,6 +1,6 @@
 @if(this.productsService.isProductInPurchaseHistory(this.productId) &&
 this.productsService.hasReviewProduct(this.productId)){
-<div class="rounded-2xl border bg-white p-4 shadow-md mb-2">
+<div class="rounded-2xl border bg-white p-4 shadow-md mb-2 mx-2">
   <div class="flex items-start gap-4">
     <img
       src="{{ this.userService.user().image }}"
@@ -33,7 +33,7 @@ this.productsService.hasReviewProduct(this.productId)){
   </div>
 </div>
 } @for (review of reviews; track idx; let idx = $index) {
-<div class="rounded-2xl border bg-white p-4 shadow-md mb-2">
+<div class="rounded-2xl border bg-white p-4 shadow-md mb-2 mx-2">
   <div class="flex items-start gap-4">
     <img
       src="https://i.pravatar.cc/150?img={{ idx + 10 }}"

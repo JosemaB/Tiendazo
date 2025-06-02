@@ -1,7 +1,7 @@
 <div class="container mx-auto">
   <img
     routerLink="/categorie/tiendazo"
-    class="w-full sm:h-[550px] rounded-2xl hover:brightness-75 object-cover xl:object-none mt-4 cursor-pointer"
+    class="w-full sm:mx-0 sm:h-[500px] rounded-2xl hover:brightness-75 object-cover xl:object-none mt-4 cursor-pointer"
     title="Explora nuestros productos"
     src="assets/portada/portada.png"
   />
@@ -9,9 +9,17 @@
     <app-section-title>
       ¡Consigue las ofertas más TOP del momento!
     </app-section-title>
+    <carousel-products [products]="productsLaptops.products!" />
   </div>
 
-  <categorias-home />
+  <div id="categoria">
+    <h2
+      class="font-bold sm:text-2xl text-xl text-center mt-2 mb-5 bg-pink-700 text-white rounded-2xl px-4 py-2 mx-2"
+    >
+      Explorar por categoría
+    </h2>
+    <categorias-home />
+  </div>
 
   <h2
     class="font-bold sm:text-2xl text-xl text-center mt-2 mb-5 purple-personalized text-white rounded-2xl px-4 py-2 mx-2"
@@ -38,9 +46,9 @@
     <h2
       class="font-bold sm:text-2xl text-xl text-center my-3 bg-pink-700 text-white rounded-2xl px-4 py-2 mx-2"
     >
-      ¡Tu Nuevo Portátil Está Esperando!
+      La fusión perfecta entre estilo y protección
     </h2>
-    <carousel-products [products]="productsLaptops.products!" />
+    <carousel-products [products]="productsSunglasses.products!" />
   </div>
 
   <h2

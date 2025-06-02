@@ -1,234 +1,314 @@
 <div
-  class="grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 xl:grid-cols-6 gap-6 my-6"
+  id="snap"
+  data-carousel='{ "loadingClasses": "opacity-0", "slidesQty": { "xs": 1, "lg": 5 }}'
+  class="relative w-full"
 >
-  <!-- Sección: Fragancias y Belleza -->
-  <a (click)="goToCategorie('fragrances')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/fragancias.jpg"
-        />
+  <div class="carousel h-50 flex">
+    <div class="carousel-body h-full gap-2 opacity-0">
+      <!-- Slide 1 -->
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="justify-center flex">
+          <!-- Sección: Fragancias y Belleza -->
+          <a (click)="goToCategorie('fragrances')" class="cursor-pointer">
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/fragancias.jpg"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Fragancias
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Fragancias
-      </p>
-    </div>
-  </a>
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="justify-center">
+          <a (click)="goToCategorie('beauty')" class="cursor-pointer">
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/belleza.jpg"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Belleza
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
 
-  <a (click)="goToCategorie('beauty')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/belleza.jpg"
-        />
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+          <!-- Sección: Ropa y Moda -->
+          <a (click)="goToCategorie('men')" class="cursor-pointer">
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/ropaHombre.avif"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Moda Hombre
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Belleza
-      </p>
-    </div>
-  </a>
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+          <a (click)="goToCategorie('women')" class="cursor-pointer">
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/ropaMujer.webp"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Moda Mujer
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+          <!-- Sección: Accesorios -->
+          <a (click)="goToCategorie('sunglasses')" class="cursor-pointer">
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/Gafas.jpg"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Gafas
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
 
-  <!-- Sección: Ropa y Moda -->
-  <a (click)="goToCategorie('men')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/ropaHombre.avif"
-        />
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+          <a (click)="goToCategorie('shoes')" class="cursor-pointer">
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/calzado.avif"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Calzado
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Moda Hombre
-      </p>
-    </div>
-  </a>
 
-  <a (click)="goToCategorie('women')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/ropaMujer.webp"
-        />
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+          <!-- Sección: Tecnología -->
+          <a (click)="goToCategorie('technology')" class="cursor-pointer">
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/Tecnologia.png"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Tecnología
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Moda Mujer
-      </p>
-    </div>
-  </a>
 
-  <!-- Sección: Accesorios -->
-  <a (click)="goToCategorie('sunglasses')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/Gafas.jpg"
-        />
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+          <!-- Sección: Hogar y Cocina -->
+          <a (click)="goToCategorie('home')" class="cursor-pointer">
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/Hogar.jpg"
+                  width="200"
+                  height="200"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Hogar
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Gafas
-      </p>
-    </div>
-  </a>
 
-  <a (click)="goToCategorie('shoes')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/calzado.avif"
-        />
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+          <a
+            (click)="goToCategorie('kitchen-accessories')"
+            class="cursor-pointer"
+          >
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/Cocina.jpg"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Accesorios de Cocina
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Calzado
-      </p>
-    </div>
-  </a>
 
-  <!-- Sección: Tecnología -->
-  <a (click)="goToCategorie('technology')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/Tecnologia.png"
-        />
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+          <!-- Sección: Deporte -->
+          <a
+            (click)="goToCategorie('sports-accessories')"
+            class="cursor-pointer"
+          >
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/Deporte.avif"
+                  [srcset]="
+                    'assets/images/Categorias/Deporte.avif' +
+                    ' 1x, ' +
+                    'assets/images/Categorias/Deporte.avif' +
+                    ' 2x'
+                  "
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400 font-x"
+              >
+                Accesorios de Deporte
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Tecnología
-      </p>
-    </div>
-  </a>
 
-  <!-- Sección: Hogar y Cocina -->
-  <a (click)="goToCategorie('home')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/Hogar.jpg"
-          width="200"
-          height="200"
-        />
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+          <!-- Sección: Vehículos -->
+          <a (click)="goToCategorie('vehicle')" class="cursor-pointer">
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/Coches.avif"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Coches
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Hogar
-      </p>
-    </div>
-  </a>
 
-  <a (click)="goToCategorie('kitchen-accessories')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/Cocina.jpg"
-        />
+      <div class="carousel-slide snap-center flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+          <a (click)="goToCategorie('motorcycle')" class="cursor-pointer">
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="w-35 h-35 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
+              >
+                <img
+                  class="rounded-full w-full h-full hover:opacity-70"
+                  src="assets/images/Categorias/Motos.png"
+                />
+              </div>
+              <p
+                class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
+              >
+                Motos
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Accesorios de Cocina
-      </p>
     </div>
-  </a>
-
-  <!-- Sección: Deporte -->
-  <a (click)="goToCategorie('sports-accessories')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/Deporte.avif"
-          [srcset]="
-            'assets/images/Categorias/Deporte.avif' +
-            ' 1x, ' +
-            'assets/images/Categorias/Deporte.avif' +
-            ' 2x'
-          "
-        />
-      </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400 font-x"
-      >
-        Accesorios de Deporte
-      </p>
-    </div>
-  </a>
-
-  <!-- Sección: Vehículos -->
-  <a (click)="goToCategorie('vehicle')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/Coches.avif"
-        />
-      </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Coches
-      </p>
-    </div>
-  </a>
-
-  <a (click)="goToCategorie('motorcycle')" class="cursor-pointer">
-    <div class="flex flex-col justify-center items-center">
-      <div
-        class="w-40 h-40 text-white rounded-full font-bold flex justify-center items-center hover:bg-gray-200"
-      >
-        <img
-          class="rounded-full w-full h-full hover:opacity-70"
-          src="assets/images/Categorias/Motos.png"
-        />
-      </div>
-      <p
-        class="mt-2 text-center sm:text-lg font-semibold hover:text-purple-400"
-      >
-        Motos
-      </p>
-    </div>
-  </a>
+  </div>
+  <!-- Previous Slide -->
+  <button type="button" class="carousel-prev pr-0 sm:pr-12">
+    <span
+      class="size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow-base-300/20 shadow-sm"
+    >
+      <span
+        class="icon-[tabler--chevron-left] size-5 cursor-pointer rtl:rotate-180"
+      ></span>
+    </span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <!-- Next Slide -->
+  <button type="button" class="carousel-next pl-0 sm:pl-12">
+    <span class="sr-only">Next</span>
+    <span
+      class="size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow-base-300/20 shadow-sm"
+    >
+      <span
+        class="icon-[tabler--chevron-right] size-5 cursor-pointer rtl:rotate-180"
+      ></span>
+    </span>
+  </button>
 </div>

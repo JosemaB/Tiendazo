@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
   productsPage2: Products = {};
   productsLaptops: Products = {};
   productsSport: Products = {};
+  productsSunglasses: Products = {};
+
 
   ngOnInit(): void {
 
@@ -31,6 +33,7 @@ export class HomeComponent implements OnInit {
       this.getAllProducts(5),
       this.getProductsLaptops(),
       this.getProductsSports(),
+      this.getProductsSunglasses()
     ]).subscribe(() => {
       // ⏳ Esperas 2 segundos antes de ejecutar algo, como autoInit()
       setTimeout(() => {
@@ -76,6 +79,16 @@ export class HomeComponent implements OnInit {
         takeUntilDestroyed(this.destroyRef),
         distinctUntilChanged(),
         tap((sportProducts) => this.productsSport = sportProducts)
+      )
+  }
+
+  private getProductsSunglasses(): Observable<any> {
+
+    return this.productsService.getCategoryProducts('sunglasses')
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        distinctUntilChanged(),
+        tap((productsSunglasses) => this.productsSunglasses = productsSunglasses)
       )
   }
 }

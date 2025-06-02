@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
   selector: 'categorias-home',
   imports: [],
   templateUrl: './categoriasHome.component.html',
+  styleUrl: './categoriasHome.component.css',
+
 })
 export class CategoriasHomeComponent {
   router = inject(Router);

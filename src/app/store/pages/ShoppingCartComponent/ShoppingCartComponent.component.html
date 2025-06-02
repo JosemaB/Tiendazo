@@ -75,11 +75,15 @@
 
     <shipping-address [addressFormBuilder]="addressFormBuilder" />
 
-    <div class="w-full flex gap-2 mx-auto max-w-200">
-      <button class="w-1/2 text-center" mat-button matStepperPrevious>
+    <div class="w-full lg:flex gap-2 mx-auto max-w-200">
+      <button
+        class="lg:w-1/2 text-center w-full lg:mb-0 mb-3"
+        mat-button
+        matStepperPrevious
+      >
         Volver
       </button>
-      <button class="w-1/2 text-center" mat-button matStepperNext>
+      <button class="lg:w-1/2 w-full text-center" mat-button matStepperNext>
         Siguiente
       </button>
     </div>
@@ -188,11 +192,15 @@
           }
         </div>
       </form>
-      <div class="w-full flex gap-2">
-        <button class="w-1/2 text-center" mat-button matStepperPrevious>
+      <div class="w-full lg:flex gap-2">
+        <button
+          class="lg:w-1/2 text-center w-full lg:mb-0 mb-3"
+          mat-button
+          matStepperPrevious
+        >
           Volver
         </button>
-        <button class="w-1/2 text-center" mat-button matStepperNext>
+        <button class="lg:w-1/2 w-full text-center" mat-button matStepperNext>
           Siguiente
         </button>
       </div>
