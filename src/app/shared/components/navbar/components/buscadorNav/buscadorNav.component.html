@@ -14,22 +14,21 @@
   class="cursor-pointer"
 >
   <div
-    class="card card-side w-full z-10 h-20 border border-black hover:bg-gray-300"
+    class="card card-side flex flex-col sm:flex-row w-full max-w-full z-10 h-auto sm:h-20 border border-black hover:bg-gray-300"
   >
-    <div
-      class="sm:w-[100px] h-full flex justify-center items-center flex-shrink-0"
-    >
+    <div class="sm:w-[100px] w-full h-15 flex justify-center items-center">
       @if (product.images) {
       <img
-        class="w-full h-full object-contain"
+        class="max-w-full max-h-full object-contain"
         src="{{ product.images[0] }}"
         alt="{{ product.title }}"
       />
       }
     </div>
-    <div class="card-body overflow-hidden">
+    <div class="card-body overflow-hidden flex items-center p-2 sm:p-4">
+      <!-- Añadido flex y items-center -->
       <div
-        class="card-title mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis text-base sm:text-lg"
+        class="card-title mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis text-sm sm:text-lg"
         title=" {{ product.title }}"
       >
         {{ product.title }}
@@ -37,6 +36,7 @@
     </div>
   </div>
 </a>
+
 } @if (products.products && products.products.length >= 5 ) {
 <!-- We check that it has a value greater than 5 -->
 <button
