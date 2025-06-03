@@ -1,6 +1,6 @@
 @if (!products.products || products.products.length === 0 ) {
 <!-- We check the error first -->
-<div class="card card-side w-full z-10 h-15 border border-black bg-pink-200">
+<div class="card card-side w-full z-10 h-10 sm:h-15 border border-black bg-pink-200">
   <div class="card-body flex justify-center items-center">
     <span class="text-pink-600 text-sm sm:text-lg font-bold">
       No se han encontrado resultados
@@ -14,21 +14,21 @@
   class="cursor-pointer"
 >
   <div
-    class="card card-side flex flex-col sm:flex-row w-full max-w-full z-10 h-auto sm:h-20 border border-black hover:bg-gray-300"
+    class="card card-side flex flex-col sm:flex-row w-full max-w-full flex-shrink-0 z-10 h-auto sm:h-20 border border-black hover:bg-gray-300"
   >
-    <div class="sm:w-[100px] w-full h-15 flex justify-center items-center">
+    <div class="sm:w-[100px] h-8  sm:h-full flex justify-center items-center">
       @if (product.images) {
       <img
-        class="max-w-full max-h-full object-contain"
+        class="w-full h-full object-contain"
         src="{{ product.images[0] }}"
         alt="{{ product.title }}"
       />
       }
     </div>
-    <div class="card-body overflow-hidden flex items-center p-2 sm:p-4">
+    <div class="card-body overflow-hidden flex items-center sm:items-start">
       <!-- Añadido flex y items-center -->
       <div
-        class="card-title mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis text-sm sm:text-lg"
+        class="card-title sm:overflow-clip truncate text-xs sm:text-lg"
         title=" {{ product.title }}"
       >
         {{ product.title }}

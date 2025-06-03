@@ -11,7 +11,7 @@
     <ng-template matStepLabel>Productos</ng-template>
     <div class="flex flex-col lg:flex-row gap-2 mx-auto">
       <div
-        class="block lg:hidden lg:flex-2 w-full h-55 max-w-lg mx-auto bg-white rounded-lg shadow-md p-6 border border-gray-400"
+        class="block lg:hidden lg:flex-2 w-full h-auto max-w-lg mx-auto bg-white rounded-lg shadow-md p-6 border border-gray-400"
       >
         <h2 class="text-2xl font-bold mb-4 text-center">Resumen</h2>
 
@@ -31,7 +31,11 @@
             >${{ totalPrice() }}</span
           >
         </div>
-        <button mat-button matStepperNext class="w-full mt-3">
+        <button
+          mat-button
+          matStepperNext
+          class="w-full mt-3 px-4 py-2 max-w-full box-border"
+        >
           Realizar Pedido
         </button>
       </div>
