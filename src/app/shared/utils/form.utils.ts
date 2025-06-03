@@ -6,7 +6,7 @@ import { catchError, map, Observable, of } from 'rxjs';
 export class FormUtils {
   static namePattern = '([a-zA-Z]+) ([a-zA-Z]+)';
   static emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
-  static passwordPattern = '^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$';
+  static passwordPattern = '^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&\.])[A-Za-z\\d@$!%*?&\.]{8,}$';
   static textPattern = '^[a-zA-ZÁÉÍÓÚáéíóúÑñ\\s]*$';
   static phoneNumberPattern = '^\\+?\\d[\\d\\s-]{6,19}$';
   static addressPattern = "^(?=.*[a-zA-ZÁÉÍÓÚáéíóúÑñ])(?=.*\\d)[a-zA-Z0-9ÁÉÍÓÚáéíóúÑñ\\s.,#\\-\\/'°]+$";
@@ -43,7 +43,7 @@ export class FormUtils {
             return 'El correo electrónico no es válido';
 
           } else if (errors['pattern'].requiredPattern === FormUtils.passwordPattern) {
-            return 'La contraseña debe tener al menos 8 caracteres, incluir mayúsculas, minúsculas, números y un símbolo especial (@, $, %, etc.)';
+            return 'La contraseña debe tener al menos 8 caracteres, incluir mayúsculas, minúsculas, números y un símbolo especial (@, $, !, %, *,?, &, .)';
 
           } else if (errors['pattern'].requiredPattern === FormUtils.textPattern) {
             return 'Solo se permiten letras';

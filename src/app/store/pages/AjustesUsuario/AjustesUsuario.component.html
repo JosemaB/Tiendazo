@@ -3,7 +3,7 @@
     <mat-nav-list class="text-center">
       <button
         mat-list-item
-        (click)="onMenuClick('perfil', drawer)"
+        (click)="onMenuClick('Perfil', drawer)"
         [class.activo]="contenidoActual === 'perfil'"
       >
         <span class="flex items-center justify-center gap-2 w-full">
@@ -13,7 +13,7 @@
       </button>
       <button
         mat-list-item
-        (click)="onMenuClick('avatar', drawer)"
+        (click)="onMenuClick('Avatar', drawer)"
         [class.activo]="contenidoActual === 'avatar'"
       >
         <span class="flex items-center justify-center gap-2 w-full">
@@ -23,7 +23,7 @@
       </button>
       <button
         mat-list-item
-        (click)="onMenuClick('seguridad', drawer)"
+        (click)="onMenuClick('Seguridad', drawer)"
         [class.activo]="contenidoActual === 'seguridad'"
       >
         <span class="flex items-center justify-center gap-2 w-full">
@@ -33,7 +33,7 @@
       </button>
       <button
         mat-list-item
-        (click)="onMenuClick('contacto', drawer)"
+        (click)="onMenuClick('Contacto', drawer)"
         [class.activo]="contenidoActual === 'contacto'"
       >
         <span class="flex items-center justify-center gap-2 w-full">
@@ -43,7 +43,7 @@
       </button>
       <button
         mat-list-item
-        (click)="onMenuClick('cerrarCuenta', drawer)"
+        (click)="onMenuClick('Cerrar_cuenta', drawer)"
         [class.activo]="contenidoActual === 'cerrarCuenta'"
       >
         <span class="flex items-center justify-center gap-2 w-full">
@@ -62,30 +62,30 @@
       [(selectedIndex)]="selectedTabIndex"
       (selectedIndexChange)="onTabChange($event)"
     >
-      <mat-tab label="perfil"></mat-tab>
-      <mat-tab label="avatar"></mat-tab>
-      <mat-tab label="seguridad"></mat-tab>
-      <mat-tab label="contacto"></mat-tab>
-      <mat-tab label="cerrarCuenta"></mat-tab>
+      <mat-tab label="Perfil"></mat-tab>
+      <mat-tab label="Avatar"></mat-tab>
+      <mat-tab label="Seguridad"></mat-tab>
+      <mat-tab label="Contacto"></mat-tab>
+      <mat-tab label="Cerrar_cuenta"></mat-tab>
     </mat-tab-group>
 
-    } @if (contenidoActual === 'perfil') {
+    } @if (contenidoActual === 'Perfil') {
     <div class="mt-5">
       <perfil-form></perfil-form>
     </div>
-    } @else if (contenidoActual === 'avatar') {
+    } @else if (contenidoActual === 'Avatar') {
     <div class="mt-5">
       <change-avatar-component></change-avatar-component>
     </div>
-    } @else if (contenidoActual === 'seguridad') {
+    } @else if (contenidoActual === 'Seguridad') {
     <div class="mt-5">
       <security-and-privacy></security-and-privacy>
     </div>
-    } @else if (contenidoActual === 'contacto') {
+    } @else if (contenidoActual === 'Contacto') {
     <div class="mt-5">
       <help-center></help-center>
     </div>
-    } @else if (contenidoActual === 'cerrarCuenta') {
+    } @else if (contenidoActual === 'Cerrar_cuenta') {
     <div class="mt-5">
       <close-account></close-account>
     </div>

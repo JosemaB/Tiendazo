@@ -28,15 +28,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 })
 export class AjustesUsuarioComponent {
-  contenidoActual: string = 'perfil';
+  contenidoActual: string = 'Perfil';
   selectedTabIndex = 0;
   isMobile = false;
   tabMap: { [key: string]: number } = {
-    perfil: 0,
-    avatar: 1,
-    seguridad: 2,
-    contacto: 3,
-    cerrarCuenta: 4
+    Perfil: 0,
+    Avatar: 1,
+    Seguridad: 2,
+    Contacto: 3,
+    Cerrar_cuenta: 4
   };
 
   constructor(private breakpointObserver: BreakpointObserver) {
